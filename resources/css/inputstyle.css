@@ -1,0 +1,21 @@
+input.inputcss:valid ~ span.placeholder,
+input.inputcss:focus ~ span.placeholder,
+input.inputcss:not(:empty) ~ span.placeholder {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    color: black;
+    background: #e6e6e6;
+    padding: 0 10px;
+    font-size: 10px;
+    top: -10px;
+    border-radius: 15px;
+    transition: all 0.5s;
+}
+
+input:disabled {
+    background-color: #ffffff;
+}
