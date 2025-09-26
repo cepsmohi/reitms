@@ -22,8 +22,6 @@ class Customerindex extends Component
             ->orWhere('code', 'like', "%{$this->search}%")
             ->paginate(10);
 
-        return view('livewire.customers.customerindex', [
-            'customers' => $customers
-        ]);
+        return view('livewire.customers.customerindex', compact('customers'));
     }
 }

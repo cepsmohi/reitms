@@ -1,6 +1,6 @@
 <div>
     <x-ui.topbar/>
-    <x-ui.h1 :title="'Customers '.$viewStyle"/>
+    <x-customer.title :$viewStyle/>
     <x-form.search :$search/>
     <x-customer.cards
         :$viewStyle

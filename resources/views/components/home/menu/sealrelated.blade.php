@@ -8,5 +8,5 @@
     :footer="$seal_count"
     :color="cssbg('green')"
     icon="seal"
-    :href="route('customers')"
+    :href="route('seals')"
 />

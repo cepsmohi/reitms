@@ -8,7 +8,9 @@
 >
     <!-- Header -->
     <div class=" px-4 py-3 border-b border-gray-100 flex justify-between items-center group-hover:rounded-t-2xl">
-        <h3 class="text-lg font-semibold">{{ $customer->name }}</h3>
+        <a href="">
+            <x-ui.h3 :title="$customer->name"/>
+        </a>
         <span
             @class([
                 'px-2 py-1 text-xs rounded-full border',
