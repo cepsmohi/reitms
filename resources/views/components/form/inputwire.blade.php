@@ -1,6 +1,9 @@
+@isset($hints)
+    <div class="text-xs frowe">ex. {{ $hints }}</div>
+@endisset
 <div class="{{ $hidden ?? '' }} {{ $width ?? 'w-full' }} {{ $mb ?? 'mb-7' }} relative">
     <input
-        class="@error($name) bg-red-200 @enderror inputcss focus:border-1st dark:text-black {{ $uppercase ?? '' }}"
+        class="@error($name) bg-red-200 @enderror inputcss {{ $uppercase ?? '' }}"
         id="{{ $name }}"
         type="{{ $type ?? 'text' }}"
         @isset($step) step="{{ $step }}" @endisset

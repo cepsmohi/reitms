@@ -205,7 +205,7 @@ input.inputcss ~ span.placeholder {
     }
 
     .inputcss {
-        @apply w-full rounded-xl border border-gray-400 p-2 pl-12 shadow outline-none dark:bg-white;
+        @apply w-full bg-white text-black rounded-xl border border-gray-400 p-2 pl-12 shadow outline-none focus:border-green-500;
     }
 
     .inputcssline {

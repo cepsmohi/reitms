@@ -7,6 +7,6 @@
     header="Seals"
     :footer="$seal_count"
     :color="cssbg('green')"
-    icon="seal"
+    icon="sealpng"
     :href="route('seals')"
 />

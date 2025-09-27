@@ -7,6 +7,6 @@
     header="Customers"
     :footer="$customers_count"
     :color="cssbg('orange')"
-    icon="customer"
+    icon="industry"
     :href="route('customers')"
 />

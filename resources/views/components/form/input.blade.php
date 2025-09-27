@@ -1,6 +1,6 @@
 <div class="{{ $width ?? 'w-full' }} {{ $mb ?? 'mb-7' }} relative">
     <input
-        class="@error($name) bg-red-200 @enderror inputcss focus:border-1st dark:text-black group"
+        class="@error($name) bg-red-200 @enderror inputcss group"
         id="{{ $name }}"
         type="{{ $type ?? 'text' }}"
         name="{{ $name }}"

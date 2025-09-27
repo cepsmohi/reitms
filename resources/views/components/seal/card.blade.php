@@ -12,7 +12,7 @@
         alt="{{ $seal->number }}"
         class="w-44"
     />
-    <div class="adbr bg-white px-1">
+    <div class="adbr bg-white dark:text-black px-1">
         {{ $seal->number }}
     </div>
 </a>

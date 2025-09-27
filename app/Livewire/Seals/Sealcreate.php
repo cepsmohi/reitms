@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Seals;
 
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Sealcreate extends Component
@@ -19,7 +20,7 @@ class Sealcreate extends Component
     public function addSeal()
     {
         $user = cusr();
-        $prefix = strtoupper($this->prefix);
+        $prefix = Str::upper(trim($this->prefix));
         if ($this->sealCollectionType == 'series') {
             $this->validate([
                 'prefix' => 'required',
@@ -32,7 +33,7 @@ class Sealcreate extends Component
                         'number' => $prefix.'-'.sprintf("%07d", $startNumber)
                     ]);
                 }
-                session()->flash('success', 'Seals added.');
+                session()->flash('success', 'Adding seals… please wait.');
             }
         }
         if ($this->sealCollectionType == 'single') {
@@ -43,7 +44,7 @@ class Sealcreate extends Component
             $user->seals()->create([
                 'number' => $prefix.'-'.sprintf("%07d", $this->sealNumber)
             ]);
-            session()->flash('success', 'Seal added.');
+            session()->flash('success', 'Adding seal… please wait.');
         }
         return redirect()->to('/seals');
     }

@@ -1,6 +1,6 @@
 <div>
     <x-ui.topbar/>
-    <x-seal.buttons/>
+    <x-seal.index.buttons/>
     <x-seal.title title="Seals"/>
     <x-form.search :$search/>
     <x-seal.cards :$seals/>

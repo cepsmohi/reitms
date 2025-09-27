@@ -10,16 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('meters', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('number');
+            $table->foreignId('customer_id')->constrained();
+            //type: rms installation, rms maintenance, rms layoff, rms dc, meter test, meter sealing
             $table->string('type');
-            $table->string('manufacturer')->nullable();
-            $table->string('model')->nullable();
-            $table->string('model_year')->nullable();
-            $table->string('diameter')->nullable();
-            $table->string('comments')->nullable();
+            //status: pending, checked, approved
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('meters');
+        Schema::dropIfExists('tasks');
     }
 };

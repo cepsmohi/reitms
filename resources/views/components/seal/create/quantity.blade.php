@@ -1,30 +1,30 @@
 <div class="max-w-xs">
-    <div class="text-xs frowe">ex. M</div>
     <x-form.inputwire
         name="prefix"
         placeholder="Prefix"
         icon="tag"
+        hints="letter only, like M"
     />
     @if($sealCollectionType == 'series')
-        <div class="text-xs frowe">ex. 123400</div>
         <x-form.inputwire
             name="startNumber"
             placeholder="Start Number"
             icon="start"
+            hints="number only"
         />
-        <div class="text-xs frowe">ex. 123500</div>
         <x-form.inputwire
             name="endNumber"
             placeholder="End Number"
             icon="stop"
+            hints="number only"
         />
     @endif
     @if($sealCollectionType == 'single')
-        <div class="text-xs frowe">ex. 123500</div>
         <x-form.inputwire
             name="sealNumber"
             placeholder="Seal Number"
             icon="start"
+            hints="number only"
         />
     @endif
 </div>

@@ -4,4 +4,5 @@
     footer="Engineering"
     :color="cssbg('fuchsia')"
     icon="rms"
+    :href="route('tasks')"
 />
