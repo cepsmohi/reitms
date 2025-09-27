@@ -1,11 +1,18 @@
 <div>
     <x-ui.topbar/>
     <x-seal.title title="Add Seals"/>
-    <div>
-        <x-ui.awiretag
-            wireclick="selectCondition('series')"
-            icon="seals"
-            tag="Series"
+    <x-seal.create.selecttype
+        :$sealCollectionType
+    />
+    @if($sealCollectionType != null)
+        <x-seal.create.quantity
+            :$sealCollectionType
+            :$prefix :$startNumber :$endNumber :$sealNumber
         />
-    </div>
+        <x-ui.awiretag
+            wireclick="addSeal"
+            icon="plus"
+            :tag="'Add '.($sealCollectionType == 'series' ? 'Seals' : 'Seal')"
+        />
+    @endif
 </div>

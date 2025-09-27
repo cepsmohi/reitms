@@ -1,4 +1,4 @@
-<div class="frows w-full gap-2">
+<div class="frows gap-2">
     <a
         @class([
             'submit-button dark:bg-gray-600 group',

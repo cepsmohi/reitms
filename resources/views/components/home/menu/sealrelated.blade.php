@@ -1,6 +1,6 @@
 @php
     use App\Models\Seal;
-    $seal_count = Seal::all()->count();
+    $seal_count = Seal::where('status', 'stock')->get()->count();
 @endphp
 <x-ui.sqrbtn
     condi="1"

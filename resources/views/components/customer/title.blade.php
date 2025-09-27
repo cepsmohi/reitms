@@ -1,3 +1,3 @@
 <div class="frow">
-    <x-ui.h1 :title="'Customers '.$viewStyle"/>
+    <x-ui.h1 :$title/>
 </div>

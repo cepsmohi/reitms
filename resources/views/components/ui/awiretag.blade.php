@@ -1,9 +1,9 @@
 <div
-    class="{{ $width ?? 'w-fit' }} text-base print:hidden"
+    class="frows gap-2 print:hidden"
     title="{{ $title ?? '' }}"
 >
     <button
-        class="w-full frows cursor-pointer gap-2 rounded-full py-1 md:rounded-xl px-2 md:py-1"
+        class="submit-button dark:bg-gray-600 group"
         id="{{ randtxt() }}"
         wire:click="{{ $wireclick }}"
         wire:loading.attr="disabled"

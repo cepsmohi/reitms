@@ -1,3 +1,4 @@
 <div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+    <x-ui.topbar/>
+    <x-customer.title title="Create Customer"/>
 </div>

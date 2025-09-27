@@ -7,6 +7,7 @@ use App\Livewire\Customers\Customercreate;
 use App\Livewire\Customers\Customerindex;
 use App\Livewire\Seals\Sealcreate;
 use App\Livewire\Seals\Sealindex;
+use App\Livewire\Seals\Sealshow;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,6 +51,7 @@ Route::middleware(['auth', 'aprvuser'])->group(function () {
         ->group(function () {
             Route::get('', Sealindex::class)->name('');
             Route::get('/create', Sealcreate::class)->name('.create');
+            Route::get('/show/{seal}', Sealshow::class)->name('.show');
         });
     Route::get('/optimizeclear', function () {
         Artisan::call('optimize:clear');

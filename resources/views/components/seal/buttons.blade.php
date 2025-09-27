@@ -5,4 +5,10 @@
         width="w-10"
         title="Add Seals"
     />
+    <x-ui.ahref
+        :href="route('home')"
+        icon="back"
+        width="w-10"
+        title="to Dashboard"
+    />
 </div>

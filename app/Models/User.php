@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -25,15 +24,6 @@ class User extends Authenticatable
         'status'
     ];
 
-    public function initials(): string
-    {
-        return Str::of($this->name)
-            ->explode(' ')
-            ->take(2)
-            ->map(fn($word) => Str::substr($word, 0, 1))
-            ->implode('');
-    }
-
     public function getImageAttribute()
     {
         $defaultImage = asset('images/icon/user.svg');
@@ -44,6 +34,16 @@ class User extends Authenticatable
             $imageExists = file_exists($file);
         }
         return $imageExists ? asset($file) : $defaultImage;
+    }
+
+    public function seals()
+    {
+        return $this->hasMany(Seal::class);
+    }
+
+    public function customers()
+    {
+        return $this->hasMany(Customer::class);
     }
 
     protected function casts(): array
