@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->string('type');
             //status: pending, checked, approved
             $table->string('status')->default('pending');
+            $table->bigInteger('checked_by')->nullable();
+            $table->bigInteger('approved_by')->nullable();
             $table->timestamps();
         });
     }

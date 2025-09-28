@@ -218,3 +218,9 @@ function cssbg(string $color = 'gray')
 {
     return "bg-$color-200 hover:bg-$color-600 dark:bg-$color-600 dark:hover:bg-$color-200 dark:hover:text-black";
 }
+
+function monthname($no)
+{
+    $months = ['Err', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return isset($months[$no]) ? $months[$no] : 'Err';
+}

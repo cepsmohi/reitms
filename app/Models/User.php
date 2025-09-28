@@ -46,6 +46,11 @@ class User extends Authenticatable
         return $this->hasMany(Customer::class);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
     protected function casts(): array
     {
         return [

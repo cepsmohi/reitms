@@ -9,6 +9,6 @@ Route::as('tasks')
     ->prefix('tasks')
     ->group(function () {
         Route::get('', Taskindex::class)->name('');
-        Route::get('/rmscreate', Taskcreate::class)->name('.create');
+        Route::get('/taskcreate', Taskcreate::class)->name('.create');
         Route::get('/rmsinstall', Rmsinstall::class)->name('.rmsinstall');
     });

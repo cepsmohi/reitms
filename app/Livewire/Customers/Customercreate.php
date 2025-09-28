@@ -6,7 +6,13 @@ use Livewire\Component;
 
 class Customercreate extends Component
 {
+    public $href = null;
     public $name, $code, $address;
+
+    public function mount()
+    {
+        $this->href = url()->previous();
+    }
 
     public function createCustomer()
     {
@@ -15,8 +21,11 @@ class Customercreate extends Component
             'code' => 'required',
             'address' => 'required',
         ]);
-        cusr()->customers()->create($data);
+        $customer = cusr()->customers()->create($data);
         session()->flash('success', 'Customer creating.. please wait.');
+        if ($this->href) {
+            return redirect($this->href.'&customer_id='.$customer->id);
+        }
         return redirect()->to('/customers');
     }
 
