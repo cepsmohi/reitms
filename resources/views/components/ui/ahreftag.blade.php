@@ -1,4 +1,9 @@
-<div class="frows gap-2">
+<div
+    @class([
+        'frows gap-2',
+        $width ?? ''
+    ])
+>
     <a
         @class([
             'submit-button dark:bg-gray-600 group',

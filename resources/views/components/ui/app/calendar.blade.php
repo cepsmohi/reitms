@@ -28,7 +28,7 @@
                             @foreach ($years as $year)
                                 <div
                                     @class([
-                                        'cursor-pointer hover:text-gray-200',
+                                        'cursor-pointer hover:text-green-300',
                                         'text-green-500' => $year == $syear
                                     ])
                                     id="year-{{ $year }}"
@@ -42,7 +42,7 @@
                             <div class="w-full frows flex-wrap gap-2 border-b">
                                 @foreach ($months as $month)
                                     <div
-                                        @class(['cursor-pointer uppercase hover:text-gray-200', 'text-green-500' => $month == $smonth])
+                                        @class(['cursor-pointer uppercase hover:text-green-300', 'text-green-500' => $month == $smonth])
                                         id="month-{{ $month }}"
                                         wire:click="viewDays('{{ $month }}')"
                                     >
@@ -73,7 +73,7 @@
                                     @endphp
                                     <div
                                         @class([
-                                            'cursor-pointer text-gray-400 hover:text-gray-200',
+                                            'cursor-pointer text-gray-400 hover:text-green-300',
                                             'text-gray-500' => $dayItems,
                                             'text-green-500' => $day == $sday
                                         ])

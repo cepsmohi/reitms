@@ -41,7 +41,7 @@
             title="{{ $task->user->name }}"
         />
         <x-ui.ahref
-            href="#"
+            :href="route('tasks.rmsinstall.details', $task)"
             icon="edit"
         />
     </div>
