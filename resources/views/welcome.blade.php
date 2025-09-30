@@ -8,7 +8,7 @@
                         @auth
                             <x-ui.alink
                                 :href="route('home')"
-                                tag="Home"
+                                tag="Dashboard"
                             />
                         @else
                             <x-ui.alink

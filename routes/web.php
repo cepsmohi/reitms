@@ -16,7 +16,7 @@ Route::get('blocked', function () {
 Route::middleware(['auth', 'aprvuser'])->group(function () {
     Route::controller(HomeController::class)
         ->group(function () {
-            Route::get('home', 'index')->name('home');
+            Route::get('dashboard', 'index')->name('home');
         });
 
     require __DIR__.'/users.php';
