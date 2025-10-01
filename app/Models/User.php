@@ -21,7 +21,9 @@ class User extends Authenticatable
         'password',
         'pic',
         'role',
-        'status'
+        'status',
+        'designation',
+        'code'
     ];
 
     public function getImageAttribute()

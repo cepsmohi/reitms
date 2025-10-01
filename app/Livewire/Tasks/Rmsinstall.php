@@ -17,7 +17,7 @@ class Rmsinstall extends Component
 
     public function render()
     {
-        $tasks = Task::where('type', 'rms install')
+        $tasks = Task::type('rms install')
             ->whereDate('created_at', $this->datestr)
             ->get();
         return view('livewire.tasks.rmsinstall', compact('tasks'));

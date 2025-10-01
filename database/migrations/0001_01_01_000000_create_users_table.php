@@ -20,6 +20,8 @@ return new class extends Migration {
             $table->string('role')->nullable('user');
             $table->string('status')->nullable('pending');
             $table->string('pic')->nullable();
+            $table->string('designation')->nullable();
+            $table->string('code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

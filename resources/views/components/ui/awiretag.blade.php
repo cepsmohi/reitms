@@ -3,7 +3,11 @@
     title="{{ $title ?? '' }}"
 >
     <button
-        class="submit-button dark:bg-gray-600 group"
+        @class([
+            'submit-button dark:bg-gray-600 group',
+            $color ?? 'bg-gray-200 dark:bg-gray-500 hover:bg-gray-300'
+        ])
+        class=""
         id="{{ randtxt() }}"
         wire:click="{{ $wireclick }}"
         wire:loading.attr="disabled"

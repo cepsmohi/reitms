@@ -1,16 +1,10 @@
-<div
-    @class([
-        'w-sm h-52 rounded-2xl relative group',
-        'border border-gray-200',
-        'transition',
-        'bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-500'
-    ])
+<a
+    class="card"
+    href="{{ route('tasks.rmsinstall.details', $task) }}"
 >
     <!-- Header -->
-    <div class=" px-4 py-3 border-b border-gray-100 flex justify-between items-center group-hover:rounded-t-2xl">
-        <a href="">
-            <x-ui.h3 :title="$task->customer->name"/>
-        </a>
+    <div class="header">
+        <x-ui.h3 :title="$task->customer->name"/>
         <span
             @class([
                 'px-2 py-1 text-xs rounded-full border',
@@ -26,23 +20,13 @@
     <div class="px-4 py-3 space-y-2 text-sm">
         <p><strong>Code:</strong> {{ $task->customer->code }}</p>
         <p><strong>Address:</strong> {{ $task->customer->address }}</p>
-        <p><strong>Zone:</strong> {{ $task->zone }}</p>
-        <p><strong>Load (hr):</strong> {{ number_format($task->load_hr, 2) }} m<sup>3</sup></p>
+        <div class="frows gap-2">
+            <p><strong>Zone:</strong> {{ $task->customer->zone }}</p>
+            <p><strong>Load (hr):</strong> {{ number_format($task->customer->load_hr, 2) }} m<sup>3</sup></p>
+        </div>
     </div>
-
-    <!-- Footer / Actions -->
-    <div
-        class="adbr hidden group-hover:flex frowe gap-2"
-    >
-        <img
-            class="w-7"
-            src="{{ $task->user->image }}"
-            alt="{{ $task->user->name }}"
-            title="{{ $task->user->name }}"
-        />
-        <x-ui.ahref
-            :href="route('tasks.rmsinstall.details', $task)"
-            icon="edit"
-        />
+    <div class="adbr">
+        <div class="text-[10px] text-gray-600">{{ $task->user->name }}</div>
+        <x-ui.icon icon="user" padding="p-0" rounded="rounded-full" dark="" width="w-5"/>
     </div>
-</div>
+</a>

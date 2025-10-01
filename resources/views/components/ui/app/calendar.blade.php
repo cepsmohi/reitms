@@ -1,5 +1,5 @@
 @if (isset($years) && $years != null)
-    <div class="relative z-50 w-full">
+    <div class="relative z-50">
         <div class="frowe w-full">
             <div
                 x-data="{ isOpen : false }"
@@ -7,7 +7,11 @@
             >
                 <div
                     @click="isOpen=!isOpen"
-                    class="cursor-pointer bg-gray-200 dark:bg-gray-500 hover:bg-gray-300 rounded-md"
+                    @class([
+                        'cursor-pointer',
+                        'bg-gray-200 dark:bg-gray-500 hover:bg-gray-300',
+                        'rounded-xl'
+                    ])
                     title="View Calendar"
                 >
                     <x-ui.icon

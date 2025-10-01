@@ -2,7 +2,7 @@
     href="{{ $href ?? '#' }}"
     @class([
         $color ?? 'bg-gray-200 dark:bg-gray-500 hover:bg-gray-300',
-        'rounded-md'
+        'block rounded-xl'
     ])
     title="{{ $title ?? '' }}"
 >
@@ -14,5 +14,4 @@
             :width="$width ?? null"
         />
     @endisset
-    <div>{{ $tag ?? '' }}</div>
 </a>

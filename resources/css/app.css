@@ -217,7 +217,11 @@ input.inputcss ~ span.placeholder {
     }
 
     .card {
-        @apply rounded-[30px] overflow-hidden relative drop-shadow-xl;
+        @apply block w-sm h-52 rounded-2xl relative border border-gray-200 transition bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-500;
+    }
+
+    .header {
+        @apply px-4 py-3 border-b border-gray-100 flex justify-between items-center;
     }
 
     .sqrbtn {
@@ -237,10 +241,10 @@ input.inputcss ~ span.placeholder {
     }
 
     .alink {
-        @apply flex flex-row items-center justify-start gap-2 py-1 px-2 cursor-pointer whitespace-nowrap hover:border-b;
+        @apply flex flex-row items-center justify-start gap-2 py-1 px-2 cursor-pointer whitespace-nowrap border-b border-transparent hover:border-green-400;
     }
 
     .submit-button {
-        @apply px-2 py-1 flex flex-row items-center justify-start gap-2 cursor-pointer text-base bg-gray-200 rounded-xl border border-transparent hover:border hover:border-gray-400 dark:hover:bg-gray-800 dark:hover:text-white focus:outline;
+        @apply px-2 py-1 flex flex-row items-center justify-start gap-2 cursor-pointer text-base bg-gray-400 text-black font-black rounded-xl border border-transparent hover:border hover:bg-gray-300 hover:border-green-400 hover:text-green-600 hover:font-black;
     }
 }
