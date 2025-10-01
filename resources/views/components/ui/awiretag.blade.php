@@ -4,7 +4,7 @@
 >
     <button
         @class([
-            'submit-button dark:bg-gray-600 group',
+            'submit-button group',
             $color ?? 'bg-gray-200 dark:bg-gray-500 hover:bg-gray-300'
         ])
         class=""

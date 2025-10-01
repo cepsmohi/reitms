@@ -1,7 +1,11 @@
-<div class="modalback bg-gray-500/90">
-    <form wire:submit="addSeal" id="addSealForm">
-        <div class="modal bg-gray-100 dark:bg-gray-700 p-4 rounded-3xl">
-            <div class="mb-2 stitle">{{ $type ?? 'Type not selected' }}</div>
+<div class="modalback bg-gray-900/90">
+    <div class="modal bg-gray-100 p-4 rounded-3xl">
+        <x-ui.closeform wireclick="closeSealForm"/>
+        <form
+            wire:submit="addSeal"
+            id="addSealForm"
+        >
+            <div class="mb-2 stitle text-grad">{{ $type ?? 'Type not selected' }}</div>
             <x-form.inputwire
                 name="prefix"
                 placeholder="Prefix"
@@ -19,6 +23,6 @@
                 icon="plus"
                 tag="Add Seal"
             />
-        </div>
-    </form>
+        </form>
+    </div>
 </div>

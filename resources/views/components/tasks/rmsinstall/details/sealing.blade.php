@@ -4,31 +4,8 @@
         <strong>Instruction:</strong>
         <p>to add seal click on position</p>
     </div>
-    <div class="frows gap-2">
-        <div class="font-bold">Inlet Valve</div>
-        <x-ui.vline/>
-        <div class="alink" wire:click="openSealForm('inlet valve: in flange')">
-            In Flange
-        </div>
-        @php
-            use App\Livewire\Tasks\Rmsinstalldetails;
-            $seals = Rmsinstalldetails::where('task_id', $task->id)
-                ->where('type', 'inlet valve: in flange')
-                ->get();
-        @endphp
-        @foreach($seals as $seal)
-            <div>{{ $seal->number }}</div>
-        @endforeach
-        <div class="alink" wire:click="openSealForm('inlet valve: out flange')">Out Flange</div>
-        <div>On Valve</div>
-    </div>
-    <div class="frows gap-2">
-        <div class="font-bold">Inlet Pressure Gauge</div>
-        <x-ui.vline/>
-        <div>Nipple</div>
-        <div>On Valve</div>
-        <div>On Body</div>
-    </div>
+    <x-tasks.rmsinstall.details.sealing.inletvalve :$task/>
+    <x-tasks.rmsinstall.details.sealing.inletpressuregauge :$task/>
     <div class="frows gap-2">
         <div class="font-bold">Strainer</div>
         <x-ui.vline/>

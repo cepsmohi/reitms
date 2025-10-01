@@ -136,6 +136,10 @@ class Task extends Model
             throw new ModelNotFoundException("Seal with ID {$seal_id} not found.");
         }
 
+        $seal->update([
+            'status' => 'install',
+        ]);
+
         // Create the new detail
         return $this->rmsInstallDetails()->create([
             'seal_id' => $seal_id,

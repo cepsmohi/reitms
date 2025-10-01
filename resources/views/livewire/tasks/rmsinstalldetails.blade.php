@@ -21,4 +21,7 @@
             :$sealNumber
         />
     @endif
+    @if($removeSealForm)
+        <x-tasks.removesealform/>
+    @endif
 </div>

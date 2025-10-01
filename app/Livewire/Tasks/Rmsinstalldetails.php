@@ -12,11 +12,18 @@ class Rmsinstalldetails extends Component
 {
     public $task;
     public $addSealForm = false;
+    public $removeSealForm = false;
     public $type, $prefix, $sealNumber;
+    public $rmsDetail;
 
     public function mount(Task $task)
     {
         $this->task = $task;
+        $this->findSealNumber();
+    }
+
+    public function findSealNumber()
+    {
         $lastEntry = Rmsinstalldetail::latest()->first();
         if ($lastEntry) {
             $textPart = explode('-', $lastEntry->seal->number)[0];
@@ -30,7 +37,14 @@ class Rmsinstalldetails extends Component
     public function openSealForm($type)
     {
         $this->type = $type;
+        $this->findSealNumber();
         $this->addSealForm = true;
+    }
+
+    public function closeSealForm()
+    {
+        $this->type = null;
+        $this->addSealForm = false;
     }
 
     public function addSeal()
@@ -46,8 +60,8 @@ class Rmsinstalldetails extends Component
             return $this->addError('sealNumber', "Seal {$number} does not exist.");
         }
         $this->task->setRmsInstallDetail($this->type, $seal->id);
-        session()->flash('success', 'Adding seal… please wait.');
-        return redirect()->route('tasks.rmsinstall.details', $this->task);
+        $this->type = null;
+        return $this->addSealForm = false;
     }
 
     public function checkTask()
@@ -63,6 +77,32 @@ class Rmsinstalldetails extends Component
     public function resetTask()
     {
         $this->task->resetStatus();
+    }
+
+    public function removeSeal(RmsInstallDetail $rmsDetail)
+    {
+        $this->rmsDetail = $rmsDetail;
+        $this->removeSealForm = true;
+    }
+
+    public function removeSealConfirm()
+    {
+        if ($this->rmsDetail && $this->rmsDetail->seal) {
+            $this->rmsDetail->seal->update([
+                'status' => 'stock',
+            ]);
+        }
+
+        $this->rmsDetail?->delete();
+
+        $this->rmsDetail = null;
+        $this->removeSealForm = false;
+    }
+
+    public function removeSealCancel()
+    {
+        $this->rmsDetail = null;
+        return $this->removeSealForm = false;
     }
 
     public function render()
