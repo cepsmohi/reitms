@@ -60,7 +60,7 @@ class Rmsinstalldetails extends Component
         $number = $prefix.'-'.sprintf("%07d", $this->sealNumber);
         $seal = Seal::where('number', $number)->first();
         if (!$seal) {
-            return $this->addError('sealNumber', "Seal {$number} does not exist.");
+            return $this->addError('sealNumber', "Seal $number does not exist.");
         }
         $this->task->setRmsInstallDetail($this->type, $seal->id);
         $this->type = null;
@@ -123,9 +123,7 @@ class Rmsinstalldetails extends Component
         $this->validate([
             'comment' => 'required|string'
         ]);
-        $this->task->comment()->create([
-            'comment' => $this->comment
-        ]);
+        $this->task->setComment($this->comment);
         return $this->addCommentForm = false;
     }
 
@@ -136,7 +134,7 @@ class Rmsinstalldetails extends Component
 
     public function openEditCommentForm()
     {
-        $this->comment = $this->task->comment->comment;
+        $this->comment = $this->task->comment->text;
         $this->editCommentForm = true;
     }
 
@@ -145,9 +143,7 @@ class Rmsinstalldetails extends Component
         $this->validate([
             'comment' => 'required|string'
         ]);
-        $this->task->comment()->update([
-            'comment' => $this->comment
-        ]);
+        $this->task->setComment($this->comment);
         return $this->editCommentForm = false;
     }
 

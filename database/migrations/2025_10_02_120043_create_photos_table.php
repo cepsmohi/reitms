@@ -10,10 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->unique()->constrained();
-            $table->text('text')->charset('utf8mb4')->collation('utf8mb4_general_ci');
+            $table->foreignId('task_id')->constrained();
+            $table->string('link');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('photos');
     }
 };

@@ -6,7 +6,7 @@
         @endphp
         @if($comment)
             <p>
-                {{ $comment->comment }}
+                {{ $comment->text }}
             </p>
             @if($task->isPending())
                 <x-ui.awiretag

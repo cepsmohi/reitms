@@ -111,11 +111,11 @@ class Task extends Model
     public function setComment(string $text): Comment
     {
         if ($this->comment) {
-            $this->comment->update(['comment' => $text]);
+            $this->comment->update(['text' => $text]);
             return $this->comment;
         }
 
-        return $this->comment()->create(['comment' => $text]);
+        return $this->comment()->create(['text' => $text]);
     }
 
     public function comment()
@@ -123,17 +123,22 @@ class Task extends Model
         return $this->hasOne(Comment::class);
     }
 
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
     public function setRmsInstallDetail(string $type, int $seal_id): RmsInstallDetail
     {
         // Check if the seal already has a detail assigned
         if (RmsInstallDetail::where('seal_id', $seal_id)->exists()) {
-            throw new RuntimeException("Seal ID {$seal_id} is already assigned to another Task.");
+            throw new RuntimeException("Seal ID $seal_id is already assigned to another Task.");
         }
 
         // Ensure the seal actually exists (optional safety)
         $seal = Seal::find($seal_id);
         if (!$seal) {
-            throw new ModelNotFoundException("Seal with ID {$seal_id} not found.");
+            throw new ModelNotFoundException("Seal with ID $seal_id not found.");
         }
 
         $seal->update([

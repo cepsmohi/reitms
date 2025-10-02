@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Photo extends Model
 {
     protected $fillable = [
         'task_id',
-        'text',
+        'link',
     ];
 
     public function task()
