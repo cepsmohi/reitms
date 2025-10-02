@@ -1,28 +1,22 @@
-<div
+<a
     @class([
-        'frows gap-2',
-        $width ?? ''
+        'submit-button frows gap-2 group',
+        $width ?? '',
+        $color ?? 'bg-gray-400 dark:bg-gray-500 hover:bg-gray-300'
     ])
+    id="{{ randtxt() }}"
+    href="{{ $href }}"
 >
-    <a
-        @class([
-            'submit-button dark:bg-gray-600 group',
-            $width ?? ''
-        ])
-        id="{{ randtxt() }}"
-        href="{{ $href }}"
-    >
-        @isset($icon)
-            <x-ui.icon
-                icon="{{ $icon }}"
-                width="w-6"
-                padding="p-0"
-            />
-        @endisset
-        @isset($tag)
-            <span class="whitespace-nowrap">
+    @isset($icon)
+        <x-ui.icon
+            icon="{{ $icon }}"
+            width="w-6"
+            padding="p-0"
+        />
+    @endisset
+    @isset($tag)
+        <span class="whitespace-nowrap">
             {{ $tag }}
         </span>
-        @endisset
-    </a>
-</div>
+    @endisset
+</a>

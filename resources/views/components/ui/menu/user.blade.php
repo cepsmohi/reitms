@@ -48,7 +48,7 @@
                 icon="logout"
                 tag="Logout"
                 width="w-full"
-                color="bg-red-300 dark:bg-red-600"
+                color="bg-red-400 dark:bg-red-500 hover:bg-red-300"
             />
         </form>
     </div>

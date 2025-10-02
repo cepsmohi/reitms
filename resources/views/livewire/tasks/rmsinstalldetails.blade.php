@@ -9,7 +9,7 @@
     <x-tasks.rmsinstall.details.meterinfo/>
     <x-tasks.rmsinstall.details.regulatorinfo/>
     <x-tasks.rmsinstall.details.sealing :$task/>
-    <x-tasks.rmsinstall.details.comments/>
+    <x-tasks.rmsinstall.details.comments :$task/>
     <x-tasks.rmsinstall.details.photos/>
     <x-tasks.rmsinstall.details.approvalstatus
         :$task
@@ -23,5 +23,11 @@
     @endif
     @if($removeSealForm)
         <x-tasks.removesealform/>
+    @endif
+    @if($addCommentForm)
+        <x-tasks.addcommentform :$comment/>
+    @endif
+    @if($editCommentForm)
+        <x-tasks.editcommentform :$comment/>
     @endif
 </div>

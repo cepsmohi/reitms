@@ -205,7 +205,7 @@ input.inputcss ~ span.placeholder {
     }
 
     .menudiv {
-        @apply absolute flex flex-col items-center justify-center min-w-40 gap-2 rounded-2xl;
+        @apply absolute flex flex-col items-center justify-center min-w-44 gap-2 rounded-2xl;
     }
 
     .inputcss {

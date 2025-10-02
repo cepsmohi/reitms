@@ -1,8 +1,26 @@
 <div class="mt-4">
     <div class="stitle border-b">Comments</div>
-    <div class="frows gap-2">
-        <p>
-            RMS skid installed, inlet/outlet welding completed, leak test successful. Awaiting functional test.
-        </p>
+    <div class="mt-2 fcols gap-2">
+        @php
+            $comment = $task->comment;
+        @endphp
+        @if($comment)
+            <p>
+                {{ $comment->comment }}
+            </p>
+            @if($task->isPending())
+                <x-ui.awiretag
+                    wireclick="openEditCommentForm"
+                    icon="comment"
+                    tag="Edit Comment"
+                />
+            @endif
+        @else
+            <x-ui.awiretag
+                wireclick="openCommentForm"
+                icon="comment"
+                tag="Add Comment"
+            />
+        @endif
     </div>
 </div>

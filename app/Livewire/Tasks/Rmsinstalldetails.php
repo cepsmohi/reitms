@@ -13,8 +13,11 @@ class Rmsinstalldetails extends Component
     public $task;
     public $addSealForm = false;
     public $removeSealForm = false;
+    public $addCommentForm = false;
+    public $editCommentForm = false;
     public $type, $prefix, $sealNumber;
     public $rmsDetail;
+    public $comment;
 
     public function mount(Task $task)
     {
@@ -103,6 +106,49 @@ class Rmsinstalldetails extends Component
     {
         $this->rmsDetail = null;
         return $this->removeSealForm = false;
+    }
+
+    public function openCommentForm()
+    {
+        $this->addCommentForm = true;
+    }
+
+    public function closeCommentForm()
+    {
+        return $this->addCommentForm = false;
+    }
+
+    public function addComment()
+    {
+        $this->validate([
+            'comment' => 'required|string'
+        ]);
+        $this->task->comment()->create([
+            'comment' => $this->comment
+        ]);
+        return $this->addCommentForm = false;
+    }
+
+    public function closeEditCommentForm()
+    {
+        $this->editCommentForm = false;
+    }
+
+    public function openEditCommentForm()
+    {
+        $this->comment = $this->task->comment->comment;
+        $this->editCommentForm = true;
+    }
+
+    public function updateComment()
+    {
+        $this->validate([
+            'comment' => 'required|string'
+        ]);
+        $this->task->comment()->update([
+            'comment' => $this->comment
+        ]);
+        return $this->editCommentForm = false;
     }
 
     public function render()
