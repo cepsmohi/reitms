@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApprovedUser
 {
-
     public function handle(Request $request, Closure $next): Response
     {
         if (cusr()->status == 'pending') {
