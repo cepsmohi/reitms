@@ -1,9 +1,9 @@
 <x-ui.sqrbtn
     condi="1"
-    header="File"
+    header="Files"
     footer="Cabinet"
     :color="cssbg('lime')"
-    icon="file"
+    icon="cabinet.png"
 />
 
 

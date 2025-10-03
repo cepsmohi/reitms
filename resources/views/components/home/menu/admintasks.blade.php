@@ -3,7 +3,7 @@
     header="Users"
     footer="Control"
     :color="cssbg('red')"
-    icon="users"
+    icon="users.png"
     :href="route('users')"
 />
 

@@ -7,6 +7,14 @@
     header="Meters"
     :footer="$meters_count"
     :color="cssbg('indigo')"
-    icon="meter"
+    icon="meter.png"
+    href="#"
+/>
+<x-ui.sqrbtn
+    condi="1"
+    header="Regulators"
+    :footer="0"
+    :color="cssbg('rose')"
+    icon="regulator.png"
     href="#"
 />

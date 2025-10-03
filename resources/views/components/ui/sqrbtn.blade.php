@@ -18,8 +18,8 @@
     <div class="w-full h-4 stitle text-[9px] md:text-xs mt-2 truncate text-center">{!! $header ?? ' ' !!}</div>
     <img
         class="mt-1 w-9 h-9 md:w-12 md:h-12"
-        src="{{ asset('images/icon/' . $icon . '.svg') }}"
-        alt="{{ $icon }}"
+        src="{{ asset('images/icon/' . $icon) }}"
+        alt="icon"
     />
     <div class="w-full h-4 stitle text-[9px] md:text-xs mt-2 truncate text-center">{!! $footer ?? ' ' !!}</div>
 </a>

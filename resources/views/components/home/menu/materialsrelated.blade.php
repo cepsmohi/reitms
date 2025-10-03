@@ -3,6 +3,6 @@
     header="Materials"
     footer="Inventory"
     :color="cssbg('purple')"
-    icon="material"
+    icon="materials.png"
     :href="route('customers')"
 />

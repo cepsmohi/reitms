@@ -1,8 +1,8 @@
 <x-ui.sqrbtn
     condi="1"
-    header="RMS"
-    footer="Engineering"
+    header="Manage"
+    footer="Tasks"
     :color="cssbg('fuchsia')"
-    icon="rms"
+    icon="task.png"
     :href="route('tasks')"
 />

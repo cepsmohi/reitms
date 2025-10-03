@@ -3,5 +3,5 @@
     header="Generate"
     footer="Report"
     :color="cssbg('teal')"
-    icon="report"
+    icon="report.png"
 />
