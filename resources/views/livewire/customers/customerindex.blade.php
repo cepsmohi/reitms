@@ -1,7 +1,7 @@
 <div>
     <x-ui.topbar/>
     <x-customer.index.buttons/>
-    <x-customer.title :title="'Customers '.$viewStyle"/>
+    <x-ui.title :title="'Customers '.$viewStyle"/>
     <x-form.search :$search/>
     <x-ui.pagination
         :items="$customers"
