@@ -2,6 +2,6 @@
     condi="1"
     header="Generate"
     footer="Report"
-    :color="cssbg('teal')"
+    :color="cssbg('lime')"
     icon="report.png"
 />

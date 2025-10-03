@@ -1,5 +1,6 @@
 <div>
     <x-ui.topbar/>
+    <x-seal.create.buttons/>
     <x-ui.title title="Add Seals"/>
     <form wire:submit="addSeal" id="addSealForm">
         <div class="mt-8 fcol">

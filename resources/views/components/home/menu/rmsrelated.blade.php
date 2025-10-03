@@ -2,7 +2,7 @@
     condi="1"
     header="Manage"
     footer="Tasks"
-    :color="cssbg('fuchsia')"
+    :color="cssbg('teal')"
     icon="task.png"
     :href="route('tasks')"
 />

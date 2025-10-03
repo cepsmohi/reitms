@@ -6,7 +6,7 @@
     condi="1"
     header="Meters"
     :footer="$meters_count"
-    :color="cssbg('indigo')"
+    :color="cssbg('orange')"
     icon="meter.png"
     href="#"
 />
@@ -14,7 +14,7 @@
     condi="1"
     header="Regulators"
     :footer="0"
-    :color="cssbg('rose')"
+    :color="cssbg('fuchsia')"
     icon="regulator.png"
     href="#"
 />

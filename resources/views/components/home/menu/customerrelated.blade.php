@@ -6,7 +6,7 @@
     condi="1"
     header="Customers"
     :footer="$customers_count"
-    :color="cssbg('orange')"
+    :color="cssbg('purple')"
     icon="industry.png"
     :href="route('customers')"
 />

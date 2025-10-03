@@ -2,7 +2,7 @@
     condi="1"
     header="Files"
     footer="Cabinet"
-    :color="cssbg('lime')"
+    :color="cssbg('yellow')"
     icon="cabinet.png"
 />
 
