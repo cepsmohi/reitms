@@ -9,7 +9,7 @@
         />
         <x-tasks.rmsinstall.buttons/>
     </div>
-    <x-home.title title="RMS Installation"/>
+    <x-ui.title title="RMS Installation"/>
     <div class="frows gap-2">{{ $title }}</div>
     <x-task.cards :$tasks/>
 </div>

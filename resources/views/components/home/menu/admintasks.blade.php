@@ -1,8 +1,9 @@
 <x-ui.sqrbtn
     condi="1"
-    header="Admin"
-    footer="tasks"
+    header="Users"
+    footer="Control"
     :color="cssbg('red')"
-    icon="admin"
+    icon="users"
+    :href="route('users')"
 />
 

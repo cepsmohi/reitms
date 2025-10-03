@@ -1,6 +1,6 @@
 <div>
     <x-ui.topbar/>
-    <x-home.title title="Create Task"/>
+    <x-ui.title title="Create Task"/>
     <x-task.create.type :$type/>
     <x-task.create.selectcustomer
         :$type

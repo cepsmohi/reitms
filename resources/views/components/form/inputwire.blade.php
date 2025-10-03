@@ -1,7 +1,7 @@
 @isset($hints)
     <div class="text-xs frowe">ex. {{ $hints }}</div>
 @endisset
-<div class="{{ $hidden ?? '' }} {{ $width ?? 'w-full' }} {{ $mb ?? 'mb-7' }} relative">
+<div class="{{ $hidden ?? '' }} {{ $width ?? 'w-full' }} {{ $mb ?? 'mb-4' }} relative">
     <input
         class="@error($name) bg-red-200 @enderror inputcss {{ $uppercase ?? '' }}"
         id="{{ $name }}"
@@ -33,7 +33,7 @@
         {{ $placeholder ?? '' }}
     </span>
     @error($name)
-    <div class="absolute -bottom-4 left-0 w-full truncate text-left text-xs text-red-700">
+    <div class="py-2 w-full frows flex-wrap text-left text-xs text-red-700">
         {{ $message }}
     </div>
     @enderror

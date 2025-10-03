@@ -6,6 +6,7 @@
     @if (isset($wireconfirm)) wire:confirm="{{ $wireconfirm }}" @endif
     @if (isset($aclick)) @click="{{ $aclick }}" @endif
     title="{{ $title ?? '' }}"
+    class="cursor-pointer"
 >
     @isset($icon)
         <div

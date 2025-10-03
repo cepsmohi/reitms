@@ -17,8 +17,8 @@ return new class extends Migration {
             $table->string('phone_number')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->nullable('user');
-            $table->string('status')->nullable('pending');
+            $table->string('role')->default('user');
+            $table->string('status')->default('active');
             $table->string('pic')->nullable();
             $table->string('designation')->nullable();
             $table->string('code')->nullable();
