@@ -22,16 +22,17 @@
 
 ## Manage Tasks
 
-- [ ] Tasks Menu
-    - [ ] Install New RMS
-        - [ ] Assign Customer
+- [x] Tasks Menu
+    - [x] Install New RMS
+        - [x] Assign Customer
         - [ ] Upload Drawing
         - [ ] Assign Meter
         - [ ] Assign Regulator
-        - [ ] Entry Security Seals
+        - [x] Entry Security Seals
         - [ ] Used Materials
-        - [ ] Add Photos
-        - [ ] Approval
+        - [x] Add Photos
+            - [ ] Stop Deleting after checking
+        - [x] Approval
     - [ ] Maintenance RMS
         - [ ] Strainer Cleaning
         - [ ] Regulator Change
