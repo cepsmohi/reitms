@@ -13,11 +13,11 @@ return new class extends Migration {
         Schema::create('meters', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('number');
+            $table->string('number')->unique();
             $table->string('type');
             $table->string('manufacturer')->nullable();
             $table->string('model')->nullable();
-            $table->string('model_year')->nullable();
+            $table->string('production_year')->nullable();
             $table->string('diameter')->nullable();
             $table->string('comments')->nullable();
             $table->timestamps();

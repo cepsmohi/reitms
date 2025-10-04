@@ -1,5 +1,6 @@
 <div>
     <x-ui.topbar/>
+    <x-task.create.buttons/>
     <x-ui.title title="Create Task"/>
     <x-task.create.type :$type/>
     <x-task.create.selectcustomer

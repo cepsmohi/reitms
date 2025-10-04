@@ -156,4 +156,31 @@ class Task extends Model
     {
         return $this->hasMany(RmsInstallDetail::class);
     }
+
+    public function hasMeter(): bool
+    {
+        return $this->meter()->exists();
+    }
+
+    public function meter()
+    {
+        return $this->hasOneThrough(
+            Meter::class,
+            AssignMeter::class,
+            'task_id',   // AssignMeter.task_id
+            'id',        // Meter.id
+            'id',        // Task.id
+            'meter_id'   // AssignMeter.meter_id
+        );
+    }
+
+    public function assignMeter(int $meterId): AssignMeter
+    {
+        // prevent assigning duplicate meter to same task
+        if (AssignMeter::where('task_id', $this->id)->where('meter_id', $meterId)->exists()) {
+            throw new RuntimeException('This meter is already assigned to this task.');
+        }
+
+        return $this->meterAssignments()->create(['meter_id' => $meterId]);
+    }
 }

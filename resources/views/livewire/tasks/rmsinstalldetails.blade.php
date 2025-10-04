@@ -1,25 +1,18 @@
 <div>
     <x-ui.topbar/>
+    <x-tasks.rmsinstall.details.buttons :$task/>
     <x-ui.title title="RMS Installation Details"/>
-    <div>Task Date: {{ $task->created_at->format('d-m-Y') }}</div>
-    <div>Reporting By: {{ $task->user->name }}, {{ $task->user->designation }}</div>
-    <x-tasks.rmsinstall.details.customerinfo
-        :customer="$task->customer"
-    />
-    <x-tasks.rmsinstall.details.meterinfo/>
-    <x-tasks.rmsinstall.details.regulatorinfo/>
+    <x-tasks.rmsinstall.details.heading :$task/>
+    <x-tasks.rmsinstall.details.customerinfo :$task/>
+    <x-tasks.rmsinstall.details.drawing :$task/>
+    <x-tasks.rmsinstall.details.meterinfo :$task/>
+    <x-tasks.rmsinstall.details.regulatorinfo :$task/>
     <x-tasks.rmsinstall.details.sealing :$task/>
     <x-tasks.rmsinstall.details.comments :$task/>
     <x-tasks.rmsinstall.details.photos :$task/>
-    <x-tasks.rmsinstall.details.approvalstatus
-        :$task
-    />
+    <x-tasks.rmsinstall.details.approvalstatus :$task/>
     @if($addSealForm)
-        <x-tasks.addsealform
-            :$type
-            :$prefix
-            :$sealNumber
-        />
+        <x-tasks.addsealform :$type :$prefix :$sealNumber/>
     @endif
     @if($removeSealForm)
         <x-tasks.removesealform/>
