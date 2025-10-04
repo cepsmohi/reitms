@@ -29,6 +29,7 @@
         - [ ] Assign Meter
         - [ ] Assign Regulator
         - [ ] Entry Security Seals
+        - [ ] Used Materials
         - [ ] Add Photos
         - [ ] Approval
     - [ ] Maintenance RMS
