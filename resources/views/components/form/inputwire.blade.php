@@ -1,5 +1,5 @@
 @isset($hints)
-    <div class="text-xs frowe">ex. {{ $hints }}</div>
+    <div class="w-full text-xs frowe">ex. {{ $hints }}</div>
 @endisset
 <div class="{{ $hidden ?? '' }} {{ $width ?? 'w-full' }} {{ $mb ?? 'mb-4' }} relative">
     <input

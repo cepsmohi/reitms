@@ -4,7 +4,10 @@
 
 - [x] Customer List
 - [x] Create Customer
-- [ ] Edit Customer
+- [x] Edit Customer
+- [x] Customer Task List
+- [ ] Location Table
+    - [ ] Map
 
 ## Seal
 
@@ -16,9 +19,19 @@
 
 ## Inventory
 
+- [ ] Entry MIV
+
 ## Meters
 
+- [ ] Meter List
+- [ ] Edit Meter
+- [ ] Entry Details
+
 ## Regulators
+
+- [ ] Regulator List
+- [ ] Edit Regulator
+- [ ] Entry Details
 
 ## Manage Tasks
 
@@ -27,9 +40,12 @@
         - [x] Assign Customer
         - [ ] Upload Drawing
         - [ ] Assign Meter
+            - [ ] Changing Meter
         - [ ] Assign Regulator
         - [x] Entry Security Seals
+            - [ ] Stop modification after checking
         - [ ] Used Materials
+            - [ ] Reduce Inventory Count
         - [x] Add Photos
             - [ ] Stop Deleting after checking
         - [x] Approval

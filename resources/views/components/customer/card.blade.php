@@ -1,11 +1,12 @@
-<div
-    class="card group"
+<a
+    class="card block h-52 group"
+    href="{{ route('customers.edit', $customer) }}"
 >
     <!-- Header -->
     <div class=" px-4 py-3 border-b border-gray-100 frowb group-hover:rounded-t-2xl">
-        <a href="">
+        <div>
             <x-ui.h3 :title="$customer->name"/>
-        </a>
+        </div>
         <span
             @class([
                 'px-2 py-1 text-xs rounded-full border',
@@ -28,18 +29,8 @@
     </div>
 
     <!-- Footer / Actions -->
-    <div
-        class="adbr hidden group-hover:flex frowe gap-2"
-    >
-        <img
-            class="w-7"
-            src="{{ $customer->user->image }}"
-            alt="{{ $customer->user->name }}"
-            title="{{ $customer->user->name }}"
-        />
-        <x-ui.ahref
-            href="#"
-            icon="edit"
-        />
+    <div class="adbr">
+        <div class="text-[10px] text-gray-600">{{ $customer->user->name }}</div>
+        <x-ui.icon icon="user" padding="p-0" rounded="rounded-full" dark="" width="w-5"/>
     </div>
-</div>
+</a>

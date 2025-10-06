@@ -1,5 +1,5 @@
 <a
-    class="card"
+    class="card h-52"
     href="{{ route('tasks.rmsinstall.details', $task) }}"
 >
     <!-- Header -->
@@ -8,8 +8,9 @@
         <span
             @class([
                 'px-2 py-1 text-xs rounded-full border',
-                'bg-green-100 text-green-700' => $task->status == 'active',
-                'bg-red-100 text-red-700' => $task->status != 'active'
+                'bg-green-100 text-green-700' => $task->status == 'approved',
+                'bg-yellow-100 text-yellow-700' => $task->status == 'checked',
+                'bg-red-100 text-red-700' => $task->status == 'on going'
             ])
         >
             {{ ucfirst($task->status) }}

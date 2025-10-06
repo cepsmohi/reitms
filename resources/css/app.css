@@ -221,7 +221,7 @@ input.inputcss ~ span.placeholder {
     }
 
     .card {
-        @apply block w-sm h-52 rounded-2xl relative border border-gray-200 transition bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-500;
+        @apply block w-sm max-h-52 rounded-2xl relative border border-gray-200 transition bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-500;
     }
 
     .header {

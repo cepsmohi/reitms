@@ -5,8 +5,12 @@
     wire:offline.attr="disabled"
     @if (isset($wireconfirm)) wire:confirm="{{ $wireconfirm }}" @endif
     @if (isset($aclick)) @click="{{ $aclick }}" @endif
+    @class([
+        'cursor-pointer overflow-hidden',
+        $color ?? '',
+        $rounded ?? 'rounded-full'
+    ])
     title="{{ $title ?? '' }}"
-    class="cursor-pointer"
 >
     @isset($icon)
         <div

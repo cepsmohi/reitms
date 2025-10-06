@@ -37,4 +37,15 @@ class Customer extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function detail()
+    {
+        return $this->hasMany(CustomerDetail::class, 'customer_code', 'code')
+            ->latest();
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class)->latest();
+    }
 }
