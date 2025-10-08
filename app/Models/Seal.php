@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Seal extends Model
 {
@@ -17,9 +18,14 @@ class Seal extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function rmsInstallDetails()
+    public function sealRegisters(): HasMany
     {
-        return $this->hasMany(RmsInstallDetail::class);
+        return $this->hasOne(SealRegister::class);
+    }
+
+    public function getPositionAttribute()
+    {
+        return $this->rmsInstallDetails;
     }
 
     public function task()

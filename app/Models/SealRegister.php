@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RmsInstallDetail extends Model
+class SealRegister extends Model
 {
     protected $fillable = [
         'task_id',
         'seal_id',
-        'type',
+        'position',
     ];
 
     public function task()
@@ -22,8 +22,8 @@ class RmsInstallDetail extends Model
         return $this->belongsTo(Seal::class);
     }
 
-    public function scopeType($query, $type)
+    public function scopePosition($query, $position)
     {
-        return $query->where('type', $type);
+        return $query->where('position', $position);
     }
 }

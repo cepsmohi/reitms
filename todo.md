@@ -15,7 +15,7 @@
 - [x] Entry Seal
     - [x] Series
     - [x] Single
-- [ ] Seal Details
+- [x] Seal Details
 
 ## Inventory
 

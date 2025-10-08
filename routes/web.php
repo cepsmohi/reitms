@@ -23,6 +23,9 @@ Route::middleware(['auth', 'aprvuser'])->group(function () {
     require __DIR__.'/customers.php';
     require __DIR__.'/seals.php';
     require __DIR__.'/tasks.php';
+    require __DIR__.'/materials.php';
+    require __DIR__.'/meters.php';
+    require __DIR__.'/regulators.php';
 
     Route::get('/optimizeclear', function () {
         Artisan::call('optimize:clear');

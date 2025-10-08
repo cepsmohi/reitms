@@ -10,11 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('rms_install_details', function (Blueprint $table) {
+        Schema::create('material_stocks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->constrained();
-            $table->foreignId('seal_id')->unique()->constrained();
-            $table->string('type');
+            $table->foreignId('material_id')->constrained();
+            $table->foreignId('task_id')->nullable();
+            $table->bigInteger('miv_no')->nullable();
+            $table->decimal('stock_in')->default(0.00);
+            $table->decimal('stock_out')->default(0.00);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('rms_install_details');
+        Schema::dropIfExists('material_stocks');
     }
 };

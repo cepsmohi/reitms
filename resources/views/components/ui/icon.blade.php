@@ -6,6 +6,6 @@
         $rounded ?? 'rounded-xl',
         $dark ?? 'dark:bg-gray-200 dark:rounded-md'
     ])
-    src="{{ asset('images/icon/' . $icon . '.svg') }}"
+    src="{{ asset('images/icon/' . $icon . ($ext ?? '.svg')) }}"
     alt="{{ $icon }}"
 />

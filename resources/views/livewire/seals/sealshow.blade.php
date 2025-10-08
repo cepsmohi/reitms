@@ -1,3 +1,6 @@
 <div>
-    {{-- If your happiness depends on money, you will never be happy with yourself. --}}
+    <x-ui.topbar/>
+    <x-seal.show.buttons/>
+    <x-ui.title title="Seal Details"/>
+    <x-seal.details :$seal/>
 </div>

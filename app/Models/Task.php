@@ -152,9 +152,9 @@ class Task extends Model
         ]);
     }
 
-    public function rmsInstallDetails()
+    public function sealRegisters()
     {
-        return $this->hasMany(RmsInstallDetail::class);
+        return $this->hasMany(SealRegister::class);
     }
 
     public function hasMeter(): bool

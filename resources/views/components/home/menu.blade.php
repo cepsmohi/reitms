@@ -2,7 +2,6 @@
     <x-home.menu.customerrelated/>
     <x-home.menu.sealrelated/>
     <x-home.menu.materialsrelated/>
-    <x-home.menu.meterrelated/>
     <x-home.menu.rmsrelated/>
     <x-home.menu.reports/>
     <x-home.menu.cloudstorage/>
