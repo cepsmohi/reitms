@@ -18,8 +18,8 @@ class Customerindex extends Component
     public function render()
     {
         $customers = Customer::query()
-            ->where('name', 'like', "%{$this->search}%")
-            ->orWhere('code', 'like', "%{$this->search}%")
+            ->where('name', 'like', "%$this->search%")
+            ->orWhere('code', 'like', "%$this->search%")
             ->paginate(10);
         return view('livewire.customers.customerindex', compact('customers'));
     }

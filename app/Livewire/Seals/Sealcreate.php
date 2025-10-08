@@ -23,9 +23,9 @@ class Sealcreate extends Component
         $prefix = Str::upper(trim($this->prefix));
         if ($this->sealCollectionType == 'series') {
             $this->validate([
-                'prefix' => 'required',
-                'startNumber' => 'required',
-                'endNumber' => 'required',
+                'prefix' => 'required|string',
+                'startNumber' => 'required|integer',
+                'endNumber' => 'required|integer',
             ]);
             if ($this->startNumber < $this->endNumber) {
                 for ($startNumber = $this->startNumber; $this->endNumber >= $startNumber; $startNumber++) {

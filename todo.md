@@ -17,8 +17,9 @@
     - [x] Single
 - [x] Seal Details
 
-## Inventory
+## Materials inventory
 
+- [ ] Create Material Code
 - [ ] Entry MIV
 
 ## Meters
