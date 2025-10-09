@@ -14,6 +14,14 @@
                     name="customerCode"
                     placeholder="#-##-######-##-##-#"
                     icon="tag"
+                    pattern="let v = this.value.replace(/\D/g, '').slice(0,14);
+                    if (v.length > 13) this.value = v.replace(/(\d)(\d{2})(\d{6})(\d{2})(\d{2})(\d{1})/, '$1-$2-$3-$4-$5-$6');
+                    else if (v.length > 11) this.value = v.replace(/(\d)(\d{2})(\d{6})(\d{2})(\d{1,2})/, '$1-$2-$3-$4-$5');
+                    else if (v.length > 9) this.value = v.replace(/(\d)(\d{2})(\d{6})(\d{1,2})/, '$1-$2-$3-$4');
+                    else if (v.length > 7) this.value = v.replace(/(\d)(\d{2})(\d{1,6})/, '$1-$2-$3');
+                    else if (v.length > 3) this.value = v.replace(/(\d)(\d{1,2})/, '$1-$2');
+                    else this.value = v;
+                    this.dispatchEvent(new Event('input'));"
                 />
                 <x-form.submit-button
                     form="editCustomerCodeForm"

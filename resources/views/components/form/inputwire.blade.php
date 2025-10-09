@@ -17,6 +17,7 @@
             required
         @endisset
         @isset($value) value="{{ $value }}" @endisset
+        @isset($pattern) oninput="{{ $pattern }}" @endisset
         {{ $disabled ?? '' }}
         {{ $autofocus ?? '' }}
     />

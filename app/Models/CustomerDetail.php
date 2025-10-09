@@ -22,6 +22,18 @@ class CustomerDetail extends Model
         'sec_dep_bank',
     ];
 
+    protected $casts = [
+        'hourly_load' => 'decimal:3',
+        'monthly_load' => 'decimal:3',
+        'min_load' => 'decimal:3',
+        'pf' => 'decimal:4',
+        'df' => 'decimal:4',
+        'sec_cash' => 'decimal:2',
+        'sec_bg' => 'decimal:2',
+        'daily_run' => 'integer',
+        'hourly_run' => 'integer',
+    ];
+
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'customer_code', 'code');

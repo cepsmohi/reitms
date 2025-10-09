@@ -1,6 +1,6 @@
 <div
     @class([
-        'w-sm h-52 rounded-2xl relative group',
+        'card h-52 group',
         'border border-gray-200',
         'transition cursor-pointer',
         'bg-gray-200 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-500'
@@ -25,7 +25,7 @@
     <!-- Body -->
     <div class="px-4 py-3 space-y-2 text-sm">
         <p><strong>Code:</strong> {{ $customer->code }}</p>
-        <p><strong>Address:</strong> {{ $customer->address }}</p>
+        <p class="truncate"><strong>Address:</strong> {{ $customer->address }}</p>
         <p><strong>Zone:</strong> {{ $customer->zone }}</p>
         <p><strong>Load (hr):</strong> {{ number_format($customer->load_hr, 2) }} m<sup>3</sup></p>
     </div>

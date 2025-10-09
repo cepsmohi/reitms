@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('code')->unique();
             $table->string('name');
             $table->string('unit')->nullable();
