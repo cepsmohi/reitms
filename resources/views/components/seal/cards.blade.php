@@ -1,5 +1,7 @@
 <div class="my-4 frow flex-wrap gap-6">
-    @foreach($seals as $seal)
+    @forelse($seals as $seal)
         <x-seal.card :$seal/>
-    @endforeach
+    @empty
+        <x-seal.cardnew/>
+    @endforelse
 </div>
