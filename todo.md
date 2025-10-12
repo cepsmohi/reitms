@@ -25,12 +25,14 @@
 ## Meters
 
 - [x] Meter List
+- [x] Create Meter
 - [ ] Edit Meter
 - [ ] Entry Details
 
 ## Regulators
 
-- [ ] Regulator List
+- [x] Regulator List
+- [x] Create Regulator
 - [ ] Edit Regulator
 - [ ] Entry Details
 

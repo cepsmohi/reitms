@@ -30,7 +30,7 @@ class Task extends Model
     {
         return $this->hasManyThrough(
             Seal::class,              // final model
-            RmsInstallDetail::class,  // through model
+            SealRegister::class,  // through model
             'task_id',                // FK on details -> tasks
             'id',                     // FK on seals (local key on seals)
             'id',                     // local key on tasks
@@ -128,10 +128,10 @@ class Task extends Model
         return $this->hasMany(Photo::class);
     }
 
-    public function setRmsInstallDetail(string $type, int $seal_id): RmsInstallDetail
+    public function setSealRegister(string $type, int $seal_id): SealRegister
     {
         // Check if the seal already has a detail assigned
-        if (RmsInstallDetail::where('seal_id', $seal_id)->exists()) {
+        if (SealRegister::where('seal_id', $seal_id)->exists()) {
             throw new RuntimeException("Seal ID $seal_id is already assigned to another Task.");
         }
 
@@ -146,9 +146,9 @@ class Task extends Model
         ]);
 
         // Create the new detail
-        return $this->rmsInstallDetails()->create([
+        return $this->sealRegisters()->create([
             'seal_id' => $seal_id,
-            'type' => $type,
+            'position' => $type,
         ]);
     }
 

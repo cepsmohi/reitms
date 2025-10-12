@@ -12,7 +12,7 @@ class Customer extends Model
 
     protected $fillable = [
         'user_id',
-        'code', 'name', 'status',
+        'code', 'name', 'status', 'zone'
     ];
 
 
@@ -21,7 +21,12 @@ class Customer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function detail()
+    public function getDetailAttribute()
+    {
+        return $this->details->first();
+    }
+
+    public function details()
     {
         return $this->hasMany(CustomerDetail::class, 'customer_code', 'code')
             ->latest();

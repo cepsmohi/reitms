@@ -26,6 +26,12 @@
                 icon="location"
                 hints="Holding, Road, Location"
             />
+            <x-form.inputwire
+                name="zone"
+                placeholder="Zone/Area Code"
+                icon="zone"
+                hints="336"
+            />
             <x-form.submit-button
                 form="createCustomerForm"
                 icon="plus"

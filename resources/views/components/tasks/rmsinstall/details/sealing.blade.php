@@ -2,8 +2,8 @@
     <div class="stitle border-b frowb gap-2">
         <div>Installed Security Seals</div>
         @php
-            use App\Models\RmsInstallDetail;
-            $count = RmsInstallDetail::where('task_id', $task->id)
+            use App\Models\SealRegister;
+            $count = SealRegister::where('task_id', $task->id)
               ->count();
         @endphp
         <div>{{ $count }}</div>

@@ -8,7 +8,7 @@ use Livewire\Component;
 class Customercreate extends Component
 {
     public $href = null, $routeName;
-    public $name, $code, $address;
+    public $name, $code, $address, $zone;
 
     public function mount()
     {

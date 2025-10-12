@@ -20,7 +20,6 @@
     <!-- Body -->
     <div class="px-4 py-3 space-y-2 text-sm">
         <p><strong>Code:</strong> {{ $task->customer->code }}</p>
-        <p><strong>Address:</strong> {{ $task->customer->address }}</p>
         <div class="frows gap-2">
             <p><strong>Zone:</strong> {{ $task->customer->zone }}</p>
             <p><strong>Load (hr):</strong> {{ number_format($task->customer->load_hr, 2) }} m<sup>3</sup></p>

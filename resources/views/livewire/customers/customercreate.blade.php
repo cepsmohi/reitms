@@ -6,5 +6,6 @@
         :$name
         :$code
         :$address
+        :$zone
     />
 </div>

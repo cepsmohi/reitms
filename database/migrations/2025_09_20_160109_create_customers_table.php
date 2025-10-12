@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('code', 19)->unique();
             $table->string('name')->nullable();
             $table->string('status', 24)->default('active')->index();
+            $table->string('zone');
             $table->timestamps();
         });
     }

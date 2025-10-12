@@ -6,9 +6,9 @@
     {{ $position }}
 </div>
 @php
-    use App\Models\RmsInstallDetail;
-    $seals = RmsInstallDetail::where('task_id', $task->id)
-        ->where('type', $type)
+    use App\Models\SealRegister;
+    $seals = SealRegister::where('task_id', $task->id)
+        ->where('position', $type)
         ->get();
 @endphp
 @foreach($seals as $s)

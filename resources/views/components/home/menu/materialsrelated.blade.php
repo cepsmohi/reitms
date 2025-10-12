@@ -18,10 +18,14 @@
     icon="meter.png"
     :href="route('meters')"
 />
+@php
+    use App\Models\Regulator;
+    $regulators_count = Regulator::all()->count();
+@endphp
 <x-ui.sqrbtn
     condi="1"
     header="Regulators"
-    :footer="0"
+    :footer="$regulators_count"
     :color="cssbg('fuchsia')"
     icon="regulator.png"
     :href="route('regulators')"

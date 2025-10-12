@@ -4,7 +4,7 @@
         $photos = $task->photos;
     @endphp
     @if($photos)
-        <div class="mt-2 frows flex-wrap gap-8">
+        <div class="mt-2 frows flex-wrap gap-4">
             @foreach($photos as $photo)
                 <div class="relative group">
                     <a

@@ -20,7 +20,6 @@
 
     <!-- Body -->
     <div class="px-4 py-3 space-y-2 text-sm">
-        <p><strong>Type:</strong> {{ $regulator->type }}</p>
         @if($regulator->model)
             <p><strong>Model:</strong> {{ $regulator->model }}</p>
         @endif
