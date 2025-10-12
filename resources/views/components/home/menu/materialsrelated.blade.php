@@ -8,7 +8,7 @@
 />
 @php
     use App\Models\Meter;
-    $meters_count = Meter::all()->count();
+    $meters_count = Meter::where('status', 'stock')->get()->count();
 @endphp
 <x-ui.sqrbtn
     condi="1"
@@ -20,7 +20,7 @@
 />
 @php
     use App\Models\Regulator;
-    $regulators_count = Regulator::all()->count();
+    $regulators_count = Regulator::where('status', 'stock')->get()->count();
 @endphp
 <x-ui.sqrbtn
     condi="1"

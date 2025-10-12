@@ -26,4 +26,9 @@ class Regulator extends Model
     {
         return $this->hasMany(AssignRegulator::class)->latest()->first();
     }
+
+    public function setStatus($status)
+    {
+        return $this->update(['status' => $status]);
+    }
 }

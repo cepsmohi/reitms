@@ -130,22 +130,16 @@ class Task extends Model
 
     public function setSealRegister(string $type, int $seal_id): SealRegister
     {
-        // Check if the seal already has a detail assigned
         if (SealRegister::where('seal_id', $seal_id)->exists()) {
             throw new RuntimeException("Seal ID $seal_id is already assigned to another Task.");
         }
-
-        // Ensure the seal actually exists (optional safety)
         $seal = Seal::find($seal_id);
         if (!$seal) {
             throw new ModelNotFoundException("Seal with ID $seal_id not found.");
         }
-
         $seal->update([
             'status' => 'install',
         ]);
-
-        // Create the new detail
         return $this->sealRegisters()->create([
             'seal_id' => $seal_id,
             'position' => $type,
@@ -167,20 +161,53 @@ class Task extends Model
         return $this->hasOneThrough(
             Meter::class,
             AssignMeter::class,
-            'task_id',   // AssignMeter.task_id
-            'id',        // Meter.id
-            'id',        // Task.id
-            'meter_id'   // AssignMeter.meter_id
+            'task_id',
+            'id',
+            'id',
+            'meter_id'
+        );
+    }
+
+    public function hasRegulator(): bool
+    {
+        return $this->regulator()->exists();
+    }
+
+    public function regulator()
+    {
+        return $this->hasOneThrough(
+            Regulator::class,
+            AssignRegulator::class,
+            'task_id',
+            'id',
+            'id',
+            'regulator_id'
         );
     }
 
     public function assignMeter(int $meterId): AssignMeter
     {
-        // prevent assigning duplicate meter to same task
         if (AssignMeter::where('task_id', $this->id)->where('meter_id', $meterId)->exists()) {
             throw new RuntimeException('This meter is already assigned to this task.');
         }
+        return $this->meterAssignment()->create(['meter_id' => $meterId]);
+    }
 
-        return $this->meterAssignments()->create(['meter_id' => $meterId]);
+    public function meterAssignment()
+    {
+        return $this->hasOne(AssignMeter::class);
+    }
+
+    public function assignRegulator(int $regulatorId): AssignRegulator
+    {
+        if (AssignRegulator::where('task_id', $this->id)->where('regulator_id', $regulatorId)->exists()) {
+            throw new RuntimeException('This regulator is already assigned to this task.');
+        }
+        return $this->regulatorAssignment()->create(['regulator_id' => $regulatorId]);
+    }
+
+    public function regulatorAssignment()
+    {
+        return $this->hasOne(AssignRegulator::class);
     }
 }

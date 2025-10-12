@@ -23,3 +23,9 @@
     <x-tasks.rmsinstall.details.sealing.outletvalve :$task/>
     <x-tasks.rmsinstall.details.sealing.others :$task/>
 </div>
+@if($addSealForm)
+    <x-tasks.addsealform :$type :$prefix :$sealNumber/>
+@endif
+@if($removeSealForm)
+    <x-tasks.removesealform/>
+@endif

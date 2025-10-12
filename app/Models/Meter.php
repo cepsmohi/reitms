@@ -27,4 +27,9 @@ class Meter extends Model
     {
         return $this->hasMany(AssignMeter::class)->latest()->first();
     }
+
+    public function setStatus($status)
+    {
+        return $this->update(['status' => $status]);
+    }
 }

@@ -1,11 +1,11 @@
 <div class="mt-4">
     <div class="stitle border-b">Photos</div>
     @php
-        $photos = $task->photos;
+        $pics = $task->photos;
     @endphp
-    @if($photos)
+    @if($pics)
         <div class="mt-2 frows flex-wrap gap-4">
-            @foreach($photos as $photo)
+            @foreach($pics as $photo)
                 <div class="relative group">
                     <a
                         href="{{ asset('storage/'.$photo->link) }}"
@@ -41,3 +41,9 @@
         @endif
     @endif
 </div>
+@if($addPhotoForm)
+    <x-tasks.addphotoform :$photos/>
+@endif
+@if($deletePhotoForm)
+    <x-tasks.deletephotoform/>
+@endif

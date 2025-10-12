@@ -24,3 +24,9 @@
         @endif
     </div>
 </div>
+@if($addCommentForm)
+    <x-tasks.addcommentform :$comment/>
+@endif
+@if($editCommentForm)
+    <x-tasks.editcommentform :$comment/>
+@endif

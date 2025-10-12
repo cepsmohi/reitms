@@ -14,11 +14,16 @@ class Regulatorindex extends Component
 
     public function render()
     {
-        $regulators = Regulator::query()
-            ->where('number', 'like', "%$this->search%")
-            ->orWhere('model', 'like', "%$this->search%")
-            ->orWhere('comments', 'like', "%$this->search%")
-            ->paginate(10);
+        if ($this->search != '') {
+            $regulators = Regulator::query()
+                ->where('number', 'like', "%$this->search%")
+                ->orWhere('model', 'like', "%$this->search%")
+                ->orWhere('comments', 'like', "%$this->search%")
+                ->paginate(10);
+        } else {
+            $regulators = Regulator::where('status', 'stock')->paginate(10);
+        }
+
         return view('livewire.regulators.regulatorindex', compact('regulators'));
     }
 }
