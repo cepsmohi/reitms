@@ -1,15 +1,15 @@
 <div>
     <x-ui.topbar/>
-    <x-meter.index.buttons/>
-    <x-ui.title title="Meters List"/>
+    <x-regulator.index.buttons/>
+    <x-ui.title title="Regulators List"/>
     <x-form.search :$search/>
     <x-ui.pagination
-        :items="$meters"
+        :items="$regulators"
         position="frows"
     />
-    <x-meter.cards :$meters/>
+    <x-regulator.cards :$regulators/>
     <x-ui.pagination
-        :items="$meters"
+        :items="$regulators"
         position="frowe"
     />
 </div>
