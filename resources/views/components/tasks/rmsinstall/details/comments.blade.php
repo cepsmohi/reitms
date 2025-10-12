@@ -8,7 +8,7 @@
             <p>
                 {{ $comment->text }}
             </p>
-            @if($task->isPending())
+            @if($task->isReporting())
                 <x-ui.awiretag
                     wireclick="openEditCommentForm"
                     icon="comment"

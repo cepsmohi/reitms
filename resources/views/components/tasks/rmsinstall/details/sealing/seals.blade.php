@@ -1,7 +1,9 @@
 <div
     id="{{ randtxt() }}"
-    class="alink"
-    wire:click="openSealForm('{{ $type }}')"
+    @class([
+        'alink' => $task->isReporting()
+    ])
+    @if($task->isReporting()) wire:click="openSealForm('{{ $type }}')" @endif
 >
     {{ $position }}
 </div>
@@ -13,9 +15,12 @@
 @endphp
 @foreach($seals as $s)
     <div
-        class="ml-4 md:ml-0 text-green-500 cursor-pointer"
+        @class([
+            'ml-4 md:ml-0 text-green-500 cursor-pointer' => $task->isReporting(),
+            'text-red-500' => !$task->isReporting()
+        ])
         id="{{ randtxt() }}"
-        wire:click="removeSeal({{ $s->id }})"
+        @if($task->isReporting()) wire:click="removeSeal({{ $s->id }})" @endif
     >
         {{ $s->seal->number }}
     </div>

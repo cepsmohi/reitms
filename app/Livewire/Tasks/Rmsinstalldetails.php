@@ -5,6 +5,8 @@ namespace App\Livewire\Tasks;
 use App\Models\RmsInstallDetail;
 use App\Models\Task;
 use App\Traits\CommentTrait;
+use App\Traits\DrawingTrait;
+use App\Traits\MaterialTrait;
 use App\Traits\MeterTrait;
 use App\Traits\PhotoTrait;
 use App\Traits\RegulatorTrait;
@@ -17,6 +19,8 @@ class Rmsinstalldetails extends Component
 {
     use WithFileUploads;
     use CommentTrait;
+    use DrawingTrait;
+    use MaterialTrait;
     use MeterTrait;
     use PhotoTrait;
     use RegulatorTrait;

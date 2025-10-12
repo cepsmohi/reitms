@@ -41,16 +41,16 @@
 - [x] Tasks Menu
     - [x] Install New RMS
         - [x] Assign Customer
-        - [ ] Upload Drawing
-        - [ ] Assign Meter
+        - [x] Upload Drawing
+        - [x] Assign Meter
             - [ ] Changing Meter
-        - [ ] Assign Regulator
+        - [x] Assign Regulator
         - [x] Entry Security Seals
-            - [ ] Stop modification after checking
+            - [x] Stop modification after checking
         - [ ] Used Materials
             - [ ] Reduce Inventory Count
         - [x] Add Photos
-            - [ ] Stop Deleting after checking
+            - [x] Stop Deleting after checking
         - [x] Approval
     - [ ] Maintenance RMS
         - [ ] Strainer Cleaning

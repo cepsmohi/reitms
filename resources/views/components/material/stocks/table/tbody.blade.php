@@ -4,7 +4,7 @@
         <td class="text-left">{{ $stock->created_at->format('d/m/Y') }}</td>
         <td class="text-left">
             {{ $stock->miv_no ? $stock->miv_no : '' }}
-            {{ $stock->task_id ? 'TID '.$stock->task_id : '' }}
+            {{ $stock->task_id ? 'Task ID '.$stock->task_id : '' }}
         </td>
         <td class="text-left">{{ $stock->material->unit }}</td>
         <td class="text-right">

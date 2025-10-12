@@ -17,7 +17,7 @@ return new class extends Migration {
             //type: rms installation, rms maintenance, rms layoff, rms dc, meter test, meter sealing
             $table->string('type');
             //status: pending, checked, approved
-            $table->string('status')->default('pending');
+            $table->string('status')->default('reporting');
             $table->bigInteger('checked_by')->nullable();
             $table->bigInteger('approved_by')->nullable();
             $table->timestamps();

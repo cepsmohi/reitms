@@ -7,5 +7,7 @@
         <strong>Name:</strong>
         <x-ui.h3 :title="$customer->name"/>
     </div>
-    <div><strong>Address:</strong> {{ $customer->address }}</div>
+    @if($customer->detail)
+        <div><strong>Address:</strong> {{ $customer->detail->address }}</div>
+    @endif
 </div>

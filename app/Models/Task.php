@@ -38,6 +38,11 @@ class Task extends Model
         );
     }
 
+    public function materialstocks()
+    {
+        return $this->hasMany(MaterialStock::class);
+    }
+
     public function scopePending($query)
     {
         return $query->where('status', 'pending');
@@ -56,6 +61,11 @@ class Task extends Model
     public function scopeType($query, $type)
     {
         return $query->where('type', $type);
+    }
+
+    public function isReporting()
+    {
+        return $this->status === 'reporting';
     }
 
     public function isPending()
@@ -89,10 +99,18 @@ class Task extends Model
         ]);
     }
 
-    public function resetStatus()
+
+    public function report()
     {
         return $this->update([
             'status' => 'pending',
+        ]);
+    }
+
+    public function resetStatus()
+    {
+        return $this->update([
+            'status' => 'reporting',
             'checked_by' => null,
             'approved_by' => null,
         ]);
@@ -126,6 +144,11 @@ class Task extends Model
     public function photos()
     {
         return $this->hasMany(Photo::class);
+    }
+
+    public function drawing()
+    {
+        return $this->hasOne(Drawing::class);
     }
 
     public function setSealRegister(string $type, int $seal_id): SealRegister

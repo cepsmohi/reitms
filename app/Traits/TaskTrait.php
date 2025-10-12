@@ -4,6 +4,11 @@ namespace App\Traits;
 
 trait TaskTrait
 {
+    public function reportTask()
+    {
+        $this->task->report();
+    }
+
     public function checkTask()
     {
         $this->task->check();

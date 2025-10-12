@@ -8,10 +8,12 @@
         @endphp
         <div>{{ $count }}</div>
     </div>
-    <div class="frowe gap-1 text-xs text-red-500">
-        <strong>Instruction:</strong>
-        <p>to add seal click on position</p>
-    </div>
+    @if($task->isReporting())
+        <div class="frowe gap-1 text-xs text-red-500">
+            <strong>Instruction:</strong>
+            <p>to add seal click on position</p>
+        </div>
+    @endif
     <x-tasks.rmsinstall.details.sealing.inletvalve :$task/>
     <x-tasks.rmsinstall.details.sealing.inletpressuregauge :$task/>
     <x-tasks.rmsinstall.details.sealing.strainer :$task/>

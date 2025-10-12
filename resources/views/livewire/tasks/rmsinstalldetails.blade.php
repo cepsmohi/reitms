@@ -4,7 +4,13 @@
     <x-ui.title title="RMS Installation Details"/>
     <x-tasks.rmsinstall.details.heading :$task/>
     <x-tasks.rmsinstall.details.customerinfo :$task/>
-    <x-tasks.rmsinstall.details.drawing :$task/>
+    <x-tasks.rmsinstall.details.drawing
+        :$task
+        :$addDrawingForm
+        :$deleteDrawingForm
+        :$drawings
+        :$drawing
+    />
     <x-tasks.rmsinstall.details.meterinfo
         :$task
         :$meterSerialNumber
@@ -30,6 +36,13 @@
         :$addPhotoForm
         :$deletePhotoForm
         :$photos
+    />
+    <x-tasks.rmsinstall.details.usedmaterials
+        :$task
+        :$addMaterialForm
+        :$deleteMaterialForm
+        :$materialCode
+        :$quantity
     />
     <x-tasks.rmsinstall.details.approvalstatus :$task/>
 </div>

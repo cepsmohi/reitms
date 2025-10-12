@@ -18,19 +18,21 @@
                             alt=""
                         />
                     </a>
-                    <div class="adbr hidden group-hover:flex">
-                        <div
-                            class="w-7 h-7 p-1 rounded-full border border-red-800 frow cursor-pointer bg-red-500 hover:bg-red-300 shadow">
-                            <x-ui.awire
-                                wireclick="deletePhoto({{ $photo->id }})"
-                                icon="trash"
-                            />
+                    @if($task->isReporting())
+                        <div class="adbr hidden group-hover:flex">
+                            <div
+                                class="w-7 h-7 p-1 rounded-full border border-red-800 frow cursor-pointer bg-red-500 hover:bg-red-300 shadow">
+                                <x-ui.awire
+                                    wireclick="deletePhoto({{ $photo->id }})"
+                                    icon="trash"
+                                />
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             @endforeach
         </div>
-        @if($task->isPending())
+        @if($task->isReporting())
             <div class="mt-2">
                 <x-ui.awiretag
                     wireclick="openPhotoForm"

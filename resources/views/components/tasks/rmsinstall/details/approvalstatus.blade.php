@@ -1,5 +1,6 @@
 <div class="my-4">
     <div class="stitle border-b">Report Approval Status</div>
+
     @if($task->isChecked() || $task->isApproved())
         <div class="frows gap-2">
             <div class="font-bold">Checked By</div>
@@ -30,26 +31,41 @@
             <div class="mt-2 frows gap-2">
                 <x-ui.awiretag
                     wireclick="resetTask"
-                    icon="reset"
-                    tag="Reset to Pending"
+                    icon="cross"
+                    tag="Reject"
                     color="bg-red-300"
                 />
                 <x-ui.awiretag
                     wireclick="approveTask"
-                    icon="tickcircle"
-                    tag="Approve"
+                    icon="tick"
+                    tag="Approve Done"
                     color="bg-green-300"
                 />
             </div>
         @endif
     @else
         <div class="mt-2 frows gap-2">
-            <x-ui.awiretag
-                wireclick="checkTask"
-                icon="tickcircle"
-                tag="Check Done"
-                color="bg-green-300"
-            />
+            @if($task->isReporting())
+                <x-ui.awiretag
+                    wireclick="reportTask"
+                    icon="tick"
+                    tag="Reporting Done"
+                    color="bg-green-300"
+                />
+            @else
+                <x-ui.awiretag
+                    wireclick="resetTask"
+                    icon="cross"
+                    tag="Reject"
+                    color="bg-red-300"
+                />
+                <x-ui.awiretag
+                    wireclick="checkTask"
+                    icon="tick"
+                    tag="Checking Done"
+                    color="bg-green-300"
+                />
+            @endif
         </div>
     @endif
 </div>
