@@ -12,9 +12,10 @@ return new class extends Migration {
     {
         Schema::create('material_stocks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('material_id')->constrained();
             $table->foreignId('task_id')->nullable();
-            $table->bigInteger('miv_no')->nullable();
+            $table->string('miv_no')->nullable();
             $table->decimal('stock_in')->default(0.00);
             $table->decimal('stock_out')->default(0.00);
             $table->timestamps();

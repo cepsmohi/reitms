@@ -1,15 +1,9 @@
 <div class="frowe gap-2">
     <x-ui.ahref
-        :href="route('materials.create')"
+        :href="route('meters.create')"
         icon="plus"
         width="w-10"
-        title="New Material"
-    />
-    <x-ui.ahref
-        :href="route('materials.stocks')"
-        icon="miv"
-        width="w-10"
-        title="MIV Entries"
+        title="New Meter"
     />
     <x-ui.ahref
         :href="route('home')"

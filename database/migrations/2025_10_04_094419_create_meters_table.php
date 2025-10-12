@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('model')->nullable();
             $table->string('production_year')->nullable();
             $table->string('diameter')->nullable();
+            $table->string('status')->default('stock');
             $table->string('comments')->nullable();
             $table->timestamps();
         });

@@ -5,6 +5,6 @@
     <x-material.create.form
         :$name
         :$code
-        :$address
+        :$unit
     />
 </div>

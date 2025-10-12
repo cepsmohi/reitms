@@ -3,9 +3,9 @@
 namespace App\Traits;
 
 use App\Models\App;
-use App\Models\Task;
+use App\Models\MaterialStock;
 
-trait CalendarTrait
+trait StockCalendarTrait
 {
     public $app;
     public $day;
@@ -45,7 +45,7 @@ trait CalendarTrait
 
     public function getYears()
     {
-        $this->years = Task::selectRaw('year(created_at) year')
+        $this->years = MaterialStock::selectRaw('year(created_at) year')
             ->distinct()
             ->orderBy('year')
             ->pluck('year')
@@ -54,7 +54,7 @@ trait CalendarTrait
 
     public function getMonths($y)
     {
-        $this->months = Task::whereYear('created_at', $y)
+        $this->months = MaterialStock::whereYear('created_at', $y)
             ->selectRaw('month(created_at) month')
             ->distinct()
             ->orderBy('month')
@@ -64,7 +64,7 @@ trait CalendarTrait
 
     public function getDays($y, $m)
     {
-        $this->days = Task::whereYear('created_at', $y)
+        $this->days = MaterialStock::whereYear('created_at', $y)
             ->whereMonth('created_at', $m)
             ->selectRaw('day(created_at) day')
             ->distinct()
@@ -75,7 +75,7 @@ trait CalendarTrait
 
     public function getData()
     {
-        $this->day = Task::where('created_at', $this->datestr)
+        $this->day = MaterialStock::where('created_at', $this->datestr)
             ->first();
     }
 

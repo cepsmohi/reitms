@@ -46,7 +46,7 @@ class Sealcreate extends Component
             ]);
             session()->flash('success', 'Adding seal… please wait.');
         }
-        return redirect()->to('/seals');
+        return redirect()->route('seals');
     }
 
     public function render()

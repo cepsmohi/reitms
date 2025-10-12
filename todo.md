@@ -19,12 +19,12 @@
 
 ## Materials inventory
 
-- [ ] Create Material Code
-- [ ] Entry MIV
+- [x] Create Material Code
+- [x] Entry MIV
 
 ## Meters
 
-- [ ] Meter List
+- [x] Meter List
 - [ ] Edit Meter
 - [ ] Entry Details
 

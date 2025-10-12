@@ -53,6 +53,21 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
+    public function materials()
+    {
+        return $this->hasMany(Material::class);
+    }
+
+    public function materialstocks()
+    {
+        return $this->hasMany(MaterialStock::class);
+    }
+
+    public function meters()
+    {
+        return $this->hasMany(Meter::class);
+    }
+
     protected function casts(): array
     {
         return [

@@ -8,13 +8,15 @@ use Livewire\Component;
 class Materialcreate extends Component
 {
     public $href = null, $routeName;
-    public $name, $code, $address;
+    public $name, $code, $unit;
 
     public function mount()
     {
         $this->href = url()->previous();
         $previousRequest = Request::create($this->href);
-        $previousRoute = app('router')->getRoutes()->match($previousRequest);
+        $previousRoute = app('router')
+            ->getRoutes()
+            ->match($previousRequest);
         $this->routeName = $previousRoute->getName();
     }
 
@@ -23,13 +25,11 @@ class Materialcreate extends Component
         $data = $this->validate([
             'name' => 'required',
             'code' => 'required',
-            'address' => 'required',
+            'unit' => 'required',
         ]);
-        $material = cusr()->materials()->create($data);
+        $data['unit'] = strtolower($this->unit);
+        cusr()->materials()->create($data);
         session()->flash('success', 'Material creating.. please wait.');
-        if ($this->routeName != 'materials') {
-            return redirect($this->href.'&material_id='.$material->id);
-        }
         return redirect()->route('materials');
     }
 

@@ -17,6 +17,13 @@ class Material extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getStockAttribute()
+    {
+        $in = $this->stocks->sum('stock_in');
+        $out = $this->stocks->sum('stock_out');
+        return $in - $out;
+    }
+
     public function stocks()
     {
         return $this->hasMany(MaterialStock::class);

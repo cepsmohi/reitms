@@ -6,9 +6,8 @@
     @if (isset($wireconfirm)) wire:confirm="{{ $wireconfirm }}" @endif
     @if (isset($aclick)) @click="{{ $aclick }}" @endif
     @class([
-        'cursor-pointer overflow-hidden',
-        $color ?? '',
-        $rounded ?? 'rounded-full'
+        $color ?? 'bg-gray-200 dark:bg-gray-500 hover:bg-gray-300',
+        'block rounded-xl cursor-pointer'
     ])
     title="{{ $title ?? '' }}"
 >

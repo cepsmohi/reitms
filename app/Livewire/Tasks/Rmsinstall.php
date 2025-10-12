@@ -3,12 +3,12 @@
 namespace App\Livewire\Tasks;
 
 use App\Models\Task;
-use App\Traits\CalendarTrait;
+use App\Traits\TaskCalendarTrait;
 use Livewire\Component;
 
 class Rmsinstall extends Component
 {
-    use CalendarTrait;
+    use TaskCalendarTrait;
 
     public function mount()
     {
