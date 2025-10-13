@@ -18,15 +18,16 @@
         </div>
         <div class="frows gap-2">
             <x-ui.icon icon="location"/>
-            <div>{{ $seal->task->customer->address }}</div>
+            <div>{{ $seal->task->customer->detail->address }}</div>
         </div>
 
         <div class="mt-4">
-            @if($seal->rmsInstallDetails) @endif
-            <div class="fcols gap-0">
-                <div class="stitle text-grad">Seal Position</div>
-                <div class="uppercase">{{ $seal->rmsInstallDetail->type }}</div>
-            </div>
+            @if($seal->sealRegister)
+                <div class="fcols gap-0">
+                    <div class="stitle text-grad">Seal Position</div>
+                    <div class="uppercase">{{ $seal->sealRegister->position }}</div>
+                </div>
+            @endif
         </div>
 
         <div class="mt-4 fcols gap-0">

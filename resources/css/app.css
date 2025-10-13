@@ -109,6 +109,14 @@ input.inputcss ~ span.placeholder {
     padding-right: 10px
 }
 
+.truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media print {
     .leaflet-control-zoom,
     .leaflet-bar.leaflet-control,

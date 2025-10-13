@@ -47,7 +47,9 @@
         />
         <x-tasks.rmsinstall.details.approvalstatus :$task/>
     </div>
-    <div class="hidden print:block">
-        <x-tasks.printable :$task/>
-    </div>
+    @if($task->isApproved())
+        <div class="hidden print:block">
+            <x-tasks.printable :$task/>
+        </div>
+    @endif
 </div>

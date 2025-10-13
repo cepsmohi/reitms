@@ -24,10 +24,10 @@
         @php
             $detail = $customer->detail;
         @endphp
-        <p><strong>Address:</strong> {{ $customer->detail->address }}</p>
+        <p><strong>Address:</strong> {{ $customer->detail->address ?? '' }}</p>
         <div class="frows gap-2">
             <p><strong>Zone:</strong> {{ $customer->zone }}</p>
-            <p><strong>Load (hr):</strong> {{ number_format($detail->hourly_load, 2) }} m<sup>3</sup></p>
+            {{--            <p><strong>Load (hr):</strong> {{ number_format($detail->hourly_load, 2) ?? '' }} m<sup>3</sup></p>--}}
         </div>
     </div>
 

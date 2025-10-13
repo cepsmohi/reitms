@@ -5,7 +5,7 @@
             $comment = $task->comment;
         @endphp
         @if($comment)
-            <p>
+            <p class="truncate-text">
                 {{ $comment->text }}
             </p>
         @endif

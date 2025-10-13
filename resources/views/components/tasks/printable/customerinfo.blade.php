@@ -9,7 +9,7 @@
     </div>
     <div class="frows gap-2">
         <div>
-            <strong>Address:</strong> {{ $task->customer->detail->address }}
+            <strong>Address:</strong> {{ $task->customer->detail->address ?? '' }}
         </div>
     </div>
 </div>

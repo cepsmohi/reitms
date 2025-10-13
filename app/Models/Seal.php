@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Seal extends Model
 {
@@ -18,7 +17,7 @@ class Seal extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function sealRegisters(): HasMany
+    public function sealRegister()
     {
         return $this->hasOne(SealRegister::class);
     }
@@ -32,7 +31,7 @@ class Seal extends Model
     {
         return $this->hasOneThrough(
             Task::class,              // final model
-            RmsInstallDetail::class,  // through model
+            SealRegister::class,  // through model
             'seal_id',                // FK on details -> seals
             'id',                     // FK on tasks (local key on tasks)
             'id',                     // local key on seals
