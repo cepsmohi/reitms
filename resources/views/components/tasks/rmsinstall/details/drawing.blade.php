@@ -7,14 +7,13 @@
         <div class="mt-2 frows flex-wrap gap-4">
             <div class="relative group">
                 <div
-                    target="_blank"
                     class="block w-64 overflow-hidden rounded-2xl border-2"
                 >
-                    <object
+                    <iframe
+                        src="{{ asset('storage/'.$drawing->link) }}#toolbar=1"
+                        allow="fullscreen"
                         class="w-full"
-                        type="application/pdf"
-                        data="{{ asset('storage/'.$drawing->link) }}"
-                    ></object>
+                    ></iframe>
                 </div>
                 @if($task->isReporting())
                     <div class="adbr hidden group-hover:flex">

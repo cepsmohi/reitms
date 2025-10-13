@@ -233,4 +233,12 @@ class Task extends Model
     {
         return $this->hasOne(AssignRegulator::class);
     }
+
+    public function getTitleAttribute()
+    {
+        if ($this->type == 'rms install') {
+            return 'New RMS Installation';
+        }
+        return $this->type;
+    }
 }
