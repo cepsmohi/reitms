@@ -44,14 +44,18 @@
         - [x] Upload Drawing
         - [x] Assign Meter
             - [ ] Changing Meter
+            - [ ] Task Values for Meter Reading
         - [x] Assign Regulator
+            - [ ] Changing Regulator
+            - [ ] Task Values for Pressure Data
         - [x] Entry Security Seals
             - [x] Stop modification after checking
-        - [ ] Used Materials
-            - [ ] Reduce Inventory Count
+        - [x] Used Materials
+            - [x] Reduce Inventory Count
         - [x] Add Photos
             - [x] Stop Deleting after checking
         - [x] Approval
+        - [ ] Print Option
     - [ ] Maintenance RMS
         - [ ] Strainer Cleaning
         - [ ] Regulator Change
