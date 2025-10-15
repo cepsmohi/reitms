@@ -9,7 +9,7 @@
             $diaTxt = '"Ø';
         @endphp
         <x-ui.tagvalue tag="Size" :value="$task->meter->diameter" :symbol="$diaTxt"/>
-        {{--        <x-tasks.rmsinstall.details.meterinfo.readings/>--}}
+        <x-tasks.rmsinstall.details.meterinfo.readings :$task/>
     @else
         <x-tasks.rmsinstall.details.meterinfo.assignform
             :$meterSerialNumber

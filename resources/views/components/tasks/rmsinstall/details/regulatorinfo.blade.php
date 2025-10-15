@@ -9,7 +9,7 @@
             $diaTxt = '"Ø';
         @endphp
         <x-ui.tagvalue tag="Size" :value="$task->regulator->diameter" :symbol="$diaTxt"/>
-        {{--        <x-tasks.rmsinstall.details.regulatorinfo.pressuredata/>--}}
+        <x-tasks.rmsinstall.details.regulatorinfonfo.pressuredata :$task/>
     @else
         <x-tasks.rmsinstall.details.regulatorinfo.assignform
             :$regulatorSerialNumber

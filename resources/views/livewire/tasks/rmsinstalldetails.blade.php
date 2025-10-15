@@ -46,6 +46,8 @@
             :$quantity
         />
         <x-tasks.rmsinstall.details.approvalstatus :$task/>
+        <x-tasks.addvalueform :$task :$addValueForm :$field :$value/>
+        <x-tasks.editvalueform :$task :$editValueForm :$field :$value/>
     </div>
     @if($task->isApproved())
         <div class="hidden print:block">

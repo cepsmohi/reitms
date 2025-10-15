@@ -241,4 +241,20 @@ class Task extends Model
         }
         return $this->type;
     }
+
+    public function getValue($field)
+    {
+        $data = $this->taskValues()->where('field', $field)->first();
+        return $data ? $data->value : null;
+    }
+
+    public function taskValues()
+    {
+        return $this->hasMany(TaskValue::class);
+    }
+
+    public function getTaskValue($field)
+    {
+        return $this->taskValues()->where('field', $field)->first();
+    }
 }

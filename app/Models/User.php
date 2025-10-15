@@ -73,6 +73,11 @@ class User extends Authenticatable
         return $this->hasMany(Regulator::class);
     }
 
+    public function taskValues()
+    {
+        return $this->hasMany(TaskValue::class);
+    }
+
     protected function casts(): array
     {
         return [

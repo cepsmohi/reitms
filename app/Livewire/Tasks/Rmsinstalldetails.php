@@ -12,6 +12,7 @@ use App\Traits\PhotoTrait;
 use App\Traits\RegulatorTrait;
 use App\Traits\SealingTrait;
 use App\Traits\TaskTrait;
+use App\Traits\ValueTrait;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -26,6 +27,7 @@ class Rmsinstalldetails extends Component
     use RegulatorTrait;
     use SealingTrait;
     use TaskTrait;
+    use ValueTrait;
 
     public $task;
 
