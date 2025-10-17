@@ -5,6 +5,7 @@
 - [x] Customer List
 - [x] Create Customer
 - [x] Edit Customer
+    - [ ] Edit Customer Detail
 - [x] Customer Task List
 - [ ] Location Table
     - [ ] Map
@@ -43,11 +44,12 @@
         - [x] Assign Customer
         - [x] Upload Drawing
         - [x] Assign Meter
-            - [ ] Changing Meter
-            - [ ] Task Values for Meter Reading
+    - [ ] Auto to used material
+      - [ ] Changing Meter
+      - [x] Task Values for Meter Reading
         - [x] Assign Regulator
             - [ ] Changing Regulator
-            - [ ] Task Values for Pressure Data
+            - [x] Task Values for Pressure Data
         - [x] Entry Security Seals
             - [x] Stop modification after checking
         - [x] Used Materials
@@ -55,7 +57,7 @@
         - [x] Add Photos
             - [x] Stop Deleting after checking
         - [x] Approval
-        - [ ] Print Option
+        - [x] Print Option
     - [ ] Maintenance RMS
         - [ ] Strainer Cleaning
         - [ ] Regulator Change
@@ -64,6 +66,10 @@
 ## Report
 
 ## Files Cabinet
+
+- [ ] Add files
+    - [ ] filter/tag by Customer
+    - [ ] by category
 
 ## Users Control
 

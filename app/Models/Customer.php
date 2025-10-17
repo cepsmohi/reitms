@@ -23,13 +23,7 @@ class Customer extends Model
 
     public function getDetailAttribute()
     {
-        return $this->details->first();
-    }
-
-    public function details()
-    {
-        return $this->hasMany(CustomerDetail::class, 'customer_code', 'code')
-            ->latest();
+        return CustomerDetail::where('customer_code', $this->code)->first();
     }
 
     public function tasks()

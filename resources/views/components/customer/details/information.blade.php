@@ -18,7 +18,7 @@
     </div>
     <div class="">{{ $customer->address }}</div>
     @php
-        $detail = $customer->detail->first();
+        $detail = $customer->detail;
     @endphp
     @if($detail)
         <div class="frow gap-2 md:gap-4 flex-wrap items-stretch">
