@@ -30,4 +30,9 @@ class Customer extends Model
     {
         return $this->hasMany(Task::class)->latest();
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 }

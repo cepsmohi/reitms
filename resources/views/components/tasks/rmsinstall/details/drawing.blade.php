@@ -10,7 +10,7 @@
                     class="block w-64 overflow-hidden rounded-2xl border-2"
                 >
                     <iframe
-                        src="{{ asset('storage/'.$drawing->link) }}#toolbar=1"
+                        src="{{ asset('uploads/'.$drawing->link) }}#toolbar=1"
                         allow="fullscreen"
                         class="w-full"
                     ></iframe>
@@ -30,7 +30,7 @@
         </div>
         <div class="my-2 frows">
             <a
-                href="{{ asset('storage/'.$drawing->link) }}"
+                href="{{ asset('uploads/'.$drawing->link) }}"
                 target="_blank"
                 class="alink text-green-500"
             >

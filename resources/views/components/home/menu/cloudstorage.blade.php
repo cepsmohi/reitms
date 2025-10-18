@@ -4,6 +4,7 @@
     footer="Cabinet"
     :color="cssbg('yellow')"
     icon="cabinet.png"
+    :href="route('files')"
 />
 
 

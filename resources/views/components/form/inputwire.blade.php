@@ -1,6 +1,3 @@
-@isset($hints)
-    <div class="w-full text-xs frowe">ex. {{ $hints }}</div>
-@endisset
 <div class="{{ $hidden ?? '' }} {{ $width ?? 'w-full' }} {{ $mb ?? 'mb-4' }} relative">
     <input
         class="@error($name) bg-red-200 @enderror inputcss {{ $uppercase ?? '' }}"
@@ -32,6 +29,9 @@
     <span class="placeholder pointer-events-none absolute left-0 ml-12 text-base text-gray-400 transition duration-300">
         {{ $placeholder ?? '' }}
     </span>
+    @isset($hints)
+        <div class="w-full pl-12 text-xs frows text-green-700 dark:text-green-400">ex. {{ $hints }}</div>
+    @endisset
     @error($name)
     <div class="py-2 w-full frows flex-wrap text-left text-xs text-red-700">
         {{ $message }}

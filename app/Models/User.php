@@ -78,6 +78,11 @@ class User extends Authenticatable
         return $this->hasMany(TaskValue::class);
     }
 
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
+
     protected function casts(): array
     {
         return [

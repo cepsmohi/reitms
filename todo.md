@@ -45,19 +45,20 @@
         - [x] Upload Drawing
         - [x] Assign Meter
     - [ ] Auto to used material
-      - [ ] Changing Meter
-      - [x] Task Values for Meter Reading
-        - [x] Assign Regulator
-            - [ ] Changing Regulator
-            - [x] Task Values for Pressure Data
-        - [x] Entry Security Seals
-            - [x] Stop modification after checking
-        - [x] Used Materials
-            - [x] Reduce Inventory Count
-        - [x] Add Photos
-            - [x] Stop Deleting after checking
-        - [x] Approval
-        - [x] Print Option
+        - [ ] Changing Meter
+        - [x] Task Values for Meter Reading
+            - [x] Assign Regulator
+                - [ ] Changing Regulator
+                - [x] Task Values for Pressure Data
+            - [x] Entry Security Seals
+                - [x] Stop modification after checking
+            - [x] Used Materials
+                - [x] Reduce Inventory Count
+            - [x] Add Photos
+                - [x] Stop Deleting after checking
+            - [x] Approval
+            - [x] Print Option
+    - [ ] Meter Testing
     - [ ] Maintenance RMS
         - [ ] Strainer Cleaning
         - [ ] Regulator Change
@@ -67,8 +68,8 @@
 
 ## Files Cabinet
 
-- [ ] Add files
-    - [ ] filter/tag by Customer
+- [x] Add files
+    - [x] filter/tag by Customer
     - [ ] by category
 
 ## Users Control

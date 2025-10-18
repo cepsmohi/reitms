@@ -8,4 +8,5 @@
         :$customerCode
     />
     <x-customer.details.tasklist :$customer/>
+    <x-customer.details.files :$customer/>
 </div>
