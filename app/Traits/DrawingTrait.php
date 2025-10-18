@@ -28,7 +28,7 @@ trait DrawingTrait
             'drawings' => 'required'
         ]);
         foreach ($this->drawings as $drawing) {
-            $filename = $drawing->store('drawings/'.$this->task->id, 'public');
+            $filename = $drawing->store('drawings/'.$this->task->id, 'uploads');
             $this->task->drawing()->create([
                 'link' => $filename
             ]);
@@ -45,8 +45,8 @@ trait DrawingTrait
 
     public function deleteDrawingConfirm()
     {
-        if (Storage::disk('public')->exists($this->drawing->link)) {
-            Storage::disk('public')->delete($this->drawing->link);
+        if (Storage::disk('uploads')->exists($this->drawing->link)) {
+            Storage::disk('uploads')->delete($this->drawing->link);
         }
         $this->drawing?->delete();
 

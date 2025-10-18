@@ -28,7 +28,7 @@ trait PhotoTrait
             'photos' => 'required'
         ]);
         foreach ($this->photos as $photo) {
-            $filename = $photo->store('photos/'.$this->task->id, 'public');
+            $filename = $photo->store('photos/'.$this->task->id, 'uploads');
             $this->task->photos()->create([
                 'link' => $filename
             ]);
@@ -45,8 +45,8 @@ trait PhotoTrait
 
     public function deletePhotoConfirm()
     {
-        if (Storage::disk('public')->exists($this->photo->link)) {
-            Storage::disk('public')->delete($this->photo->link);
+        if (Storage::disk('uploads')->exists($this->photo->link)) {
+            Storage::disk('uploads')->delete($this->photo->link);
         }
         $this->photo?->delete();
 
