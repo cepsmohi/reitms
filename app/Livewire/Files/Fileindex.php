@@ -12,15 +12,23 @@ class Fileindex extends Component
     use WithPagination;
     use SearchTrait;
 
+    public $filterBy = '';
+
+    public function setFilterBy($tag)
+    {
+        return $this->filterBy = $tag;
+    }
+
     public function render()
     {
-        $files = File::latest()
-            ->paginate(20);
+        $query = File::query();
         if ($this->search != '') {
-            $files = File::query()
-                ->where('name', 'like', "%{$this->search}%")
-                ->paginate(20);
+            $query->where('name', 'like', "%{$this->search}%");
         }
+        if ($this->filterBy != '') {
+            $query->where('tags', $this->filterBy);
+        }
+        $files = $query->paginate(20);
         return view('livewire.files.fileindex', compact('files'));
     }
 }
