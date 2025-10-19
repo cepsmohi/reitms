@@ -92,6 +92,11 @@ class User extends Authenticatable
         return $this->hasMany(File::class);
     }
 
+    public function detail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
+
     protected function casts(): array
     {
         return [

@@ -18,15 +18,15 @@
     </div>
 
     <!-- Body -->
-    <div class="relative px-4 py-3 space-y-2 text-sm">
-        <div class="adtr">
-            <img class="w-36" src="{{ $user->image }}" alt="">
+    <div class="relative px-4 py-3 frowb text-sm">
+        <div class="w-full fcols gap-2">
+            <p><strong>Designation:</strong> {{ $user->designation }}</p>
+            <p><strong>Code:</strong> {{ $user->code }}</p>
+            <p><strong>Phone:</strong> {{ $user->phone_number }}</p>
+            <p><strong>Email:</strong> {{ $user->email }}</p>
+            <p><strong>Status:</strong> {{ $user->status }}</p>
         </div>
-        <p><strong>Designation:</strong> {{ $user->designation }}</p>
-        <p><strong>Code:</strong> {{ $user->code }}</p>
-        <p><strong>Phone:</strong> {{ $user->phone_number }}</p>
-        <p><strong>Email:</strong> {{ $user->email }}</p>
-        <p><strong>Status:</strong> {{ $user->status }}</p>
+        <img class="w-32 rounded-full" src="{{ $user->image }}" alt="">
     </div>
 
     <!-- Footer / Actions -->

@@ -5,12 +5,14 @@ namespace App\Livewire\Users;
 use App\Models\User;
 use App\Traits\UserphotoTrait;
 use App\Traits\UserstatusTrait;
+use App\Traits\UservalueTrait;
 use Livewire\Component;
 
 class Useredit extends Component
 {
-    use UserstatusTrait;
     use UserphotoTrait;
+    use UserstatusTrait;
+    use UservalueTrait;
 
     public $user;
 

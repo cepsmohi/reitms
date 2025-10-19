@@ -6,7 +6,27 @@
         :$user
         :$userStatusForm
         :$userPhotoForm
+        :$userValueChangeForm
         :$photos
         :$pic
     />
+    @if($userValueChangeForm)
+        @teleport('body')
+        <x-form.form-modal
+            :$formTitle
+            formId="changeUserValueForm"
+            formCondition="userValueChangeForm"
+            :submitCondition="true"
+            :$submitFun
+            submitIcon="refresh"
+            submitTag="Update"
+        >
+            <x-form.inputwire
+                :name="$field"
+                :$placeholder
+                :$icon
+            />
+        </x-form.form-modal>
+        @teleport('body')
+    @endif
 </div>
