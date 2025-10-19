@@ -1,0 +1,20 @@
+@if($userPhotoForm)
+    @teleport('body')
+    <x-form.form-modal
+        formTitle="Change Photo"
+        formId="changeUserPhotoForm"
+        formCondition="userPhotoForm"
+        :submitCondition="true"
+        submitFun="updatePhoto"
+        submitIcon="refresh"
+        submitTag="Update"
+        enctype="multipart/form-data"
+    >
+        <x-form.upload-photo
+            :$user
+            :$pic
+            wiretarget="updatePhoto"
+        />
+    </x-form.form-modal>
+    @teleport('body')
+@endif

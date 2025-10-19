@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -28,26 +29,22 @@ class User extends Authenticatable
 
     public function getImageAttribute()
     {
-        $defaultImage = asset('images/icon/user.svg');
-        $imageExists = false;
-        $file = null;
-        if ($this->pic) {
-            $file = 'images/public/avatars/'.$this->pic;
-            $imageExists = file_exists($file);
+        if ($this->pic && Storage::disk('uploads')->exists($this->pic)) {
+            return asset('uploads/'.$this->pic);
         }
-        return $imageExists ? asset($file) : $defaultImage;
+        return asset('images/icon/user.svg');
     }
 
     public function getSignatureAttribute()
     {
-        $defaultImage = asset('images/icon/signature.jpg');
-        $imageExists = false;
-        $file = null;
-        if ($this->pic) {
-            $file = 'images/public/avatars/'.$this->pic;
-            $imageExists = file_exists($file);
+        if (
+            $this->detail &&
+            $this->detail->signature &&
+            Storage::disk('uploads')->exists($this->detail->signature)
+        ) {
+            return asset('uploads/'.$this->detail->signature);
         }
-        return $imageExists ? asset($file) : $defaultImage;
+        return asset('images/icon/signature.jpg');
     }
 
     public function seals()
