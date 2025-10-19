@@ -38,6 +38,18 @@ class User extends Authenticatable
         return $imageExists ? asset($file) : $defaultImage;
     }
 
+    public function getSignatureAttribute()
+    {
+        $defaultImage = asset('images/icon/signature.jpg');
+        $imageExists = false;
+        $file = null;
+        if ($this->pic) {
+            $file = 'images/public/avatars/'.$this->pic;
+            $imageExists = file_exists($file);
+        }
+        return $imageExists ? asset($file) : $defaultImage;
+    }
+
     public function seals()
     {
         return $this->hasMany(Seal::class);

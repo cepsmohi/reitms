@@ -1,4 +1,4 @@
-<div class="fcols relative overflow-hidden">
+<div class="fcols relative overflow-hidden group">
     <div
         class="block w-64 overflow-hidden rounded-xl relative"
     >
@@ -32,11 +32,12 @@
     >
     </a>
     @can('admin', cusr())
-        <div class="mt-2">
+        <div class="hidden adbr bottom-6 group-hover:block">
             <x-ui.awiretag
-                wireclick="openPhotoForm"
-                icon="photo"
-                tag="Add Photos"
+                wireclick="deleteFile({{ $file->id }})"
+                icon="trash"
+                tag="Delete"
+                color="bg-red-300 hover:bg-red-600 hover:text-white"
             />
         </div>
     @endcan

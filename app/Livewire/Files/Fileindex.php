@@ -19,6 +19,11 @@ class Fileindex extends Component
         return $this->filterBy = $tag;
     }
 
+    public function deleteFile()
+    {
+
+    }
+
     public function render()
     {
         $query = File::query();

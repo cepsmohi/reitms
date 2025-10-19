@@ -70,7 +70,8 @@
 
 - [x] Add files
     - [x] filter/tag by Customer
-    - [ ] by category
+    - [x] by category
+    - [ ] delete by admin
 
 ## Users Control
 

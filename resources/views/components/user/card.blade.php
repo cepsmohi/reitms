@@ -30,12 +30,14 @@
     </div>
 
     <!-- Footer / Actions -->
-    <div
-        class="p-2 adbr rounded-2xl hidden group-hover:flex frowe gap-2 bg-gray-200"
-    >
-        <x-ui.ahref
-            href="#"
-            icon="edit"
-        />
-    </div>
+    @can('admin', cusr())
+        <div
+            class="p-1 adbr rounded-2xl hidden group-hover:flex frowe gap-2 bg-gray-200"
+        >
+            <x-ui.ahref
+                :href="route('users.edit', $user)"
+                icon="edit"
+            />
+        </div>
+    @endcan
 </div>
