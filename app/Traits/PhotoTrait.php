@@ -49,7 +49,6 @@ trait PhotoTrait
             Storage::disk('uploads')->delete($this->photo->link);
         }
         $this->photo?->delete();
-
         $this->photo = null;
         return $this->deletePhotoForm = false;
     }
