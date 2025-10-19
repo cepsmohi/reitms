@@ -15,6 +15,6 @@
                         )"
         @endcan
     >
-        {{ $user->detail->name }}
+        {{ $user->detail->name ?? 'Set Official Name' }}
     </div>
 </div>

@@ -71,12 +71,12 @@
 - [x] Add files
     - [x] filter/tag by Customer
     - [x] by category
-    - [ ] delete by admin
+    - [x] delete by admin
 
 ## Users Control
 
 - [x] Users List
 - [x] Create User
-- [ ] Edit User
+- [x] Edit User
 - [ ] Update Profile
 - [ ] Change Password
