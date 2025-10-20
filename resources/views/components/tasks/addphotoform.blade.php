@@ -12,7 +12,7 @@
     <x-form.upload-photos
         :$photos
         name="photos"
-        wireSubmit="uploadPhoto"
+        wireSubmit="updatingPhotos"
         :inputTagSelected="$photos != null ? count($photos).' '.str_plural('photo',count($photos)).' selected' : ''"
     />
 </x-form.form-modal>

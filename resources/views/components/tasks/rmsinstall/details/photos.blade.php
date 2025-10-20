@@ -39,7 +39,7 @@
         <div class="mt-2">
             @if($task->isReporting())
                 <x-ui.awiretag
-                    wireclick="openPhotoForm"
+                    wireclick="$toggle('addPhotoForm')"
                     icon="photo"
                     tag="Add Photos"
                 />

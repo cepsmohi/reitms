@@ -1,29 +1,49 @@
 <div
-    x-data
+    x-data="{ uploading: false }"
+    x-on:livewire-upload-start="uploading = true"
+    x-on:livewire-upload-finish="uploading = false"
+    x-on:livewire-upload-error="uploading = false"
     class="w-full fcol relative mb-7"
 >
-    @if($photos != null)
-        <img
-            class="w-28 h-28 cursor-pointer"
-            id="imagediv"
-            src="{{ asset('images/icon/photogreen.svg') }}"
-            alt=""
-            wire:loading.remove
-            wire:target="{{ $wireSubmit }}"
-        />
+    <div
+        x-show="uploading"
+        class="w-full fcol cursor-pointer"
+    >
         <img
             class="w-28 h-28 {{ $roundcss ?? 'rounded-full' }}"
             src="{{ asset('images/icon/loading.gif') }}"
             alt=""
-            wire:loading
-            wire:target="{{ $wireSubmit }}"
         />
-        <div class="stitle text-green-400 w-full text-center">
-            {{ $inputTagSelected ?? 'Photo Selected' }}
+    </div>
+    @if($photos != null)
+        <div
+            x-show="!uploading"
+            class="w-full fcol cursor-pointer"
+            @click="document.getElementById('{{ $name }}').click()"
+        >
+            <img
+                class="w-28 h-28 cursor-pointer"
+                id="imagediv"
+                src="{{ asset('images/icon/photogreen.svg') }}"
+                alt=""
+                wire:loading.remove
+                wire:target="{{ $wireSubmit }}"
+            />
+            <img
+                class="w-28 h-28 {{ $roundcss ?? 'rounded-full' }}"
+                src="{{ asset('images/icon/loading.gif') }}"
+                alt=""
+                wire:loading
+                wire:target="{{ $wireSubmit }}"
+            />
+            <div class="stitle text-green-400 w-full text-center">
+                {{ $inputTagSelected ?? 'Photo Selected' }}
+            </div>
         </div>
     @else
         <div
-            class="cursor-pointer"
+            x-show="!uploading"
+            class="w-full fcol cursor-pointer"
             @click="document.getElementById('{{ $name }}').click()"
         >
             <img
@@ -33,9 +53,9 @@
                 alt=""
                 wire:loading.remove
                 wire:target="{{ $wireSubmit }}"
-
             />
-            <div class="stitle w-full text-center">{{ $inputTag ?? 'Select Photo' }}</div>
+            <div class="stitle w-full text-center">{{ $inputTag ?? 'Select Photos' }}</div>
+            <div class="w-full text-center text-xs">Total Size < 15MB</div>
         </div>
     @endif
     <input

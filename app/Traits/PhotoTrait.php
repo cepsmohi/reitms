@@ -12,16 +12,6 @@ trait PhotoTrait
     public array $photos = [];
     public $photo;
 
-    public function openPhotoForm()
-    {
-        $this->addPhotoForm = true;
-    }
-
-    public function closePhotoForm()
-    {
-        $this->addPhotoForm = false;
-    }
-
     public function uploadPhoto()
     {
         $this->validate([
