@@ -1,3 +1,32 @@
 <div>
-    {{-- If your happiness depends on money, you will never be happy with yourself. --}}
+    <x-ui.topbar/>
+    <x-user.profile.buttons/>
+    <x-ui.title title="Profile"/>
+    <x-user.profile.information
+        :$user
+        :$userPhotoForm
+        :$userValueChangeForm
+        :$photos
+        :$pic
+        :$userSignatureForm
+    />
+    @if($userValueChangeForm)
+        @teleport('body')
+        <x-form.form-modal
+            :$formTitle
+            formId="changeUserValueForm"
+            formCondition="userValueChangeForm"
+            :submitCondition="true"
+            :$submitFun
+            submitIcon="refresh"
+            submitTag="Update"
+        >
+            <x-form.inputwire
+                :name="$field"
+                :$placeholder
+                :$icon
+            />
+        </x-form.form-modal>
+        @teleport('body')
+    @endif
 </div>
