@@ -8,6 +8,7 @@
         :$userPhotoForm
         :$photos
         :$pic
+        :$userRoleForm
     />
     <x-user.edit.information.others :$user/>
     @if($user->detail)

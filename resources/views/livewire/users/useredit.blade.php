@@ -10,6 +10,7 @@
         :$photos
         :$pic
         :$userSignatureForm
+        :$userRoleForm
     />
     @if($userValueChangeForm)
         @teleport('body')

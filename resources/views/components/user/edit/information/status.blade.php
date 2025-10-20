@@ -26,7 +26,7 @@
             @foreach($statuses as $s)
                 @if($user->status != $s)
                     <div
-                        class="w-full submit-button bg-red-100"
+                        class="w-full submit-button bg-red-100 uppercase"
                         wire:click="setUserStatus('{{ $s }}')"
                     >
                         {{ $s }}

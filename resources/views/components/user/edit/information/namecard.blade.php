@@ -10,5 +10,8 @@
             <x-user.edit.information.namecard.officialname :$user/>
         </div>
     </div>
-    <x-user.edit.information.namecard.role :$user/>
+    <x-user.edit.information.namecard.role
+        :$user
+        :$userRoleForm
+    />
 </div>
