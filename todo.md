@@ -39,5 +39,4 @@
 
 ## Users Control
 
-- [ ] Update Profile
 - [ ] Change Password
