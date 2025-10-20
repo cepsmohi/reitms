@@ -6,17 +6,17 @@ use App\Models\User;
 
 class UserPolicy
 {
-    public function user(User $user)
+    public function admin(User $user)
     {
-        return $user->role === 'user' && $user->status === 'active';
+        return $user->role === 'admin' && $user->status === 'active';
     }
 
     public function checker(User $user)
     {
-        return in_array($user->role, ['user', 'checker']) && $user->status === 'active';
+        return in_array($user->role, ['checker', 'admin']) && $user->status === 'active';
     }
 
-    public function admin(User $user)
+    public function user(User $user)
     {
         return in_array($user->role, ['user', 'checker', 'admin']) && $user->status === 'active';
     }
