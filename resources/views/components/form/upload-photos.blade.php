@@ -39,6 +39,9 @@
             <div class="stitle text-green-400 w-full text-center">
                 {{ $inputTagSelected ?? 'Photo Selected' }}
             </div>
+            <div class="w-full text-center text-xs">
+                Total Size {{ number_format(($totalSize/(1024*1024)), 2) }}MB
+            </div>
         </div>
     @else
         <div

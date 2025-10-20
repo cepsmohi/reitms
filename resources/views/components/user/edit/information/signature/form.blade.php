@@ -13,7 +13,7 @@
         <x-form.upload-photo
             :$user
             :$pic
-            wiretarget="updateSignature"
+            wireSubmit="updateSignature"
             :$src
         />
     </x-form.form-modal>

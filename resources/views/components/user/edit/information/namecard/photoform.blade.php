@@ -13,7 +13,7 @@
         <x-form.upload-photo
             :$user
             :$pic
-            wiretarget="updatePhoto"
+            wireSubmit="updatePhoto"
             :$src
         />
     </x-form.form-modal>

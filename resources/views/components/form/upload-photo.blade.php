@@ -1,37 +1,60 @@
 <div class="w-full frow">
     <div
-        x-data
+        x-data="{ uploading: false }"
+        x-on:livewire-upload-start="uploading = true"
+        x-on:livewire-upload-finish="uploading = false"
+        x-on:livewire-upload-error="uploading = false"
         class="frow relative mb-7 {{ $width ?? 'w-28 md:w-44'}} {{ $roundcss ?? 'rounded-full' }} overflow-hidden"
     >
-        @isset($pic)
+        <div
+            x-show="uploading"
+            class="w-full fcol cursor-pointer"
+        >
             <img
-                class="{{ $roundcss ?? 'rounded-full' }} w-full  {{ $height ?? '' }} cursor-pointer shadow-2xl"
-                id="imagediv"
-                src="{{ $pic->temporaryUrl() }}"
-                alt=""
-                onerror="this.src='{{ asset($defaultpic ?? 'images/public/avatars/avatar.png') }}';"
-                wire:loading.remove
-                wire:target="{{ $wiretarget }}"
-                @click="document.getElementById('pic').click()"
-            />
-            <img
-                class="w-28 md:w-44   {{ $roundcss ?? 'rounded-full' }}"
+                class="{{ $width ?? 'w-28 md:w-44'}} {{ $roundcss ?? 'rounded-full' }}"
                 src="{{ asset('images/icon/loading.gif') }}"
                 alt=""
-                wire:loading
-                wire:target="{{ $wiretarget }}"
             />
-        @else
-            <img
-                class="{{ $roundcss ?? 'rounded-full' }} w-full  {{ $height ?? '' }} cursor-pointer shadow-2xl"
-                id="imagediv"
-                src="{{ $src }}"
-                alt=""
-                onerror="this.src='{{ asset($defaultpic ?? 'images/public/avatars/avatar.png') }}';"
-                wire:loading.remove
-                wire:target="{{ $wiretarget }}"
+        </div>
+        @isset($pic)
+            <div
+                x-show="!uploading"
+                class="w-full fcol cursor-pointer"
                 @click="document.getElementById('pic').click()"
-            />
+            >
+                <img
+                    class="{{ $width ?? 'w-28 md:w-44'}} {{ $roundcss ?? 'rounded-full' }}"
+                    id="imagediv"
+                    src="{{ $pic->temporaryUrl() }}"
+                    alt=""
+                    onerror="this.src='{{ asset($defaultpic ?? 'images/public/avatars/avatar.png') }}';"
+                    wire:loading.remove
+                    wire:target="{{ $wireSubmit }}"
+                />
+                <img
+                    class="{{ $width ?? 'w-28 md:w-44'}} {{ $roundcss ?? 'rounded-full' }}"
+                    src="{{ asset('images/icon/loading.gif') }}"
+                    alt=""
+                    wire:loading
+                    wire:target="{{ $wireSubmit }}"
+                />
+            </div>
+        @else
+            <div
+                x-show="!uploading"
+                class="w-full fcol cursor-pointer"
+                @click="document.getElementById('pic').click()"
+            >
+                <img
+                    class="{{ $width ?? 'w-28 md:w-44'}} {{ $roundcss ?? 'rounded-full' }}"
+                    id="imagediv"
+                    src="{{ $src }}"
+                    alt=""
+                    onerror="this.src='{{ asset($defaultpic ?? 'images/public/avatars/avatar.png') }}';"
+                    wire:loading.remove
+                    wire:target="{{ $wireSubmit }}"
+                />
+            </div>
         @endisset
         <input
             id="pic"

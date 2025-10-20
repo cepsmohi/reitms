@@ -14,6 +14,7 @@
         name="photos"
         wireSubmit="updatingPhotos"
         :inputTagSelected="$photos != null ? count($photos).' '.str_plural('photo',count($photos)).' selected' : ''"
+        :$totalSize
     />
 </x-form.form-modal>
 @teleport('body')

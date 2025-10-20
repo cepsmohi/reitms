@@ -26,7 +26,7 @@ trait UservalueTrait
         $this->phone_number = $this->user->phone_number;
         $this->designation = $this->user->designation;
         $this->code = $this->user->code;
-        $this->userValueChangeForm = true;
+        return $this->userValueChangeForm = true;
     }
 
     public function setUserValue()
@@ -55,7 +55,7 @@ trait UservalueTrait
             $data = $this->validate($rules);
             $this->user->update($data);
         }
-        $this->userValueChangeForm = false;
+        return $this->userValueChangeForm = false;
     }
 
 

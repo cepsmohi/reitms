@@ -12,6 +12,14 @@ trait PhotoTrait
     public array $photos = [];
     public $photo;
 
+    public $totalSize = 0; // in bytes
+
+    public function updatedPhotos()
+    {
+        $this->totalSize = collect($this->photos)
+            ->sum(fn($photo) => $photo->getSize());
+    }
+
     public function uploadPhoto()
     {
         $this->validate([

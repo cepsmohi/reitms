@@ -48,7 +48,10 @@
     @endif
 </div>
 @if($addPhotoForm)
-    <x-tasks.addphotoform :$photos/>
+    <x-tasks.addphotoform
+        :$photos
+        :$totalSize
+    />
 @endif
 @if($deletePhotoForm)
     <x-tasks.deletephotoform/>

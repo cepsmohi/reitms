@@ -37,6 +37,7 @@
             :$addPhotoForm
             :$deletePhotoForm
             :$photos
+            :$totalSize
         />
         <x-tasks.rmsinstall.details.usedmaterials
             :$task
