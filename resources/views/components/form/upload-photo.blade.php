@@ -25,7 +25,7 @@
             <img
                 class="{{ $roundcss ?? 'rounded-full' }} w-full  {{ $height ?? '' }} cursor-pointer shadow-2xl"
                 id="imagediv"
-                src="{{ $user->image }}"
+                src="{{ $src }}"
                 alt=""
                 onerror="this.src='{{ asset($defaultpic ?? 'images/public/avatars/avatar.png') }}';"
                 wire:loading.remove

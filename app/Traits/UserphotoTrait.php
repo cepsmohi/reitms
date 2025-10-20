@@ -18,14 +18,12 @@ trait UserphotoTrait
         if (!$this->pic) {
             return;
         }
-
         if ($this->user->pic && Storage::disk('uploads')->exists($this->user->pic)) {
             Storage::disk('uploads')->delete($this->user->pic);
         }
-
         $link = $this->pic->store('avatars', 'uploads');
         $this->user->update(['pic' => $link]);
-
+        $this->pic = null;
         $this->userPhotoForm = false;
     }
 

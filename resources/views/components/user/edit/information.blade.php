@@ -10,5 +10,11 @@
         :$pic
     />
     <x-user.edit.information.others :$user/>
-    <x-user.edit.information.signature :$user/>
+    @if($user->detail)
+        <x-user.edit.information.signature
+            :$user
+            :$userSignatureForm
+            :$pic
+        />
+    @endif
 </div>

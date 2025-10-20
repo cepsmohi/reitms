@@ -14,5 +14,6 @@
         :$user
         :$userPhotoForm
         :$pic
+        :src="$user->image"
     />
 </div>

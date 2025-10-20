@@ -9,6 +9,7 @@
         :$userValueChangeForm
         :$photos
         :$pic
+        :$userSignatureForm
     />
     @if($userValueChangeForm)
         @teleport('body')

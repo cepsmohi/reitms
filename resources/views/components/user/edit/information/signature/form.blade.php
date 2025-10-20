@@ -1,11 +1,11 @@
-@if($userPhotoForm)
+@if($userSignatureForm)
     @teleport('body')
     <x-form.form-modal
-        formTitle="Change Photo"
-        formId="changeUserPhotoForm"
-        formCondition="userPhotoForm"
+        formTitle="Change Signature"
+        formId="changeUserSignatureForm"
+        formCondition="userSignatureForm"
         :submitCondition="true"
-        submitFun="updatePhoto"
+        submitFun="updateSignature"
         submitIcon="refresh"
         submitTag="Update"
         enctype="multipart/form-data"
@@ -13,7 +13,7 @@
         <x-form.upload-photo
             :$user
             :$pic
-            wiretarget="updatePhoto"
+            wiretarget="updateSignature"
             :$src
         />
     </x-form.form-modal>

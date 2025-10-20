@@ -16,6 +16,16 @@ trait UservalueTrait
         $this->field = $field;
         $this->placeholder = $placeholder;
         $this->icon = $icon;
+        if ($submitFun == 'setUserValue') {
+            $this->name = $this->user->name;
+        }
+        if ($submitFun == 'setUserDetailValue') {
+            $this->name = $this->user->detail->name ?? '';
+        }
+        $this->email = $this->user->email;
+        $this->phone_number = $this->user->phone_number;
+        $this->designation = $this->user->designation;
+        $this->code = $this->user->code;
         $this->userValueChangeForm = true;
     }
 

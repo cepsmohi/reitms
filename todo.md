@@ -66,6 +66,9 @@
 
 ## Report
 
+- [ ] Monthly Report
+- [ ] Leader Board
+
 ## Files Cabinet
 
 - [x] Add files
