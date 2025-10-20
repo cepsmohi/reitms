@@ -19,6 +19,11 @@ class Filecreate extends Component
         $this->published = now()->format('Y-m-d');
     }
 
+    public function updatedFile()
+    {
+        $this->name = pathinfo($this->file->getClientOriginalName(), PATHINFO_FILENAME);
+    }
+
     public function selectTag($tag)
     {
         $this->tags = $tag;
@@ -41,8 +46,8 @@ class Filecreate extends Component
             }
         }
         $link = '';
-        foreach ($this->file as $f) {
-            $link = $f->store('files/'.str_replace('-', '', $data['published']), 'uploads');
+        if ($this->file != null) {
+            $link = $this->file->store('files/'.str_replace('-', '', $data['published']), 'uploads');
         }
         cusr()->files()->create([
             'customer_id' => $customer_id ?? null,
