@@ -1,6 +1,6 @@
 <div
     x-data
-    class="fcol relative mb-7"
+    class="w-full fcol relative mb-7"
 >
     @if($photos != null)
         <img
@@ -18,7 +18,9 @@
             wire:loading
             wire:target="{{ $wireSubmit }}"
         />
-        <div class="stitle text-green-400 w-full text-center">{{ $inputTagSelected ?? 'Photo Selected' }}</div>
+        <div class="stitle text-green-400 w-full text-center">
+            {{ $inputTagSelected ?? 'Photo Selected' }}
+        </div>
     @else
         <div
             class="cursor-pointer"
@@ -40,7 +42,7 @@
         id="{{ $name }}"
         type="file"
         wire:model="{{ $name }}"
-        accept=".pdf"
+        accept="{{ $filetypes ?? 'image/png, image/jpeg, image/jpg, image/webp' }}"
         placeholder="{{ $inputTag ?? 'Select Photo' }}"
         multiple
         hidden
