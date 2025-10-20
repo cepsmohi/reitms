@@ -1,39 +1,62 @@
 <div
-    x-data
-    class="fcol relative mb-7"
+    x-data="{ uploading: false }"
+    x-on:livewire-upload-start="uploading = true"
+    x-on:livewire-upload-finish="uploading = false"
+    x-on:livewire-upload-error="uploading = false"
+    class="fcol relative mb-7 w-full overflow-hidden"
 >
-    @if($files != null)
+    <div
+        x-show="uploading"
+        class="w-full fcol cursor-pointer"
+    >
         <img
-            class="w-28 h-28 cursor-pointer"
-            id="imagediv"
-            src="{{ asset('images/icon/pdfgreen.svg') }}"
-            alt=""
-            wire:loading.remove
-            wire:target="{{ $wireSubmit }}"
-        />
-        <img
-            class="w-28 h-28 {{ $roundcss ?? 'rounded-full' }}"
+            class="{{ $width ?? 'w-28'}} rounded-full"
             src="{{ asset('images/icon/loading.gif') }}"
             alt=""
-            wire:loading
-            wire:target="{{ $wireSubmit }}"
         />
-        <div class="stitle text-green-400 w-full text-center">{{ $inputTagSelected ?? 'File Selected' }}</div>
+    </div>
+    @if($files != null)
+        <div
+            x-show="!uploading"
+            class="w-full fcol cursor-pointer"
+            @click="document.getElementById({{ $name }}).click()"
+        >
+            <img
+                class="{{ $width ?? 'w-28'}}"
+                id="pdfFileDiv"
+                src="{{ asset('images/icon/pdfgreen.svg') }}"
+                alt=""
+                wire:loading.remove
+                wire:target="{{ $wireSubmit }}"
+            />
+            <img
+                class="{{ $width ?? 'w-28'}} rounded-full"
+                src="{{ asset('images/icon/loading.gif') }}"
+                alt=""
+                wire:loading
+                wire:target="{{ $wireSubmit }}"
+            />
+            <div class="stitle text-green-400 w-full text-center">
+                {{ $inputTagSelected ?? 'File Selected' }}
+            </div>
+        </div>
     @else
         <div
-            class="cursor-pointer"
+            x-show="!uploading"
+            class="w-full fcol cursor-pointer"
             @click="document.getElementById('{{ $name }}').click()"
         >
             <img
-                class="w-28 h-28 cursor-pointer"
-                id="imagediv"
+                class="{{ $width ?? 'w-28'}}"
+                id="pdfFileDiv"
                 src="{{ asset('images/icon/pdfblack.svg') }}"
                 alt=""
                 wire:loading.remove
                 wire:target="{{ $wireSubmit }}"
-
             />
-            <div class="stitle w-full text-center">{{ $inputTag ?? 'Select File' }}</div>
+            <div class="stitle w-full text-center">
+                {{ $inputTag ?? 'Select File' }}
+            </div>
         </div>
     @endif
     <input
@@ -42,7 +65,6 @@
         wire:model="{{ $name }}"
         accept=".pdf"
         placeholder="{{ $inputTag ?? 'Select File' }}"
-        multiple
         hidden
     />
     @error($name)
