@@ -13,20 +13,17 @@
                 <x-ui.vline/>
                 <div>{{ $task->approver->name }}, {{ $task->approver->designation }}</div>
             </div>
-            <div class="mt-2 frowb gap-2">
-                <x-ui.awiretag
-                    wireclick="downloadReport"
-                    icon="download"
-                    tag="Download PDF"
-                    color="bg-green-300"
-                />
-                <x-ui.awiretag
-                    wireclick="resetTask"
-                    icon="reset"
-                    tag="Reset to Pending"
-                    color="bg-red-300"
-                />
-            </div>
+            @can('admin', cusr())
+                <div class="mt-2 frowb gap-2">
+                    <div></div>
+                    <x-ui.awiretag
+                        wireclick="resetTask"
+                        icon="reset"
+                        tag="Reset to Pending"
+                        color="bg-red-300"
+                    />
+                </div>
+            @endcan
         @else
             <div class="mt-2 frows gap-2">
                 <x-ui.awiretag

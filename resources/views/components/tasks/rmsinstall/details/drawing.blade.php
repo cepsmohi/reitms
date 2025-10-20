@@ -46,6 +46,8 @@
                     tag="Add Drawing"
                 />
             </div>
+        @else
+            <div class="stitle text-red-500">Drawing not included</div>
         @endif
     @endif
 </div>

@@ -11,8 +11,12 @@
         <x-ui.tagvalue tag="Size" :value="$task->regulator->diameter" :symbol="$diaTxt"/>
         <x-tasks.rmsinstall.details.regulatorinfonfo.pressuredata :$task/>
     @else
-        <x-tasks.rmsinstall.details.regulatorinfo.assignform
-            :$regulatorSerialNumber
-        />
+        @if($task->isReporting())
+            <x-tasks.rmsinstall.details.regulatorinfo.assignform
+                :$regulatorSerialNumber
+            />
+        @else
+            <div class="stitle text-red-500">Regulator not assigned</div>
+        @endif
     @endif
 </div>

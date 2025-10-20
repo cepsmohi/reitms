@@ -5,7 +5,7 @@
     @endphp
     @if($pics)
         <div class="mt-2 frows flex-wrap gap-4">
-            @foreach($pics as $photo)
+            @forelse($pics as $photo)
                 <div class="relative group">
                     <a
                         href="{{ asset('uploads/'.$photo->link) }}"
@@ -30,17 +30,21 @@
                         </div>
                     @endif
                 </div>
-            @endforeach
+            @empty
+                @if(!$task->isReporting())
+                    <div class="stitle text-red-500">No photo added</div>
+                @endif
+            @endforelse
         </div>
-        @if($task->isReporting())
-            <div class="mt-2">
+        <div class="mt-2">
+            @if($task->isReporting())
                 <x-ui.awiretag
                     wireclick="openPhotoForm"
                     icon="photo"
                     tag="Add Photos"
                 />
-            </div>
-        @endif
+            @endif
+        </div>
     @endif
 </div>
 @if($addPhotoForm)

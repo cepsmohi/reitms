@@ -11,8 +11,12 @@
         <x-ui.tagvalue tag="Size" :value="$task->meter->diameter" :symbol="$diaTxt"/>
         <x-tasks.rmsinstall.details.meterinfo.readings :$task/>
     @else
-        <x-tasks.rmsinstall.details.meterinfo.assignform
-            :$meterSerialNumber
-        />
+        @if($task->isReporting())
+            <x-tasks.rmsinstall.details.meterinfo.assignform
+                :$meterSerialNumber
+            />
+        @else
+            <div class="stitle text-red-500">Meter not assigned</div>
+        @endif
     @endif
 </div>

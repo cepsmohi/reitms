@@ -16,11 +16,15 @@
                 />
             @endif
         @else
-            <x-ui.awiretag
-                wireclick="openCommentForm"
-                icon="comment"
-                tag="Add Comment"
-            />
+            @if($task->isReporting())
+                <x-ui.awiretag
+                    wireclick="openCommentForm"
+                    icon="comment"
+                    tag="Add Comment"
+                />
+            @else
+                <div class="stitle text-red-500">No comment added</div>
+            @endif
         @endif
     </div>
 </div>
