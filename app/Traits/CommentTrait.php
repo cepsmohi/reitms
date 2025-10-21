@@ -6,16 +6,13 @@ trait CommentTrait
 {
     public bool $addCommentForm = false;
     public bool $editCommentForm = false;
-    public string $comment;
+    public $comment;
 
-    public function openCommentForm()
+    public function updatedEditCommentForm()
     {
-        $this->addCommentForm = true;
-    }
-
-    public function closeCommentForm()
-    {
-        return $this->addCommentForm = false;
+        if ($this->editCommentForm) {
+            $this->comment = $this->task->comment ? $this->task->comment->text : '';
+        }
     }
 
     public function addComment()
@@ -25,18 +22,8 @@ trait CommentTrait
         ]);
         $this->task->setComment($this->comment);
         $this->reset('comment');
-        return $this->addCommentForm = false;
-    }
-
-    public function closeEditCommentForm()
-    {
-        $this->editCommentForm = false;
-    }
-
-    public function openEditCommentForm()
-    {
-        $this->comment = $this->task->comment->text;
-        $this->editCommentForm = true;
+        session()->flash('success', 'Comments added');
+        return redirect()->route('tasks.rmsinstall.details', $this->task);
     }
 
     public function updateComment()
@@ -45,6 +32,7 @@ trait CommentTrait
             'comment' => 'required|string'
         ]);
         $this->task->setComment($this->comment);
-        return $this->editCommentForm = false;
+        session()->flash('success', 'Comments updated');
+        return redirect()->route('tasks.rmsinstall.details', $this->task);
     }
 }

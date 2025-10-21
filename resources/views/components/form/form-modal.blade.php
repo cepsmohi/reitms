@@ -13,9 +13,9 @@
                 {{ $slot }}
                 @if($submitCondition)
                     <x-form.submit-button
-                        form="{{ $formId ?? '' }}"
-                        icon="{{ $submitIcon ?? '' }}"
-                        tag="{{ $submitTag ?? '' }}"
+                        form="{{ $formId }}"
+                        icon="{{ $submitIcon ?? 'refresh' }}"
+                        tag="{{ $submitTag ?? 'Update' }}"
                     />
                 @endif
             </div>

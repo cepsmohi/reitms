@@ -10,7 +10,7 @@
             </p>
             @if($task->isReporting())
                 <x-ui.awiretag
-                    wireclick="openEditCommentForm"
+                    wireclick="$toggle('editCommentForm')"
                     icon="comment"
                     tag="Edit Comment"
                 />
@@ -18,7 +18,7 @@
         @else
             @if($task->isReporting())
                 <x-ui.awiretag
-                    wireclick="openCommentForm"
+                    wireclick="$toggle('addCommentForm')"
                     icon="comment"
                     tag="Add Comment"
                 />
