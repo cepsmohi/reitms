@@ -1,4 +1,5 @@
 @import './inputstyle.css';
+@import './toaststyle.css';
 @import 'tailwindcss';
 
 @source '../views';

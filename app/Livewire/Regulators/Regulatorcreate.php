@@ -29,7 +29,7 @@ class Regulatorcreate extends Component
             'comments' => 'nullable',
         ]);
         cusr()->regulators()->create($data);
-        session()->flash('success', 'Regulator creating.. please wait.');
+        session()->flash('processing', 'Regulator creating.. please wait.');
         return redirect()->route('regulators');
     }
 

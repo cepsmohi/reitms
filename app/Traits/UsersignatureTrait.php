@@ -12,10 +12,11 @@ trait UsersignatureTrait
     public bool $userSignatureForm = false;
     public $pic;
 
-    public function updateSignature(): void
+    public function updateSignature()
     {
         if (!$this->pic) {
-            return;
+            session()->flash('alert', 'Photo not selected');
+            return redirect()->route('users.edit', $this->user);
         }
 
         if (
@@ -28,6 +29,7 @@ trait UsersignatureTrait
         $link = $this->pic->store('signatures', 'uploads');
         $this->user->detail->update(['signature' => $link]);
         $this->pic = null;
-        $this->userSignatureForm = false;
+        session()->flash('success', 'Photo updated');
+        return redirect()->route('users.edit', $this->user);
     }
 }

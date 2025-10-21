@@ -36,7 +36,3 @@
 
 - [ ] Monthly Report
 - [ ] Leader Board
-
-## Users Control
-
-- [ ] Change Password

@@ -30,7 +30,7 @@ class Metercreate extends Component
             'comments' => 'nullable',
         ]);
         cusr()->meters()->create($data);
-        session()->flash('success', 'Meter creating.. please wait.');
+        session()->flash('processing', 'Meter creating.. please wait.');
         return redirect()->route('meters');
     }
 

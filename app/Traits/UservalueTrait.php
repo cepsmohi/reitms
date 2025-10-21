@@ -55,7 +55,8 @@ trait UservalueTrait
             $data = $this->validate($rules);
             $this->user->update($data);
         }
-        return $this->userValueChangeForm = false;
+        session()->flash('success', 'Value updated');
+        return redirect()->route('users.edit', $this->user);
     }
 
 
@@ -72,6 +73,7 @@ trait UservalueTrait
         } else {
             $this->user->detail()->create($data);
         }
-        return $this->userValueChangeForm = false;
+        session()->flash('success', 'Value updated');
+        return redirect()->route('users.edit', $this->user);
     }
 }

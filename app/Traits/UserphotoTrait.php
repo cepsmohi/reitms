@@ -13,10 +13,11 @@ trait UserphotoTrait
     public array $photos = [];
     public $pic;
 
-    public function updatePhoto(): void
+    public function updatePhoto()
     {
         if (!$this->pic) {
-            return;
+            session()->flash('alert', 'Photo not selected');
+            return redirect()->route('users.edit', $this->user);
         }
         if ($this->user->pic && Storage::disk('uploads')->exists($this->user->pic)) {
             Storage::disk('uploads')->delete($this->user->pic);
@@ -24,12 +25,7 @@ trait UserphotoTrait
         $link = $this->pic->store('avatars', 'uploads');
         $this->user->update(['pic' => $link]);
         $this->pic = null;
-        $this->userPhotoForm = false;
-    }
-
-    public function setUserPhoto($status)
-    {
-        $this->user->update(['status' => $status]);
-        return $this->userPhotoForm = false;
+        session()->flash('success', 'Photo updated');
+        return redirect()->route('users.edit', $this->user);
     }
 }

@@ -9,6 +9,7 @@ trait UserstatusTrait
     public function setUserStatus($status)
     {
         $this->user->update(['status' => $status]);
-        return $this->userStatusForm = false;
+        session()->flash('success', 'Status updated');
+        return redirect()->route('users.edit', $this->user);
     }
 }

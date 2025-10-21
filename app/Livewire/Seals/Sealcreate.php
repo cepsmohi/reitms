@@ -33,7 +33,7 @@ class Sealcreate extends Component
                         'number' => $prefix.'-'.sprintf("%07d", $startNumber)
                     ]);
                 }
-                session()->flash('success', 'Adding seals… please wait.');
+                session()->flash('processing', 'Adding seals… please wait.');
             }
         }
         if ($this->sealCollectionType == 'single') {
@@ -44,7 +44,7 @@ class Sealcreate extends Component
             $user->seals()->create([
                 'number' => $prefix.'-'.sprintf("%07d", $this->sealNumber)
             ]);
-            session()->flash('success', 'Adding seal… please wait.');
+            session()->flash('processing', 'Adding seal… please wait.');
         }
         return redirect()->route('seals');
     }

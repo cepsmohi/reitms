@@ -29,7 +29,7 @@ class Materialcreate extends Component
         ]);
         $data['unit'] = strtolower($this->unit);
         cusr()->materials()->create($data);
-        session()->flash('success', 'Material creating.. please wait.');
+        session()->flash('processing', 'Material creating.. please wait.');
         return redirect()->route('materials');
     }
 

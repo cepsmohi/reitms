@@ -9,6 +9,7 @@ trait UserroleTrait
     public function setUserRole($role)
     {
         $this->user->update(['role' => $role]);
-        return $this->userRoleForm = false;
+        session()->flash('success', 'Role changed');
+        return redirect()->route('users.edit', $this->user);
     }
 }

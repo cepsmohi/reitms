@@ -27,7 +27,7 @@ class Customercreate extends Component
             'zone' => 'required',
         ]);
         $customer = cusr()->customers()->create($data);
-        session()->flash('success', 'Customer creating.. please wait.');
+        session()->flash('processing', 'Customer creating.. please wait.');
         if ($this->routeName == 'customers') {
             return redirect()->route('customers');
         }
