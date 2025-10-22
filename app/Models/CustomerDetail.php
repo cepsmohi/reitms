@@ -8,8 +8,7 @@ class CustomerDetail extends Model
 {
     protected $fillable = [
         'sl_no',
-        'customer_code',
-        'customer_name',
+        'code',
         'address',
         'hourly_load',
         'monthly_load',
@@ -36,7 +35,7 @@ class CustomerDetail extends Model
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class, 'customer_code', 'code');
+        return $this->belongsTo(Customer::class, 'code', 'code');
     }
 
 }

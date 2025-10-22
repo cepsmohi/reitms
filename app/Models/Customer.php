@@ -21,9 +21,14 @@ class Customer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getDetailAttribute()
+    public function detail()
     {
-        return CustomerDetail::where('customer_code', $this->code)->first();
+        return $this->hasOne(CustomerDetail::class, 'code', 'code');
+    }
+
+    public function location()
+    {
+        return $this->hasOne(CustomerLocation::class, 'code', 'code');
     }
 
     public function tasks()

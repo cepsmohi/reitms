@@ -97,6 +97,24 @@ class User extends Authenticatable
         return $this->hasOne(UserDetail::class);
     }
 
+    public function getOption($field)
+    {
+        return $this->options()->where('field', $field)->value('value');
+    }
+
+    public function options()
+    {
+        return $this->hasMany(Option::class);
+    }
+
+    public function setOption($field, $value)
+    {
+        return $this->options()->updateOrCreate(
+            ['field' => $field],
+            ['value' => $value]
+        );
+    }
+    
     protected function casts(): array
     {
         return [

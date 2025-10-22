@@ -6,6 +6,12 @@
         title="New Customer"
     />
     <x-ui.ahref
+        :href="route('customers.map')"
+        icon="map"
+        width="w-10"
+        title="Customers Map"
+    />
+    <x-ui.ahref
         :href="route('home')"
         icon="back"
         width="w-10"
