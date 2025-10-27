@@ -4,8 +4,6 @@
 
 - [x] Edit Customer
     - [ ] Edit Customer Detail
-- [ ] Location Table
-    - [ ] Map
 
 ## Materials inventory
 

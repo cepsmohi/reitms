@@ -1,34 +1,79 @@
 <div class="mt-6 frow flex-wrap gap-6">
     <x-ui.sqrbtn
         condi="1"
-        header="Install"
-        footer="New RMS"
+        header="Meter"
+        footer="Testing"
+        :color="cssbg('purple')"
+        icon="metertesting.png"
+        href="#"
+    />
+    <x-ui.sqrbtn
+        condi="1"
+        header="New RMS"
+        footer="Install"
         :color="cssbg('green')"
         icon="rmsinstall.png"
         :href="route('tasks.rmsinstall')"
     />
     <x-ui.sqrbtn
         condi="1"
-        header="Maintenance"
-        footer="RMS"
+        header="RMS"
+        footer="Maintenance"
         :color="cssbg('yellow')"
         icon="rmsrepair.png"
+        :href="route('tasks.rmsmaintain')"
     />
     <x-ui.sqrbtn
         condi="1"
-        header="D/C or"
+        header="RMS"
+        footer="D/C"
+        :color="cssbg('red')"
+        icon="dc.png"
+    />
+    <x-ui.sqrbtn
+        condi="1"
+        header="RMS"
         footer="Layoff"
         :color="cssbg('red')"
         icon="layoff.png"
     />
-</div>
-<div class="mt-6 frow flex-wrap gap-6">
     <x-ui.sqrbtn
         condi="1"
-        header="Meter"
-        footer="Testing"
-        :color="cssbg('purple')"
-        icon="metertesting.png"
+        header="RMS"
+        footer="R/C"
+        :color="cssbg('green')"
+        icon="rc.png"
+    />
+    <x-ui.sqrbtn
+        condi="1"
+        header="Plastic"
+        footer="Enclosure"
+        :color="cssbg('orange')"
+        icon="enclosure.png"
+        href="#"
+    />
+    <x-ui.sqrbtn
+        condi="1"
+        header="Drilling"
+        footer="Gas Line"
+        :color="cssbg('blue')"
+        icon="drill.png"
+        href="#"
+    />
+    <x-ui.sqrbtn
+        condi="1"
+        header="Pressure"
+        footer="Setup"
+        :color="cssbg('lime')"
+        icon="psetup.png"
+        href="#"
+    />
+    <x-ui.sqrbtn
+        condi="1"
+        header="Leakage"
+        footer="Finding"
+        :color="cssbg('lime')"
+        icon="detector.png"
         href="#"
     />
 </div>

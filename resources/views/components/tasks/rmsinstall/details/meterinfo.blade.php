@@ -20,3 +20,62 @@
         @endif
     @endif
 </div>
+@if($addMeterForm)
+    @teleport('body')
+    <x-form.form-modal
+        formTitle="Add Meter"
+        formId="addMeterForm"
+        formCondition="addMeterForm"
+        :submitCondition="true"
+        submitFun="createMeter"
+        submitIcon="plus"
+        submitTag="Register"
+    >
+        <x-form.inputwire
+            name="number"
+            placeholder="Meter Number"
+            icon="name"
+        />
+        <x-form.inputwire
+            name="type"
+            placeholder="Meter Type"
+            icon="tag"
+            hints="G-400"
+        />
+        <x-form.inputwire
+            name="model"
+            placeholder="Model"
+            icon="model"
+            hints="if any"
+            :required="false"
+        />
+        <x-form.inputwire
+            name="manufacturer"
+            placeholder="Manufacturer"
+            icon="draw"
+            hints="Elster"
+            :required="false"
+        />
+        <x-form.inputwire
+            name="year"
+            placeholder="Production Year"
+            icon="year"
+            hints="2008"
+            :required="false"
+        />
+        <x-form.inputwire
+            name="diameter"
+            placeholder="Size/Diameter"
+            icon="dia"
+            hints='number only'
+            :required="false"
+        />
+        <x-form.inputwire
+            name="comments"
+            placeholder="Comments (if any)"
+            icon="comment"
+            :required="false"
+        />
+    </x-form.form-modal>
+    @teleport('body')
+@endif

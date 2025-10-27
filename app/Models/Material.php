@@ -17,6 +17,16 @@ class Material extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function meters()
+    {
+        return $this->hasMany(Meter::class);
+    }
+
+    public function regulators()
+    {
+        return $this->hasMany(Regulator::class);
+    }
+
     public function getStockAttribute()
     {
         $in = $this->stocks->sum('stock_in');

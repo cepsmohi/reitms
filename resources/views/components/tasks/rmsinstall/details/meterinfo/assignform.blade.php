@@ -11,10 +11,18 @@
             placeholder="Meter Serial Number"
             icon="meter"
         />
-        <x-form.submit-button
-            form="assignMeterForm"
-            icon="assign"
-            tag="Assign"
-        />
+        @if ($errors->has('meterSerialNumber'))
+            <x-ui.awiretag
+                wireclick="openAddMeterForm"
+                icon="plus"
+                tag="Register Meter"
+            />
+        @else
+            <x-form.submit-button
+                form="assignMeterForm"
+                icon="assign"
+                tag="Assign"
+            />
+        @endif
     </form>
 </div>

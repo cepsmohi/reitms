@@ -1,6 +1,15 @@
+@php
+    $types = [
+        'rms install'  => 'rmsinstall',
+        'rms maintain' => 'rmsmaintain',
+    ];
+
+    $type = $types[$task->type] ?? '';
+@endphp
+
 <a
     class="card h-52"
-    href="{{ route('tasks.rmsinstall.details', $task) }}"
+    href="{{ $type }}/{{ $task->id }}"
 >
     <!-- Header -->
     <div class="header">

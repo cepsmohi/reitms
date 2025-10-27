@@ -34,7 +34,7 @@ class Taskcreate extends Component
     private function sanitizeType(string $v)
     {
         $allowed = [
-            'rms install', 'rms maintenance', 'rms layoff',
+            'rms install', 'rms maintain', 'rms layoff',
             'rms dc', 'meter test', 'meter sealing'
         ];
 
@@ -55,17 +55,20 @@ class Taskcreate extends Component
 
     public function createTask()
     {
-        cusr()->tasks()->create([
+        $task = cusr()->tasks()->create([
             'customer_id' => $this->customer->id,
             'type' => $this->type,
         ]);
-        return $this->redirectUrl($this->type);
+        return $this->redirectUrl($task, $this->type);
     }
 
-    public function redirectUrl($type)
+    public function redirectUrl($task, $type)
     {
         if ($type == 'rms install') {
-            return redirect()->route('tasks.rmsinstall');
+            return redirect()->route('tasks.rmsinstall.details', $task);
+        }
+        if ($type == 'rms maintain') {
+            return redirect()->route('tasks.rmsmaintain.details', $task);
         }
         return redirect()->route('tasks');
     }

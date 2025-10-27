@@ -8,6 +8,7 @@ class Meter extends Model
 {
     protected $fillable = [
         'user_id',
+        'material_id',
         'number',
         'type',
         'manufacturer',
@@ -21,6 +22,11 @@ class Meter extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function material()
+    {
+        return $this->belongsTo(Material::class);
     }
 
     public function assignmeter()

@@ -10,12 +10,12 @@ trait SealingTrait
 {
     public bool $addSealForm = false;
     public bool $removeSealForm = false;
-    public string $type, $prefix, $sealNumber;
+    public string $sealType, $prefix, $sealNumber;
     public $sealRegister;
 
-    public function openSealForm($type)
+    public function openSealForm($sealType)
     {
-        $this->type = $type;
+        $this->sealType = $sealType;
         $this->findSealNumber();
         $this->addSealForm = true;
     }
@@ -34,7 +34,7 @@ trait SealingTrait
 
     public function closeSealForm()
     {
-        $this->type = '';
+        $this->sealType = '';
         $this->addSealForm = false;
     }
 
@@ -50,8 +50,8 @@ trait SealingTrait
         if (!$seal) {
             return $this->addError('sealNumber', "Seal $number does not exist.");
         }
-        $this->task->setSealRegister($this->type, $seal->id);
-        $this->type = '';
+        $this->task->setSealRegister($this->sealType, $seal->id);
+        $this->sealType = '';
         return $this->addSealForm = false;
     }
 

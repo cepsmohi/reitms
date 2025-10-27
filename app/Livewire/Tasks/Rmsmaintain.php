@@ -6,11 +6,11 @@ use App\Models\Task;
 use App\Traits\TaskCalendarTrait;
 use Livewire\Component;
 
-class Rmsinstall extends Component
+class Rmsmaintain extends Component
 {
     use TaskCalendarTrait;
 
-    public $type = "rms install";
+    public $type = "rms maintain";
 
     public function mount()
     {
@@ -22,6 +22,6 @@ class Rmsinstall extends Component
         $tasks = Task::type($this->type)
             ->whereDate('created_at', $this->datestr)
             ->get();
-        return view('livewire.tasks.rmsinstall', compact('tasks'));
+        return view('livewire.tasks.rmsmaintain', compact('tasks'));
     }
 }

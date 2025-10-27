@@ -12,16 +12,15 @@ return new class extends Migration {
     {
         Schema::create('customer_details', function (Blueprint $table) {
             $table->id();
-            $table->string('sl_no')->unique();
             $table->string('code', 19)->unique();
             $table->text('address')->nullable();
             $table->decimal('hourly_load', 10, 2)->nullable();
             $table->decimal('monthly_load', 10, 2)->nullable();
             $table->decimal('min_load', 10, 2)->nullable();
-            $table->decimal('pf', 5, 2)->nullable(); // Power factor
-            $table->decimal('df', 5, 2)->nullable(); // Demand factor
-            $table->decimal('daily_run', 8, 2)->nullable(); // in hours
-            $table->decimal('hourly_run', 8, 2)->nullable(); // in hours
+            $table->decimal('pf', 5, 2)->nullable();
+            $table->decimal('df', 5, 2)->nullable();
+            $table->decimal('daily_run', 8, 2)->nullable();
+            $table->decimal('hourly_run', 8, 2)->nullable();
             $table->decimal('sec_dep_cash', 12, 2)->nullable();
             $table->decimal('sec_dep_bank', 12, 2)->nullable();
             $table->timestamps();

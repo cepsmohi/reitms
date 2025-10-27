@@ -5,7 +5,7 @@
             wire:submit="addSeal"
             id="addSealForm"
         >
-            <div class="mb-2 stitle text-grad">{{ $type ?? 'Type not selected' }}</div>
+            <div class="mb-2 stitle text-grad">{{ $sealType ?? 'Type not selected' }}</div>
             <x-form.inputwire
                 name="prefix"
                 placeholder="Prefix"

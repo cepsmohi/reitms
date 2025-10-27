@@ -45,7 +45,8 @@ trait TaskCalendarTrait
 
     public function getYears()
     {
-        $this->years = Task::selectRaw('year(created_at) year')
+        $this->years = Task::type($this->type)
+            ->selectRaw('year(created_at) year')
             ->distinct()
             ->orderBy('year')
             ->pluck('year')
@@ -54,7 +55,8 @@ trait TaskCalendarTrait
 
     public function getMonths($y)
     {
-        $this->months = Task::whereYear('created_at', $y)
+        $this->months = Task::type($this->type)
+            ->whereYear('created_at', $y)
             ->selectRaw('month(created_at) month')
             ->distinct()
             ->orderBy('month')
@@ -64,7 +66,8 @@ trait TaskCalendarTrait
 
     public function getDays($y, $m)
     {
-        $this->days = Task::whereYear('created_at', $y)
+        $this->days = Task::type($this->type)
+            ->whereYear('created_at', $y)
             ->whereMonth('created_at', $m)
             ->selectRaw('day(created_at) day')
             ->distinct()
@@ -75,7 +78,8 @@ trait TaskCalendarTrait
 
     public function getData()
     {
-        $this->day = Task::where('created_at', $this->datestr)
+        $this->day = Task::type($this->type)
+            ->where('created_at', $this->datestr)
             ->first();
     }
 

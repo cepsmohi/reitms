@@ -40,7 +40,7 @@ class Materialstocks extends Component
         } else {
             return $this->addError('code', "Code $this->code does not exist.");
         }
-        session()->flash('alert', 'Added.');
+        session()->flash('success', 'Added Successfully.');
         return redirect()->route('materials.stocks');
     }
 

@@ -7,6 +7,13 @@ use App\Models\Meter;
 trait MeterTrait
 {
     public string $meterSerialNumber;
+    public $addMeterForm = false;
+
+    public function openAddMeterForm()
+    {
+        $this->number = $this->meterSerialNumber;
+        $this->addMeterForm = true;
+    }
 
     public function assignMeter()
     {

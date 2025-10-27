@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('meters', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('material_id')->constrained();
             $table->string('number')->unique();
             $table->string('type');
             $table->string('manufacturer')->nullable();

@@ -8,6 +8,7 @@ class Regulator extends Model
 {
     protected $fillable = [
         'user_id',
+        'material_id',
         'number',
         'manufacturer',
         'model',
@@ -20,6 +21,11 @@ class Regulator extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function material()
+    {
+        return $this->belongsTo(Material::class);
     }
 
     public function assignregulator()
