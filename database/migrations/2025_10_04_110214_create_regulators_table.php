@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('regulators', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('material_id')->constrained();
+            $table->foreignId('material_id')->nullable()->constrained()->nullOnDelete();
             $table->string('number')->unique();
             $table->string('manufacturer')->nullable();
             $table->string('model')->nullable();

@@ -21,7 +21,7 @@ class Meterindex extends Component
                 ->orWhere('comments', 'like', "%$this->search%")
                 ->paginate(10);
         } else {
-            $meters = Meter::where('status', 'stock')->paginate(10);
+            $meters = Meter::paginate(10);
         }
         return view('livewire.meters.meterindex', compact('meters'));
     }
