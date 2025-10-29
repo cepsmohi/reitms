@@ -23,7 +23,7 @@ trait CommentTrait
         $this->task->setComment($this->comment);
         $this->reset('comment');
         session()->flash('success', 'Comments added');
-        return redirect()->route('tasks.rmsinstall.details', $this->task);
+        return $this->addCommentForm = false;
     }
 
     public function updateComment()
@@ -33,6 +33,6 @@ trait CommentTrait
         ]);
         $this->task->setComment($this->comment);
         session()->flash('success', 'Comments updated');
-        return redirect()->route('tasks.rmsinstall.details', $this->task);
+        return $this->editCommentForm = false;
     }
 }

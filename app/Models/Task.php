@@ -83,6 +83,14 @@ class Task extends Model
         return $this->status === 'approved';
     }
 
+    public function isDeletable()
+    {
+        return $this->sealRegisters->isEmpty()
+            && $this->taskvalues->isEmpty()
+            && $this->comment == null;
+    }
+
+
     public function approve()
     {
         return $this->update([
@@ -256,5 +264,10 @@ class Task extends Model
     public function getTaskValue($field)
     {
         return $this->taskvalues->where('field', $field)->first();
+    }
+
+    public function metertest()
+    {
+        return $this->hasOne(MeterTest::class);
     }
 }

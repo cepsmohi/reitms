@@ -1,6 +1,7 @@
 <div
     id="{{ randtxt() }}"
     @class([
+        'print:hidden' => isset($title) && $title == false,
         'alink' => $task->isReporting()
     ])
     @if($task->isReporting()) wire:click="openSealForm('{{ $type }}')" @endif
@@ -16,7 +17,8 @@
 @foreach($seals as $s)
     <div
         @class([
-            'ml-4 md:ml-0 text-green-500 cursor-pointer' => $task->isReporting(),
+            'print:text-black',
+            'text-green-500 cursor-pointer' => $task->isReporting(),
             'text-red-500' => !$task->isReporting()
         ])
         id="{{ randtxt() }}"

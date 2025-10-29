@@ -18,6 +18,15 @@ class Taskcreate extends Component
 
     public $customer;
 
+    public $types = [
+        'meter test',
+        'meter sealing',
+        'rms install',
+        'rms maintain',
+        'rms layoff',
+        'rms disconnection',
+    ];
+
     public function mount(Request $request)
     {
         if ($request->has('type')) {
@@ -33,13 +42,8 @@ class Taskcreate extends Component
 
     private function sanitizeType(string $v)
     {
-        $allowed = [
-            'rms install', 'rms maintain', 'rms layoff',
-            'rms dc', 'meter test', 'meter sealing'
-        ];
-
         $v = strtolower(trim($v));
-        return in_array($v, $allowed) ? $v : null;
+        return in_array($v, $this->types) ? $v : null;
     }
 
     public function selectType($t)

@@ -29,13 +29,18 @@ class Meter extends Model
         return $this->belongsTo(Material::class);
     }
 
-    public function assignmeter()
+    public function assignmeters()
     {
-        return $this->hasMany(AssignMeter::class)->latest()->first();
+        return $this->hasMany(AssignMeter::class);
     }
 
     public function setStatus($status)
     {
         return $this->update(['status' => $status]);
+    }
+
+    public function tests()
+    {
+        return $this->hasMany(MeterTest::class);
     }
 }

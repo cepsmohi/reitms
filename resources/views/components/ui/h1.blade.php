@@ -1,6 +1,6 @@
 <h1
     @class([
-        'text-2xl font-black uppercase text-grad',
+        'py-2 text-xl font-black uppercase text-grad print:text-black print:text-[12px]',
         $position ?? 'text-left'
     ])
 >

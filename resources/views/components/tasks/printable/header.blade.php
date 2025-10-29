@@ -1,14 +1,16 @@
 <div
-    class="frow gap-4"
+    class="hidden print:block"
 >
-    <img
-        class="w-20"
-        src="{{ asset('images/logo/logo.svg') }}"
-        alt="Titas Gas Logo"
-    >
-    <div>
-        <div class="title">Titas Gas Transmission and Distribution PLC</div>
-        <div class="">RMS Engineering Testing & Sealing Section</div>
-        <div class="">Engineering Service Department, Narayanganj</div>
+    <div class="frow gap-4">
+        <img
+            class="w-16"
+            src="{{ asset('images/logo/logo.svg') }}"
+            alt="Titas Gas Logo"
+        >
+        <div class="fcols">
+            <div class="title print:text-[14px]">Titas Gas Transmission and Distribution PLC</div>
+            <div class="print:text-[10px]">RMS Engineering Testing & Sealing Section</div>
+            <div class="print:text-[10px]">Engineering Service Department, Narayanganj</div>
+        </div>
     </div>
 </div>

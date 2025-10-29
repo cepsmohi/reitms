@@ -5,7 +5,7 @@
         footer="Testing"
         :color="cssbg('purple')"
         icon="metertesting.png"
-        href="#"
+        :href="route('tasks.metertest')"
     />
     <x-ui.sqrbtn
         condi="1"

@@ -22,13 +22,16 @@ trait SealingTrait
 
     public function findSealNumber()
     {
-        $lastEntry = SealRegister::latest()->first();
-        if ($lastEntry) {
-            $textPart = explode('-', $lastEntry->seal->number)[0];
+
+        $seal = Seal::orderBy('id')
+            ->where('status', 'stock')
+            ->first();
+        if ($seal) {
+            $textPart = explode('-', $seal->number)[0];
             $this->prefix = $textPart;
-            $numberPart = explode('-', $lastEntry->seal->number)[1];
+            $numberPart = explode('-', $seal->number)[1];
             $intNumber = (int) $numberPart;
-            $this->sealNumber = $intNumber + 1;
+            $this->sealNumber = $intNumber;
         }
     }
 

@@ -7,12 +7,6 @@
     @else
         <div class="stitle">Select Task Type</div>
         <div class="mb-7 text-black frow flex-wrap gap-6">
-            @php
-                $types = [
-                    'rms install', 'rms maintenance', 'rms layoff',
-                    'rms dc', 'meter test', 'meter sealing'
-                ];
-            @endphp
             @foreach($types as $t)
                 <button
                     @class([

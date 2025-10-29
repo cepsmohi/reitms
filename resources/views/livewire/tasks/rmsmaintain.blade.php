@@ -1,6 +1,6 @@
 <div>
     <x-ui.topbar/>
-    <x-tasks.rmsmaintain.buttons
+    <x-tasks.common.buttons
         :$years :$syear
         :$months :$smonth
         :$days :$sday

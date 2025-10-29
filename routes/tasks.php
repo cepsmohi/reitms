@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Tasks\Metertest;
+use App\Livewire\Tasks\Metertestcreate;
+use App\Livewire\Tasks\Metertestdetails;
 use App\Livewire\Tasks\Rmsinstall;
 use App\Livewire\Tasks\Rmsinstalldetails;
 use App\Livewire\Tasks\Rmsmaintain;
@@ -13,6 +16,9 @@ Route::as('tasks')
     ->group(function () {
         Route::get('', Taskindex::class)->name('');
         Route::get('/taskcreate', Taskcreate::class)->name('.create');
+        Route::get('/metertest', Metertest::class)->name('.metertest');
+        Route::get('/metertest/create', Metertestcreate::class)->name('.metertest.create');
+        Route::get('/metertest/{task}', Metertestdetails::class)->name('.metertest.details');
         Route::get('/rmsinstall', Rmsinstall::class)->name('.rmsinstall');
         Route::get('/rmsinstall/{task}', Rmsinstalldetails::class)->name('.rmsinstall.details');
         Route::get('/rmsmaintain', Rmsmaintain::class)->name('.rmsmaintain');
