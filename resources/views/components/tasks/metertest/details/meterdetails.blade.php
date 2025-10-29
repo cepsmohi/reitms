@@ -24,11 +24,13 @@
                     {{ $task->metertest->meter->manufacturer ?? '---' }}
                 </div>
                 @if($task->isReporting())
-                    <x-ui.awiretag
-                        wireclick="openEditMeterForm"
-                        icon="meter"
-                        tag="Update Info"
-                    />
+                    <div class="my-1">
+                        <x-ui.awiretag
+                            wireclick="openEditMeterForm"
+                            icon="meter"
+                            tag="Update Info"
+                        />
+                    </div>
                 @endif
             </div>
         </div>

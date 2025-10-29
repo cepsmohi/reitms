@@ -23,6 +23,9 @@
         <x-tasks.metertest.details.approvalstatus :$task/>
     </div>
 
+    {{--    assign customer forms--}}
+    <x-tasks.assigncustomerform :$customercode :$customers :$assignCustomerForm/>
+
     {{--    add value forms--}}
     <x-tasks.addvalueform :$task :$addValueForm :$field :$value/>
     <x-tasks.editvalueform :$task :$editValueForm :$field :$value/>

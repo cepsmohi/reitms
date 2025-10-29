@@ -27,6 +27,14 @@
             </div>
         </div>
     @else
-        <div>Assign Customer</div>
+        @if($task->isReporting())
+            <div class="my-1">
+                <x-ui.awiretag
+                    wireclick="$toggle('assignCustomerForm')"
+                    icon="user"
+                    tag="Assign Customer"
+                />
+            </div>
+        @endif
     @endif
 </div>

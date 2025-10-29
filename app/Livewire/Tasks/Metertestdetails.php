@@ -4,6 +4,7 @@ namespace App\Livewire\Tasks;
 
 use App\Models\Task;
 use App\Traits\CommentTrait;
+use App\Traits\CustomerTrait;
 use App\Traits\MeterTrait;
 use App\Traits\SealingTrait;
 use App\Traits\StockTrait;
@@ -13,12 +14,13 @@ use Livewire\Component;
 
 class Metertestdetails extends Component
 {
-    use ValueTrait;
-    use SealingTrait;
     use CommentTrait;
-    use TaskTrait;
+    use CustomerTrait;
     use MeterTrait;
+    use SealingTrait;
     use StockTrait;
+    use TaskTrait;
+    use ValueTrait;
 
     public $task;
 
