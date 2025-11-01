@@ -1,10 +1,10 @@
-<div class="mt-4">
-    <div class="stitle border-b">Photos</div>
+<div class="py-1">
+    <div class="w-full border-b font-bold">Photos</div>
     @php
         $pics = $task->photos;
     @endphp
-    @if($pics)
-        <div class="mt-2 frows flex-wrap gap-4">
+    @if($pics->count() > 0)
+        <div class="my-2 frows flex-wrap gap-2">
             @forelse($pics as $photo)
                 <div class="relative group">
                     <a
@@ -20,13 +20,11 @@
                     </a>
                     @if($task->isReporting())
                         <div class="adbr hidden group-hover:flex">
-                            <div
-                                class="w-7 h-7 p-1 rounded-full border border-red-800 frow cursor-pointer bg-red-500 hover:bg-red-300 shadow">
-                                <x-ui.awire
-                                    wireclick="deletePhoto({{ $photo->id }})"
-                                    icon="trash"
-                                />
-                            </div>
+                            <x-ui.awire
+                                wireclick="deletePhoto({{ $photo->id }})"
+                                icon="trash"
+                                color="bg-red-500/50 dark:bg-red-300/50 hover:bg-red-300/50"
+                            />
                         </div>
                     @endif
                 </div>
@@ -36,14 +34,14 @@
                 @endif
             @endforelse
         </div>
-        <div class="mt-2">
-            @if($task->isReporting())
-                <x-ui.awiretag
-                    wireclick="$toggle('addPhotoForm')"
-                    icon="photo"
-                    tag="Add Photos"
-                />
-            @endif
+    @endif
+    @if($task->isReporting())
+        <div class="my-1">
+            <x-ui.awiretag
+                wireclick="$toggle('addPhotoForm')"
+                icon="photo"
+                tag="Add Photos"
+            />
         </div>
     @endif
 </div>
