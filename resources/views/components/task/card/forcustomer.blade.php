@@ -1,5 +1,5 @@
 <a
-    class="card h-52"
+    class="card buttonhover glass block h-52 group"
     href="{{ route('tasks.rmsinstall.details', $task) }}"
 >
     <!-- Header -->

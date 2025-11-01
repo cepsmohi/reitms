@@ -9,7 +9,7 @@
 @endphp
 
 <a
-    class="card h-52"
+    class="card buttonhover glass block h-52 group"
     href="{{ $type }}/{{ $task->id }}"
 >
     <!-- Header -->

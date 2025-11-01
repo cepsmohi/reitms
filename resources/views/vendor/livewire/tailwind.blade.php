@@ -7,28 +7,40 @@
     <nav class="p-4 frow gap-1">
         <a
             href="{{ $paginator->previousPageUrl() ?? '#' }}"
-            class="bg-gray-200 border border-gray-400 dark:bg-gray-500 hover:bg-gray-300 rounded-xl"
+            class="w-10 h-10 block"
             title="Previous Page"
         >
-            <x-ui.icon
-                icon="leftarrow"
-                padding="p-0"
-                dark=""
-                width="w-10"
-            />
+            @if($paginator->previousPageUrl())
+                <div
+                    class="buttonhover glass bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50 rounded-xl cursor-pointer"
+                >
+                    <x-ui.icon
+                        icon="leftarrow"
+                        padding="p-0"
+                        dark=""
+                        width="w-10"
+                    />
+                </div>
+            @endif
         </a>
-        <div class="w-10 h-10 rounded-xl border border-gray-400 frow">{{ $current }}</div>
+        <div class="w-10 h-10 frow">{{ $current }}</div>
         <a
             href="{{ $paginator->nextPageUrl() ?? '#' }}"
-            class="bg-gray-200 border border-gray-400 dark:bg-gray-500 hover:bg-gray-300 rounded-xl"
+            class="w-10 h-10 block"
             title="Next Page"
         >
-            <x-ui.icon
-                icon="rightarrow"
-                padding="p-0"
-                dark=""
-                width="w-10"
-            />
+            @if($paginator->nextPageUrl())
+                <div
+                    class="buttonhover glass bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50 rounded-xl cursor-pointer"
+                >
+                    <x-ui.icon
+                        icon="rightarrow"
+                        padding="p-0"
+                        dark=""
+                        width="w-10"
+                    />
+                </div>
+            @endif
         </a>
     </nav>
 @endif

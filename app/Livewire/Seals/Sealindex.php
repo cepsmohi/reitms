@@ -14,12 +14,12 @@ class Sealindex extends Component
 
     public function render()
     {
-        $seals = Seal::where('status', 'stock')
-            ->orderBy('number')
+        $seals = Seal::orderByDesc('updated_at')
             ->paginate(20);
         if ($this->search != '') {
             $seals = Seal::query()
                 ->where('number', 'like', "%{$this->search}%")
+                ->orderByDesc('updated_at')
                 ->paginate(20);
         }
         return view('livewire.seals.sealindex', compact('seals'));

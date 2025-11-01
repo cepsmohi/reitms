@@ -1,5 +1,5 @@
 <a
-    class="card block h-52 group"
+    class="card buttonhover glass block h-52 group"
     href="{{ route('materials.detail', $material) }}"
 >
     <!-- Header -->

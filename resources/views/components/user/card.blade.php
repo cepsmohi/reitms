@@ -1,11 +1,12 @@
-<div
-    class="card group"
+<a
+    class="card buttonhover glass block h-52 group"
+    href="{{ route('users.edit', $user) }}"
 >
     <!-- Header -->
     <div class=" px-4 py-3 border-b border-gray-100 frowb group-hover:rounded-t-2xl">
-        <a href="">
+        <div>
             <x-ui.h3 :title="$user->name"/>
-        </a>
+        </div>
         <span
             @class([
                 'px-2 py-1 text-xs rounded-full border',
@@ -28,16 +29,4 @@
         </div>
         <img class="w-32 rounded-full" src="{{ $user->image }}" alt="">
     </div>
-
-    <!-- Footer / Actions -->
-    @can('admin', cusr())
-        <div
-            class="p-1 adbr rounded-2xl hidden group-hover:flex frowe gap-2 bg-gray-200"
-        >
-            <x-ui.ahref
-                :href="route('users.edit', $user)"
-                icon="edit"
-            />
-        </div>
-    @endcan
-</div>
+</a>

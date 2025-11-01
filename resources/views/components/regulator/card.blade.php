@@ -1,5 +1,5 @@
 <div
-    class="card block h-52 group"
+    class="card buttonhover glass block h-52 group"
 >
     <!-- Header -->
     <div class=" px-4 py-3 border-b border-gray-100 frowb group-hover:rounded-t-2xl">

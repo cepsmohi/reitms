@@ -1,6 +1,6 @@
 <a
     @class([
-        'block relative',
+        'block glass buttonhover relative',
         'bg-green-200' => $seal->status == 'stock',
         'bg-yellow-200' => $seal->status == 'install',
         'bg-red-600' => $seal->status == 'damage',
