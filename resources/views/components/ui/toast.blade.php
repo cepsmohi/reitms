@@ -6,9 +6,7 @@
         x-transition
         class="modalback bg-gray-500"
     >
-        <div
-            class="p-4 bg-green-200 rounded-3xl shadow modal"
-        >
+        <div class="modal glass bg-gray-500/50 p-4 rounded-3xl">
             <div class="frows gap-2">
                 <x-ui.icon icon="info"/>
                 <div>{{ session('processing') }}</div>
@@ -32,7 +30,7 @@
         x-transition
         class="modalback bg-gray-500"
     >
-        <div class="modal bg-green-100">
+        <div class="modal glass bg-gray-500/50 p-4 rounded-3xl">
             <div class="sa success">
                 <div class="sa-success">
                     <div class="sa-success-tip"></div>
@@ -52,7 +50,7 @@
         x-transition
         class="modalback bg-gray-500"
     >
-        <div class="modal bg-green-100">
+        <div class="modal glass bg-gray-500/50 p-4 rounded-3xl">
             <div class="sa error">
                 <div class="sa-error">
                     <div class="sa-error-x">

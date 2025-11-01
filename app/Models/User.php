@@ -82,11 +82,6 @@ class User extends Authenticatable
         return $this->hasMany(Regulator::class);
     }
 
-    public function taskValues()
-    {
-        return $this->hasMany(TaskValue::class);
-    }
-
     public function files()
     {
         return $this->hasMany(File::class);
@@ -114,7 +109,12 @@ class User extends Authenticatable
             ['value' => $value]
         );
     }
-    
+
+    public function taskValues()
+    {
+        return $this->hasMany(TaskValue::class);
+    }
+
     protected function casts(): array
     {
         return [

@@ -23,7 +23,7 @@
                 <div>
                     {{ $task->metertest->meter->manufacturer ?? '---' }}
                 </div>
-                @if($task->isReporting())
+                @if($task->isReporting() && !$task->metertest->meter->manufacturer)
                     <div class="my-1">
                         <x-ui.awiretag
                             wireclick="openEditMeterForm"

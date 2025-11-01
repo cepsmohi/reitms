@@ -2,6 +2,7 @@
     <x-ui.awire
         :$wireclick
         icon="cross"
-        color="bg-gray-100 hover:bg-red-300"
+        color="bg-gray-500/50 hover:bg-gray-300/50"
+        rounded="rounded-full"
     />
 </div>

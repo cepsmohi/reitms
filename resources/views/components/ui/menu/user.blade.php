@@ -23,7 +23,7 @@
         x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-90"
-        class="menudiv bg-gray-500 p-2 top-16 right-1"
+        class="absolute modal glass bg-gray-500/50 p-2 rounded-3xl fcol gap-2"
     >
         <x-ui.ahreftag
             icon="user"

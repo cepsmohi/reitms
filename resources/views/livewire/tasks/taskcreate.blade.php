@@ -1,13 +1,10 @@
 <div>
     <x-ui.topbar/>
     <x-task.create.buttons/>
-    <x-ui.title title="Create Task"/>
+    <x-ui.title title="Creating Task"/>
     <x-task.create.type :$type :$types/>
-    <x-task.create.selectcustomer
-        :$type
+    <x-tasks.create.assigncustomerform
+        :$customercode
         :$customers
-        :$customer
-        :$search
     />
-    <x-task.create.submit-button :$customer/>
 </div>

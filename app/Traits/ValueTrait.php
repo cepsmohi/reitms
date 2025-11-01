@@ -19,11 +19,7 @@ trait ValueTrait
         $this->validate([
             'value' => 'required|string',
         ]);
-        cusr()->taskValues()->create([
-            'task_id' => $this->task->id,
-            'field' => $this->field,
-            'value' => $this->value,
-        ]);
+        $this->task->setTaskValue($this->field, $this->value);
         return $this->closeValueForm();
     }
 
@@ -47,10 +43,7 @@ trait ValueTrait
         $this->validate([
             'value' => 'required|string',
         ]);
-        $taskValue = $this->task->getTaskValue($this->field);
-        $taskValue->update([
-            'value' => $this->value,
-        ]);
+        $this->task->setTaskValue($this->field, $this->value);
         return $this->closeValueForm();
     }
 }

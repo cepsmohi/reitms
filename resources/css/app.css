@@ -1,5 +1,6 @@
 @import './inputstyle.css';
 @import './toaststyle.css';
+@import './glassButton.css';
 @import 'tailwindcss';
 
 @source '../views';
@@ -246,7 +247,7 @@ input.inputcss ~ span.placeholder {
     }
 
     .modal {
-        @apply max-w-[320px] relative rounded-[25px] p-4 border-2 border-gray-500 print:shadow-none text-black;
+        @apply max-w-[320px] relative rounded-xl p-4 border-2 border-gray-500 print:shadow-none text-black;
     }
 
     .bodycss {
@@ -258,6 +259,6 @@ input.inputcss ~ span.placeholder {
     }
 
     .submit-button {
-        @apply px-2 py-1 flex flex-row items-center justify-start gap-2 cursor-pointer text-base text-black font-black rounded-xl border border-transparent hover:border hover:bg-gray-300 hover:border-green-400 hover:text-green-600 hover:font-black;
+        @apply px-2 py-1 flex flex-row items-center justify-start gap-2 rounded-xl cursor-pointer;
     }
 }

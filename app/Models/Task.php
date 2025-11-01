@@ -256,18 +256,39 @@ class Task extends Model
         return $data?->value;
     }
 
-    public function taskvalues()
-    {
-        return $this->hasMany(TaskValue::class);
-    }
-
     public function getTaskValue($field)
     {
         return $this->taskvalues->where('field', $field)->first();
     }
 
+    public function setTaskValue($field, $value)
+    {
+        return $this->taskValues()->updateOrCreate(
+            [
+                'user_id' => cusr()->id,
+                'field' => $field
+            ],
+            ['value' => $value]
+        );
+    }
+
+    public function taskvalues()
+    {
+        return $this->hasMany(TaskValue::class);
+    }
+
     public function metertest()
     {
         return $this->hasOne(MeterTest::class);
+    }
+
+    public function redirectUrl()
+    {
+        $map = [
+            'rms install' => 'tasks.rmsinstall.details',
+            'rms maintain' => 'tasks.rmsmaintain.details',
+        ];
+        $route = $map[$this->type] ?? 'tasks';
+        return redirect()->route($route, $this);
     }
 }

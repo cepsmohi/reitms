@@ -47,7 +47,7 @@
             x-transition:leave="transition ease-in duration-300"
             x-transition:leave-start="opacity-100 scale-100"
             x-transition:leave-end="opacity-0 scale-90"
-            class="p-2 adtl top-10 -left-[8px] fcol gap-1 bg-gray-400 w-full rounded-xl shadow z-50"
+            class="w-full absolute modal glass bg-gray-500/70 p-2 rounded-3xl fcol gap-2 z-50"
         >
             @php
                 $conditionTypes = [
@@ -61,7 +61,7 @@
             @foreach($conditionTypes as $condition)
                 @if($status != $condition)
                     <div
-                        class="w-full px-2 py-1 text-left submit-button"
+                        class="w-full px-2 py-1 text-left submit-button glass buttonhover uppercase"
                         wire:click="selectCondition('{{ $condition }}')"
                         @click="isOpen = !isOpen"
                     >{{ $condition }}</div>

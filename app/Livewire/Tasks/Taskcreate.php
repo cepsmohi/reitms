@@ -3,7 +3,7 @@
 namespace App\Livewire\Tasks;
 
 use App\Models\Customer;
-use App\Traits\SearchTrait;
+use App\Traits\CustomerTrait;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -11,20 +11,13 @@ use Livewire\WithPagination;
 class Taskcreate extends Component
 {
     use WithPagination;
-    use SearchTrait;
+    use CustomerTrait;
 
     #[Locked]
     public $type;
 
-    public $customer;
-
     public $types = [
-        'meter test',
-        'meter sealing',
-        'rms install',
-        'rms maintain',
-        'rms layoff',
-        'rms disconnection',
+        'rms install'
     ];
 
     public function mount(Request $request)
@@ -52,40 +45,22 @@ class Taskcreate extends Component
         $this->type = $t;
     }
 
-    public function selectCustomer($id)
-    {
-        $this->customer = Customer::find($id);
-    }
-
     public function createTask()
     {
+        $this->validate([
+            'customercode' => 'required|string|size:19',
+        ]);
+        $customer = $this->createCustomer();
         $task = cusr()->tasks()->create([
-            'customer_id' => $this->customer->id,
+            'customer_id' => $customer->id,
             'type' => $this->type,
         ]);
-        return $this->redirectUrl($task, $this->type);
-    }
-
-    public function redirectUrl($task, $type)
-    {
-        if ($type == 'rms install') {
-            return redirect()->route('tasks.rmsinstall.details', $task);
-        }
-        if ($type == 'rms maintain') {
-            return redirect()->route('tasks.rmsmaintain.details', $task);
-        }
-        return redirect()->route('tasks');
+        session()->flash('success', 'Task Created');
+        return $task->redirectUrl();
     }
 
     public function render()
     {
-        $customers = Customer::query()
-            ->where('name', 'like', "%$this->search%")
-            ->orWhere('code', 'like', "%$this->search%")
-            ->limit(5)
-            ->get();
-        return view('livewire.tasks.taskcreate', [
-            'customers' => $customers,
-        ]);
+        return view('livewire.tasks.taskcreate');
     }
 }

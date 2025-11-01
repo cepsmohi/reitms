@@ -13,18 +13,28 @@ trait CustomerTrait
 
     public function updatingCustomercode()
     {
-        if ($this->customercode != '') {
-            return $this->customers = CustomerDetail::where('code', 'like', "%$this->customercode%")
-                ->limit(1)
+        if (!empty($this->customercode)) {
+            $this->customers = CustomerDetail::where('code', 'like', "%{$this->customercode}%")
+                ->limit(5)
                 ->get();
+        } else {
+            $this->customers = [];
         }
     }
 
     public function assignCustomer()
     {
-        $data = $this->validate([
+        $this->validate([
             'customercode' => 'required|string|size:19',
         ]);
+        $customer = $this->createCustomer();
+        $this->task->update(['customer_id' => $customer->id]);
+        session()->flash('success', 'Customer Assigned');
+        return redirect()->route('tasks.metertest.details', $this->task);
+    }
+
+    public function createCustomer()
+    {
         $this->selectCustomer($this->customercode);
         $customer = Customer::where('code', $this->customercode)->first();
         if ($customer == null) {
@@ -34,19 +44,19 @@ trait CustomerTrait
                 'zone' => $this->zone,
             ]);
         }
-        $this->task->update(['customer_id' => $customer->id]);
-        session()->flash('success', 'Customer Assigned');
-        return redirect()->route('tasks.metertest.details', $this->task);
+        return $customer;
     }
 
     public function selectCustomer($code)
     {
         $this->customercode = $code;
         $customer = CustomerDetail::where('code', $code)->first();
-        $this->customername = $customer->customer_name;
-        $firstThree = substr(str_replace('-', '', $code), 0, 3);
-        $this->zone = (int) $firstThree;
-        return $this->customers = null;
+        if ($customer != null) {
+            $this->customername = $customer->customer_name;
+            $firstThree = substr(str_replace('-', '', $code), 0, 3);
+            $this->zone = (int) $firstThree;
+        }
+        return $this->customers = [];
     }
 
 }

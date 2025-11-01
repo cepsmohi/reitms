@@ -4,8 +4,8 @@
 >
     <button
         @class([
-            'submit-button group',
-            $color ?? 'bg-gray-400 dark:bg-gray-500 hover:bg-gray-300'
+            'submit-button buttonhover glass group',
+            $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50',
         ])
         class=""
         id="{{ randtxt() }}"

@@ -4,7 +4,7 @@
         id="{{ randtxt() }}"
         @class([
             'print:hidden',
-            'alink' => $task->isReporting()
+            'alink buttonhover' => $task->isReporting()
         ])
         @if($task->isReporting()) wire:click="openValueForm('{{ $field }}')" @endif
     >

@@ -1,9 +1,9 @@
 <div class="frows gap-2">
     <button
         @class([
-            'submit-button group',
+            'submit-button buttonhover glass group',
             $width ?? '',
-            $color ?? 'bg-gray-400 dark:bg-gray-500 hover:bg-gray-300'
+            $color ?? 'bg-gray-400/50 dark:bg-gray-500 hover:bg-gray-300'
         ])
         id="submit-button-{{ $form }}"
         form="{{ $form }}"
