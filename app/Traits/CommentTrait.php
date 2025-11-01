@@ -22,7 +22,7 @@ trait CommentTrait
         ]);
         $this->task->setComment($this->comment);
         $this->reset('comment');
-        session()->flash('success', 'Comments added');
+        $this->task->refresh();
         return $this->addCommentForm = false;
     }
 
@@ -32,7 +32,8 @@ trait CommentTrait
             'comment' => 'required|string'
         ]);
         $this->task->setComment($this->comment);
-        session()->flash('success', 'Comments updated');
+        $this->reset('comment');
+        $this->task->refresh();
         return $this->editCommentForm = false;
     }
 }

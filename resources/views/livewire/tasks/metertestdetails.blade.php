@@ -14,7 +14,7 @@
         <x-tasks.metertest.details.metertestingcomment :$task/>
         <x-tasks.metertest.details.meterremovalcause :$task/>
         <x-tasks.metertest.details.metercondition :$task/>
-        <x-tasks.metertest.details.comments :$task :$comment/>
+        <x-tasks.details.comments :$task :$comment/>
         <x-tasks.details.photos :$task :$photos :$totalSize/>
         <x-tasks.metertest.details.approvalstatus :$task/>
     </div>
