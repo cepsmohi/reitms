@@ -18,7 +18,6 @@ use Livewire\WithFileUploads;
 
 class Rmsinstalldetails extends Component
 {
-    use WithFileUploads;
     use CommentTrait;
     use DrawingTrait;
     use MaterialTrait;
@@ -28,6 +27,7 @@ class Rmsinstalldetails extends Component
     use SealingTrait;
     use TaskTrait;
     use ValueTrait;
+    use WithFileUploads;
 
     public $task;
 

@@ -1,5 +1,5 @@
-<div class="mt-4">
-    <div class="stitle border-b">Drawings</div>
+<div class="py-1">
+    <div class="w-full border-b font-bold">Drawing</div>
     @php
         $drawing = $task->drawing;
     @endphp
@@ -17,13 +17,11 @@
                 </div>
                 @if($task->isReporting())
                     <div class="adbr hidden group-hover:flex">
-                        <div
-                            class="w-7 h-7 p-1 rounded-full border border-red-800 frow cursor-pointer bg-red-500 hover:bg-red-300 shadow">
-                            <x-ui.awire
-                                wireclick="deleteDrawing({{ $drawing->id }})"
-                                icon="trash"
-                            />
-                        </div>
+                        <x-ui.awire
+                            wireclick="deleteDrawing({{ $drawing->id }})"
+                            icon="trash"
+                            color="bg-red-500/50 dark:bg-red-300/50 hover:bg-red-300/50"
+                        />
                     </div>
                 @endif
             </div>
@@ -51,9 +49,4 @@
         @endif
     @endif
 </div>
-@if($addDrawingForm)
-    <x-tasks.adddrawingform :$drawings/>
-@endif
-@if($deleteDrawingForm)
-    <x-tasks.deletedrawingform/>
-@endif
+

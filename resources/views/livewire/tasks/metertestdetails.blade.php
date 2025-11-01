@@ -16,7 +16,7 @@
         <x-tasks.metertest.details.metercondition :$task/>
         <x-tasks.details.comments :$task :$comment/>
         <x-tasks.details.photos :$task :$photos :$totalSize/>
-        <x-tasks.metertest.details.approvalstatus :$task/>
+        <x-tasks.details.approvalstatus :$task/>
     </div>
 
     {{--    assign customer forms--}}
@@ -38,9 +38,10 @@
     <x-tasks.editmeterform :$meter :$editMeterForm/>
     <x-tasks.editmeterstockform :$meter :$material :$status :$editStockForm/>
 
-    <x-tasks.deletetaskform :$deleteTaskForm/>
-
     {{--   photos forms--}}
     <x-tasks.addphotoform :$addPhotoForm :$photos :$totalSize/>
     <x-tasks.deletephotoform :$deletePhotoForm/>
+
+    {{--   task delete form--}}
+    <x-tasks.deletetaskform :$deleteTaskForm/>
 </div>
