@@ -10,13 +10,13 @@
     >
         <div class="stitle mb-4">Select Meter</div>
         <x-form.inputwire
-            name="number"
+            name="meterSerialNumber"
             placeholder="Meter Number"
             icon="name"
         />
-        @error('type')
+        @error('meterType')
         <x-form.inputwire
-            name="type"
+            name="meterType"
             placeholder="Meter Type"
             icon="tag"
             hints="G-400"

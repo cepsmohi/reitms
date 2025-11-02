@@ -1,4 +1,4 @@
-<div class="py-1">
+<div class="py-1 print:hidden">
     <div class="w-full border-b font-bold">Drawing</div>
     @php
         $drawing = $task->drawing;

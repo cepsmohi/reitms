@@ -1,8 +1,8 @@
 <button
     id="printBtn"
     @class([
-        $color ?? 'bg-gray-200 dark:bg-gray-500 hover:bg-gray-300',
-        'block rounded-xl cursor-pointer'
+        $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50',
+        'block buttonhover glass rounded-xl cursor-pointer'
     ])
     title="Print Page"
     onclick="window.print();"

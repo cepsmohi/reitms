@@ -1,5 +1,5 @@
-<div class="mt-4">
-    <div class="stitle border-b">Used Materials</div>
+<div class="py-1">
+    <div class="w-full border-b font-bold">ব্যবহৃত মালামালের বিবরণ</div>
     @php
         $materials = $task->materialstocks;
     @endphp
@@ -40,9 +40,4 @@
         <div class="stitle text-red-500">No entry yet</div>
     @endif
 </div>
-@if($addMaterialForm)
-    <x-tasks.addmaterialform :$materialCode :$quantity/>
-@endif
-@if($deleteMaterialForm)
-    <x-tasks.deletematerialform/>
-@endif
+

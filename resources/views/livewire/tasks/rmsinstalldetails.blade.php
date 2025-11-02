@@ -6,7 +6,13 @@
         <x-tasks.details.refdate :$task/>
         <x-tasks.details.customerdetails :$task/>
         <x-tasks.details.drawing :$task :$drawings :$drawing/>
-        <x-tasks.rmsinstall.details.sealing :$task :$addSealForm :$removeSealForm :$sealType :$prefix :$sealNumber/>
+        <div class="frowb gap-2 items-start">
+            <x-tasks.rmsinstall.details.meterinfo :$task :$meterSerialNumber/>
+            <x-ui.vline height="h-24"/>
+            <x-tasks.rmsinstall.details.regulatorinfo :$task :$regulatorSerialNumber/>
+        </div>
+        <x-tasks.details.sealing :$task/>
+        <x-tasks.details.usedmaterials :$task/>
         <x-tasks.details.comments :$task :$comment/>
         <x-tasks.details.photos :$task :$photos :$totalSize/>
         <x-tasks.details.approvalstatus :$task/>
@@ -23,6 +29,10 @@
     {{--    add seal forms--}}
     <x-tasks.addsealform :$sealType :$prefix :$sealNumber :$addSealForm/>
     <x-tasks.removesealform :$removeSealForm/>
+
+    {{--    add materials forms--}}
+    <x-tasks.addmaterialform :$addMaterialForm :$materialCode :$quantity/>
+    <x-tasks.deletematerialform :$deleteMaterialForm/>
 
     {{--    comments forms--}}
     <x-tasks.addcommentform :$comment :$addCommentForm/>

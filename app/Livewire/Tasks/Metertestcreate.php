@@ -7,19 +7,19 @@ use Livewire\Component;
 
 class Metertestcreate extends Component
 {
-    public $number, $type;
+    public $meterSerialNumber, $meterType;
 
     public function assignMeter()
     {
         $this->validate([
-            'number' => 'required|string'
+            'meterSerialNumber' => 'required|string'
         ]);
-        $meter = Meter::where('number', $this->number)
+        $meter = Meter::where('number', $this->meterSerialNumber)
             ->first();
         if (!$meter) {
             $data = $this->validate([
-                'number' => 'required|string',
-                'type' => 'required|string',
+                'meterSerialNumber' => 'required|string',
+                'meterType' => 'required|string',
             ]);
             if ($this->type == null) {
                 return $this->addError('type', "Add meter type");

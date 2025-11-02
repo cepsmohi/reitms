@@ -14,14 +14,14 @@ trait RegulatorTrait
             'regulatorSerialNumber' => 'required|string'
         ]);
         $regulator = Regulator::where('number', $this->regulatorSerialNumber)
-            ->where('status', 'stock')
             ->first();
         if (!$regulator) {
-            return $this->addError('regulatorSerialNumber', "Regulator $this->regulatorSerialNumber does not exist.");
+            $regulator = cusr()->regulators()->create([
+                'number' => $this->regulatorSerialNumber
+            ]);
         }
-        $regulator->setStatus('installed');
         $this->task->assignRegulator($regulator->id);
-        $this->regulatorSerialNumber = '';
-        return true;
+        $regulator->setStatus('installed');
+        return $this->task->refresh();
     }
 }

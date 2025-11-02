@@ -6,10 +6,10 @@ use App\Models\Meter;
 
 trait MeterTrait
 {
-    public string $meterSerialNumber;
     public $addMeterForm = false;
     public $editMeterForm = false;
 
+    public $meterSerialNumber, $meterType;
     public $meter, $manufacturer, $model, $year, $diameter, $comments;
 
     public function openEditMeterForm()
@@ -35,15 +35,23 @@ trait MeterTrait
             'meterSerialNumber' => 'required|string'
         ]);
         $meter = Meter::where('number', $this->meterSerialNumber)
-            ->where('status', 'stock')
             ->first();
         if (!$meter) {
-            return $this->addError('meterSerialNumber', "Meter $this->meterSerialNumber does not exist.");
+            $this->validate([
+                'meterSerialNumber' => 'required|string',
+                'meterType' => 'required|string',
+            ]);
+            if ($this->meterType == null) {
+                return $this->addError('meterType', "Add meter type");
+            }
+            $meter = cusr()->meters()->create([
+                'number' => $this->meterSerialNumber,
+                'type' => $this->meterType,
+            ]);
         }
-        $meter->setStatus('installed');
         $this->task->assignMeter($meter->id);
-        $this->meterSerialNumber = '';
-        return true;
+        $meter->setStatus('installed');
+        return $this->task->refresh();
     }
 
     public function updateMeter()

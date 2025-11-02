@@ -6,7 +6,7 @@
 <div class="frows gap-2">
     <div class="font-bold">Initial Mech Reading</div>
     <x-ui.vline/>
-    <x-tasks.values :$task field="mechreading"/>
+    <x-tasks.values :$task field="mech reading"/>
 </div>
 <div class="frows gap-2">
     <div class="font-bold">Initial EVC Reading</div>

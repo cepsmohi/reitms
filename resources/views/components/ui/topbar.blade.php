@@ -4,4 +4,4 @@
     />
     <x-ui.menu.user/>
 </div>
-<x-tasks.printable.header/>
+<x-ui.print.header/>

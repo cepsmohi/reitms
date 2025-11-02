@@ -1,1 +1,8 @@
-<div class="w-[2px] h-4 bg-black dark:bg-white {{ $extraclass ?? '' }}"></div>
+<div
+    @class([
+        'self-stretch my-auto border-l border-black',
+        $width ?? 'w-[2px]', // optional if border width defined
+        $height ?? 'h-3',
+        $extraclass ?? ''
+    ])
+></div>
