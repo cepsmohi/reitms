@@ -2,7 +2,7 @@
     id="{{ randtxt() }}"
     @class([
         'print:hidden' => isset($title) && $title == false,
-        'alink' => $task->isReporting()
+        'alink buttonhover' => $task->isReporting()
     ])
     @if($task->isReporting()) wire:click="openSealForm('{{ $type }}')" @endif
 >

@@ -222,5 +222,11 @@ function cssbg(string $color = 'gray')
 function monthname($no)
 {
     $months = ['Err', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return isset($months[$no]) ? $months[$no] : 'Err';
+    return $months[$no] ?? 'Err';
+}
+
+function customerType($i)
+{
+    $types = [1 => 'আবাসিক', 2 => 'বাণিজ্যিক', 3 => 'শিল্প', 7 => 'সিএনজি', 8 => 'ক্যাপটিভ'];
+    return $types[$i] ?? null;
 }

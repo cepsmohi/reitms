@@ -16,7 +16,14 @@
             </div>
             <div class="frows gap-2">
                 <div class="font-bold">গ্রাহক শ্রেণি:</div>
-                <x-tasks.values :$task field="customer type" tag="+ customer type"/>
+                @php
+                    $customer_type = customerType($task->customer->code[0]);
+                @endphp
+                @if($customer_type)
+                    <div>{{ $customer_type }}</div>
+                @else
+                    <x-tasks.values :$task field="customer type" tag="+ customer type"/>
+                @endif
             </div>
         </div>
 
