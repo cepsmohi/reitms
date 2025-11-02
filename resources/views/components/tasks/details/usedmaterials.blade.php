@@ -37,7 +37,7 @@
         </div>
     @endif
     @if($materials->count() == 0 && !$task->isReporting())
-        <div class="stitle text-red-500">No entry yet</div>
+        <div>ব্যবহৃত মালামালের তালিকা পূরণ করা হয়নি</div>
     @endif
 </div>
 
