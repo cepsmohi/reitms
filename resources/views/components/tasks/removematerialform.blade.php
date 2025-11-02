@@ -1,12 +1,12 @@
-@if($addMaterialInForm)
+@if($addMaterialOutForm)
     <x-form.form-modal
-        formCondition="addMaterialInForm"
+        formCondition="addMaterialOutForm"
         :submitCondition="true"
-        submitFun="addMaterial"
-        formId="addMaterialForm"
-        formTitle="Add Materials"
-        submitIcon="plus"
-        submitTag="Add Material"
+        submitFun="removeMaterial"
+        formId="removeMaterialForm"
+        formTitle="Remove Materials"
+        submitIcon="minus"
+        submitTag="Remove Material"
     >
         <x-form.inputwire
             name="materialCode"

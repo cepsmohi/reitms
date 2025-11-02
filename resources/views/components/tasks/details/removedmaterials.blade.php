@@ -1,7 +1,7 @@
 <div class="py-1">
-    <div class="w-full border-b font-bold">ব্যবহৃত মালামালের বিবরণ</div>
+    <div class="w-full border-b font-bold">অপসারিত মালামালের বিবরণ</div>
     @php
-        $materials = $task->materialstocksout;
+        $materials = $task->materialstocksin;
     @endphp
     @if($materials->count() > 0)
         <div class="my-1 frows flex-wrap gap-4">
@@ -9,7 +9,7 @@
                 <div class="relative frows flex-wrap gap-2 group">
                     <x-ui.tagvalue
                         :tag="$materialStock->material->name"
-                        :value="$materialStock->stock_out"
+                        :value="$materialStock->stock_in"
                         :unit="$materialStock->material->unit"
                     />
                     @if($task->isReporting())
@@ -29,14 +29,14 @@
     @if($task->isReporting())
         <div class="my-1">
             <x-ui.awiretag
-                wireclick="$toggle('addMaterialInForm')"
+                wireclick="$toggle('addMaterialOutForm')"
                 icon="name"
-                tag="Add Material"
+                tag="Remove Material"
             />
         </div>
     @endif
     @if($materials->count() == 0 && !$task->isReporting())
-        <div>ব্যবহৃত মালামালের তালিকা পূরণ করা হয়নি</div>
+        <div>অপসারিত মালামালের তালিকা পূরণ করা হয়নি</div>
     @endif
 </div>
 

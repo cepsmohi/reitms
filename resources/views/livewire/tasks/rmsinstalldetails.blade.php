@@ -1,6 +1,6 @@
 <div>
     <x-ui.topbar/>
-    <x-tasks.rmsinstall.details.buttons :$task/>
+    <x-tasks.rmsinstall.details.buttons :$task :href="route('tasks.rmsinstall')"/>
     <x-ui.title title="বিষয়- নতুন আরএমএস স্থাপন প্রতিবেদন।"/>
     <div class="print:text-[10px]">
         <x-tasks.details.refdate :$task/>

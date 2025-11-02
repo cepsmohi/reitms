@@ -21,10 +21,13 @@ class Metertestcreate extends Component
                 'meterSerialNumber' => 'required|string',
                 'meterType' => 'required|string',
             ]);
-            if ($this->type == null) {
-                return $this->addError('type', "Add meter type");
+            if ($this->meterType == null) {
+                return $this->addError('meterType', "Add meter type");
             }
-            $meter = cusr()->meters()->create($data);
+            $meter = cusr()->meters()->create([
+                'number' => $this->meterSerialNumber,
+                'type' => $this->meterType,
+            ]);
         }
         $assignmeter = $meter->assignmeters()->latest()->first();
         $customer = null;

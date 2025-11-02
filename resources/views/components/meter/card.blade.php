@@ -21,6 +21,9 @@
     <!-- Body -->
     <div class="px-4 py-3 space-y-2 text-sm">
         <p><strong>Type:</strong> {{ $meter->type }}</p>
+        @if($meter->material_id)
+            <p><strong>Material Code:</strong> {{ $meter->material->code }}</p>
+        @endif
         @if($meter->model)
             <p><strong>Model:</strong> {{ $meter->model }}</p>
         @endif

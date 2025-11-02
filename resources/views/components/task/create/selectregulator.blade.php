@@ -1,4 +1,4 @@
-<div>
+<div class="print:hidden">
     <x-form.form-create
         wiresubmit="assignRegulator"
         formTitle="Add Regulator"

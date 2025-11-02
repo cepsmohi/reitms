@@ -9,3 +9,7 @@
 
 - [ ] Monthly Report
 - [ ] Leader Board
+
+## Material Stock
+
+-[ ] Add Material Stock In Status and Correct Stock Report

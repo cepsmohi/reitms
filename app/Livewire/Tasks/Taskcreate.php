@@ -17,7 +17,8 @@ class Taskcreate extends Component
     public $type;
 
     public $types = [
-        'rms install'
+        'rms install',
+        'rms maintain'
     ];
 
     public function mount(Request $request)

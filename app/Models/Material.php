@@ -17,6 +17,19 @@ class Material extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getStockAttribute()
+    {
+        if ($this->meters->count() > 0) {
+            return $this->meters()->where('status', 'stock')->count();
+        }
+        if ($this->regulators->count() > 0) {
+            return $this->regulators()->where('status', 'stock')->count();
+        }
+        $in = $this->stocks->sum('stock_in');
+        $out = $this->stocks->sum('stock_out');
+        return $in - $out;
+    }
+
     public function meters()
     {
         return $this->hasMany(Meter::class);
@@ -25,13 +38,6 @@ class Material extends Model
     public function regulators()
     {
         return $this->hasMany(Regulator::class);
-    }
-
-    public function getStockAttribute()
-    {
-        $in = $this->stocks->sum('stock_in');
-        $out = $this->stocks->sum('stock_out');
-        return $in - $out;
     }
 
     public function stocks()

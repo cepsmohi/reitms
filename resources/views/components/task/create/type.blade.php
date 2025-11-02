@@ -1,6 +1,10 @@
 @if($type)
     @php
-        $title = $type == 'rms install' ? 'New RMS Installation' : $type;
+        $title = match($type) {
+            'rms install' => 'New RMS Installation',
+            'rms maintain' => 'RMS Maintenance',
+            default => ucfirst($type),
+        };
     @endphp
     <x-ui.title :$title/>
 @else

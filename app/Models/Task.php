@@ -38,6 +38,16 @@ class Task extends Model
         );
     }
 
+    public function getMaterialstocksinAttribute()
+    {
+        return MaterialStock::where('task_id', $this->id)->where('stock_in', '>', 0)->get();
+    }
+
+    public function getMaterialstocksoutAttribute()
+    {
+        return MaterialStock::where('task_id', $this->id)->where('stock_out', '>', 0)->get();
+    }
+
     public function materialstocks()
     {
         return $this->hasMany(MaterialStock::class);

@@ -1,59 +1,53 @@
 <div>
-    <div class="print:hidden">
-        <x-ui.topbar/>
-        <x-tasks.rmsinstall.details.buttons :$task/>
-        <x-ui.title title="RMS Installation Details"/>
-        <x-tasks.rmsinstall.details.heading :$task/>
-        <x-tasks.rmsinstall.details.customerinfo :$task/>
-        <x-tasks.rmsinstall.details.drawing
-            :$task
-            :$addDrawingForm
-            :$deleteDrawingForm
-            :$drawings
-            :$drawing
-        />
-        <x-tasks.rmsinstall.details.meterinfo
-            :$task
-            :$meterSerialNumber
-            :$addMeterForm
-        />
-        <x-tasks.rmsinstall.details.regulatorinfo
-            :$task
-            :$regulatorSerialNumber
-        />
-        <x-tasks.rmsinstall.details.sealing
-            :$task
-            :$addSealForm
-            :$removeSealForm
-            :$sealType :$prefix :$sealNumber
-        />
-        <x-tasks.rmsinstall.details.comments
-            :$task
-            :$addCommentForm
-            :$editCommentForm
-            :$comment
-        />
-        <x-tasks.rmsinstall.details.photos
-            :$task
-            :$addPhotoForm
-            :$deletePhotoForm
-            :$photos
-            :$totalSize
-        />
-        <x-tasks.rmsinstall.details.usedmaterials
-            :$task
-            :$addMaterialForm
-            :$deleteMaterialForm
-            :$materialCode
-            :$quantity
-        />
-        <x-tasks.rmsinstall.details.approvalstatus :$task/>
-        <x-tasks.addvalueform :$task :$addValueForm :$field :$value/>
-        <x-tasks.editvalueform :$task :$editValueForm :$field :$value/>
-    </div>
-    @if($task->isApproved())
-        <div class="hidden print:block">
-            <x-tasks.printable :$task/>
+    <x-ui.topbar/>
+    <x-tasks.rmsinstall.details.buttons :$task :href="route('tasks.rmsmaintain')"/>
+    <x-ui.title title="বিষয়- আরএমএস রক্ষণাবেক্ষণ/পরিবর্তন/পরিদর্শন প্রতিবেদন।"/>
+    <div class="print:text-[10px]">
+        <x-tasks.details.refdate :$task/>
+        <x-tasks.details.customerdetails :$task/>
+        <x-tasks.details.drawing :$task :$drawings :$drawing/>
+        <div class="frowb gap-2 items-start">
+            <x-tasks.rmsinstall.details.meterinfo :$task :$meterSerialNumber/>
+            <x-ui.vline height="h-24"/>
+            <x-tasks.rmsinstall.details.regulatorinfo :$task :$regulatorSerialNumber/>
         </div>
-    @endif
+        <x-tasks.details.sealing :$task/>
+        <x-tasks.details.usedmaterials :$task/>
+        <div class="frowb gap-8 items-start">
+            <x-tasks.rmsmaintain.details.removemeterinfo :$task/>
+            <x-tasks.rmsmaintain.details.removeregulatorinfo :$task/>
+        </div>
+        <x-tasks.details.removedmaterials :$task/>
+        <x-tasks.details.comments :$task :$comment/>
+        <x-tasks.details.photos :$task :$photos :$totalSize/>
+        <x-tasks.details.approvalstatus :$task/>
+    </div>
+
+    {{--    add drawing forms--}}
+    <x-tasks.adddrawingform :$addDrawingForm :$drawings/>
+    <x-tasks.deletedrawingform :$deleteDrawingForm/>
+
+    {{--    add value forms--}}
+    <x-tasks.addvalueform :$task :$addValueForm :$field :$value/>
+    <x-tasks.editvalueform :$task :$editValueForm :$field :$value/>
+
+    {{--    add seal forms--}}
+    <x-tasks.addsealform :$sealType :$prefix :$sealNumber :$addSealForm/>
+    <x-tasks.removesealform :$removeSealForm/>
+
+    {{--    add materials forms--}}
+    <x-tasks.addmaterialform :$addMaterialInForm :$materialCode :$quantity/>
+    <x-tasks.removematerialform :$addMaterialOutForm :$materialCode :$quantity/>
+    <x-tasks.deletematerialform :$deleteMaterialForm/>
+
+    {{--    comments forms--}}
+    <x-tasks.addcommentform :$comment :$addCommentForm/>
+    <x-tasks.editcommentform :$comment :$editCommentForm/>
+
+    {{--   photos forms--}}
+    <x-tasks.addphotoform :$addPhotoForm :$photos :$totalSize/>
+    <x-tasks.deletephotoform :$deletePhotoForm/>
+
+    {{--   task delete form--}}
+    <x-tasks.deletetaskform :$deleteTaskForm/>
 </div>

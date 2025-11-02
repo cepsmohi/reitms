@@ -7,22 +7,13 @@ use App\Models\MaterialStock;
 
 trait MaterialTrait
 {
-    public bool $addMaterialForm = false;
+    public bool $addMaterialInForm = false;
+    public bool $addMaterialOutForm = false;
     public bool $deleteMaterialForm = false;
     public string $materialCode;
     public float $quantity;
 
     public $materialStock;
-
-    public function openMaterialForm()
-    {
-        $this->addMaterialForm = true;
-    }
-
-    public function closeMaterialForm()
-    {
-        $this->addMaterialForm = false;
-    }
 
     public function addMaterial()
     {
@@ -32,14 +23,35 @@ trait MaterialTrait
         ]);
         $material = Material::where('code', $this->materialCode)->first();
         if (!$material) {
-            return $this->addError('materialCode', "Material code $this->meterSerialNumber does not exist.");
+            return $this->addError('materialCode', "Material code $this->materialCode does not exist.");
         }
         cusr()->materialstocks()->create([
             'material_id' => $material->id,
             'task_id' => $this->task->id,
             'stock_out' => $this->quantity,
         ]);
-        return $this->addMaterialForm = false;
+        $this->reset(['materialCode', 'quantity']);
+        $this->task->refresh();
+        return $this->addMaterialInForm = false;
+    }
+
+    public function removeMaterial()
+    {
+        $this->validate([
+            'materialCode' => 'required',
+            'quantity' => 'required|numeric',
+        ]);
+        $material = Material::where('code', $this->materialCode)->first();
+        if (!$material) {
+            return $this->addError('materialCode', "Material code $this->materialCode does not exist.");
+        }
+        cusr()->materialstocks()->create([
+            'material_id' => $material->id,
+            'task_id' => $this->task->id,
+            'stock_in' => $this->quantity,
+        ]);
+        $this->task->refresh();
+        return $this->addMaterialOutForm = false;
     }
 
     public function deleteMaterial(MaterialStock $materialStock)
