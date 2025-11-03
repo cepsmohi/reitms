@@ -3,10 +3,13 @@
 namespace App\Livewire\Customers;
 
 use App\Models\Customer;
+use App\Traits\FileTrait;
 use Livewire\Component;
 
 class Customeredit extends Component
 {
+    use FileTrait;
+
     public $customer;
     public $editCustomerCodeForm = false;
     public $customerCode;
@@ -17,7 +20,7 @@ class Customeredit extends Component
         $this->customerCode = $customer->code;
     }
 
-    public function updateCostomerCode()
+    public function updateCustomerCode()
     {
         $this->validate([
             'customerCode' => 'required|unique:customers,code,'.$this->customer->id,

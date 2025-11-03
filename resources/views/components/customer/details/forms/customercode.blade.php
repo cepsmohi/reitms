@@ -5,7 +5,7 @@
     >
         <x-ui.closeform wireclick="$toggle('editCustomerCodeForm')"/>
         <form
-            wire:submit="updateCostomerCode"
+            wire:submit="updateCustomerCode"
             id="editCustomerCodeForm"
         >
             <div class="fcol">

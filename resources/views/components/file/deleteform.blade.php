@@ -1,1 +1,3 @@
-<x-form.form-delete object="File"/>
+@if($deleteFileForm)
+    <x-form.form-delete object="File"/>
+@endif

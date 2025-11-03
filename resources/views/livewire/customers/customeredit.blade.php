@@ -9,4 +9,7 @@
     />
     <x-customer.details.tasklist :$customer/>
     <x-customer.details.files :$customer/>
+
+    {{--    file delete form--}}
+    <x-file.deleteform :$deleteFileForm/>
 </div>

@@ -3,8 +3,8 @@
 namespace App\Livewire\Files;
 
 use App\Models\File;
+use App\Traits\FileTrait;
 use App\Traits\SearchTrait;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,36 +12,13 @@ class Fileindex extends Component
 {
     use WithPagination;
     use SearchTrait;
+    use FileTrait;
 
-    public $file;
-    public $deleteFileForm = false;
     public $filterBy = '';
 
     public function setFilterBy($tag)
     {
         return $this->filterBy = $tag;
-    }
-
-    public function deleteFile(File $file)
-    {
-        $this->file = $file;
-        $this->deleteFileForm = true;
-    }
-
-    public function deleteFileConfirm()
-    {
-        if (Storage::disk('uploads')->exists($this->file->link)) {
-            Storage::disk('uploads')->delete($this->file->link);
-        }
-        $this->file?->delete();
-        $this->file = null;
-        return $this->deleteFileForm = false;
-    }
-
-    public function deleteFileCancel()
-    {
-        $this->file = null;
-        return $this->deleteFileForm = false;
     }
 
     public function render()

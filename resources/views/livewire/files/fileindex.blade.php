@@ -7,7 +7,7 @@
     <x-ui.pagination :items="$files"/>
     <x-file.cards :$files/>
     <x-ui.pagination :items="$files"/>
-    @if($deleteFileForm)
-        <x-file.deleteform/>
-    @endif
+
+    {{--    file delete form--}}
+    <x-file.deleteform :$deleteFileForm/>
 </div>
