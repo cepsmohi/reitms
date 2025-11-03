@@ -8,6 +8,7 @@ class CustomerDetail extends Model
 {
     protected $fillable = [
         'code',
+        'customer_name',
         'address',
         'hourly_load',
         'monthly_load',

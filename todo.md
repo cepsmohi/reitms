@@ -4,11 +4,10 @@
 
 - [x] Edit Customer
     - [ ] Edit Customer Detail
-- [ ] Correct create customer method
 
 ## Meter and Regulator
 
-- [ ] Correct create customer method
+- [ ] Correct create method
 
 ## Report
 

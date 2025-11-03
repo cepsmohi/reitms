@@ -1,10 +1,11 @@
 <div>
-    <x-ui.topbar :$href/>
+    <x-ui.topbar/>
     <x-customer.create.buttons/>
     <x-ui.title title="Create Customer"/>
     <x-customer.create.form
-        :$name
-        :$code
+        :$customers
+        :$customername
+        :$customercode
         :$address
         :$zone
     />

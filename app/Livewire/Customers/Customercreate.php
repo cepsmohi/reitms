@@ -2,38 +2,43 @@
 
 namespace App\Livewire\Customers;
 
-use Illuminate\Support\Facades\Request;
+use App\Traits\CustomerTrait;
 use Livewire\Component;
 
 class Customercreate extends Component
 {
-    public $href = null, $routeName;
-    public $name, $code, $address, $zone;
+    use CustomerTrait;
 
-    public function mount()
-    {
-        $this->href = url()->previous();
-        $previousRequest = Request::create($this->href);
-        $previousRoute = app('router')->getRoutes()->match($previousRequest);
-        $this->routeName = $previousRoute->getName();
-    }
+    public $address;
 
-    public function createCustomer()
+    public function newlyCreateCustomer()
     {
-        $data = $this->validate([
-            'name' => 'required',
-            'code' => 'required',
-            'address' => 'required',
-            'zone' => 'required',
+        $this->validate([
+            'customercode' => 'required|string|size:19',
         ]);
-        $customer = cusr()->customers()->create($data);
-        session()->flash('processing', 'Customer creating.. please wait.');
-        if ($this->routeName == 'customers') {
-            return redirect()->route('customers');
+        $customer = $this->selectCustomer($this->customercode);
+
+        if (!$customer) {
+            $this->validate([
+                'customercode' => 'required|string|size:19',
+                'customername' => 'required|string',
+                'address' => 'required|string'
+            ]);
+            $firstThree = substr(str_replace('-', '', $this->customercode), 0, 3);
+            $this->zone = (int) $firstThree;
+            $customer = cusr()->customers()->firstOrCreate([
+                'code' => $this->customercode,
+                'name' => strtoupper($this->customername),
+                'zone' => $this->zone,
+            ]);
+            $customer->detail()->firstOrCreate([
+                'code' => $customer->code,
+                'customer_name' => $customer->name,
+                'address' => $this->address,
+            ]);
         }
-        if ($this->routeName == 'tasks.create') {
-            return redirect($this->href.'&customer_id='.$customer->id);
-        }
+        session()->flash('success', 'Customer Created');
+        return redirect()->route('customers');
     }
 
     public function render()

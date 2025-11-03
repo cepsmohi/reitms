@@ -24,7 +24,7 @@
             <div class="w-1/4 text-[10px]">{{ $file->published_at->format('Y-m-d') }}</div>
         </div>
     </div>
-    <div class="px-1 pb-1 w-full truncate">{{ $file->name }}</div>
+    <div class="px-1 pb-1 w-64 truncate">{{ $file->name }}</div>
     <a
         href="{{ asset('uploads/'.$file->link) }}"
         target="_blank"
@@ -33,11 +33,10 @@
     </a>
     @can('admin', cusr())
         <div class="hidden adbr bottom-6 group-hover:block">
-            <x-ui.awiretag
+            <x-ui.awire
                 wireclick="deleteFile({{ $file->id }})"
                 icon="trash"
-                tag="Delete"
-                color="bg-red-300 hover:bg-red-600 hover:text-white"
+                color="bg-red-500/50 dark:bg-red-300/50 hover:bg-red-300/50"
             />
         </div>
     @endcan

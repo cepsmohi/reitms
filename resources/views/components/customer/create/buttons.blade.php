@@ -3,6 +3,6 @@
         :href="route('customers')"
         icon="back"
         width="w-10"
-        title="to Dashboard"
+        title="to Customers"
     />
 </div>

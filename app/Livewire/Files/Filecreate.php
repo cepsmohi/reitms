@@ -3,20 +3,26 @@
 namespace App\Livewire\Files;
 
 use App\Models\Customer;
+use App\Traits\CustomerTrait;
+use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Filecreate extends Component
 {
     use WithFileUploads;
+    use CustomerTrait;
 
-    public $file, $name, $tags = 'order', $code, $published;
+    public $file, $name, $tags = 'order', $published;
     public $tagList = false;
     public $tagTypes = ['information', 'order', 'manual', 'report'];
 
-    public function mount()
+    public function mount(Request $request)
     {
         $this->published = now()->format('Y-m-d');
+        if ($request->has('customer_id')) {
+            $this->customer = Customer::find($request->customer_id);
+        }
     }
 
     public function updatedFile()
@@ -34,23 +40,19 @@ class Filecreate extends Component
     {
         $data = $this->validate([
             'name' => 'required|string',
-            'code' => 'nullable|string',
             'file' => 'required',
             'tags' => 'required|string',
             'published' => 'required|date',
         ]);
-        if ($data['code'] != null) {
-            $customer = Customer::where('code', $data['code'])->first();
-            if ($customer) {
-                $customer_id = $customer->id;
-            }
+        if ($this->customercode && !isset($customer)) {
+            $customer = $this->createCustomer();
         }
         $link = '';
         if ($this->file != null) {
             $link = $this->file->store('files/'.str_replace('-', '', $data['published']), 'uploads');
         }
         cusr()->files()->create([
-            'customer_id' => $customer_id ?? null,
+            'customer_id' => $customer->id ?? null,
             'tags' => $data['tags'],
             'published_at' => $data['published'],
             'name' => $data['name'],

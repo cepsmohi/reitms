@@ -20,6 +20,7 @@ class Customerindex extends Component
         $customers = Customer::query()
             ->where('name', 'like', "%$this->search%")
             ->orWhere('code', 'like', "%$this->search%")
+            ->orderByDesc('updated_at')
             ->paginate(10);
         return view('livewire.customers.customerindex', compact('customers'));
     }
