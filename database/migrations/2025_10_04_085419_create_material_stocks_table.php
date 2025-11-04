@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->decimal('stock_in')->default(0.00);
             $table->decimal('stock_out')->default(0.00);
             $table->timestamps();
+            $table->string('status')->default('okay');
         });
     }
 

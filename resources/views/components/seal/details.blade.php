@@ -3,23 +3,38 @@
         <x-seal.carddetail :$seal/>
     </div>
     @if($seal->task)
-        <div class="stitle text-grad">Used</div>
+        <div class="stitle text-grad">Used on</div>
         <div class="frows gap-2">
             <x-ui.icon icon="date"/>
             <div>{{ $seal->task->created_at->format('d/m/Y') }}</div>
         </div>
-        <div class="frows gap-2">
-            <x-ui.icon icon="industry" ext=".png"/>
-            <div>{{ $seal->task->customer->name }}</div>
-        </div>
-        <div class="frows gap-2">
-            <x-ui.icon icon="tag"/>
-            <div>{{ $seal->task->customer->code }}</div>
-        </div>
-        <div class="frows gap-2">
-            <x-ui.icon icon="location"/>
-            <div>{{ $seal->task->customer->detail->address }}</div>
-        </div>
+        @if($seal->task->customer)
+            <div class="stitle text-grad">Customer Details</div>
+            <div class="frows gap-2">
+                <x-ui.icon icon="industry" ext=".png"/>
+                <div>{{ $seal->task->customer->name }}</div>
+            </div>
+            <div class="frows gap-2">
+                <x-ui.icon icon="tag"/>
+                <div>{{ $seal->task->customer->code }}</div>
+            </div>
+            <div class="frows gap-2">
+                <x-ui.icon icon="location"/>
+                <div>{{ $seal->task->customer->detail->address }}</div>
+            </div>
+        @endif
+
+        @if($seal->task->metertest)
+            <div class="stitle text-grad">Meter Details</div>
+            <div class="frows gap-2">
+                <x-ui.icon icon="meter"/>
+                <div>{{ $seal->task->metertest->meter->number }}</div>
+            </div>
+            <div class="frows gap-2">
+                <x-ui.icon icon="tag"/>
+                <div>{{ $seal->task->metertest->meter->type }}</div>
+            </div>
+        @endif
 
         <div class="mt-4">
             @if($seal->sealRegister)
