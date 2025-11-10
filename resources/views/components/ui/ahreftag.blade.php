@@ -12,10 +12,11 @@
             icon="{{ $icon }}"
             width="w-6"
             padding="p-0"
+            rounded="{{ $rounded ?? 'rounded-none' }}"
         />
     @endisset
     @isset($tag)
-        <span class="whitespace-nowrap">
+        <span class="whitespace-nowrap truncate">
             {{ $tag }}
         </span>
     @endisset

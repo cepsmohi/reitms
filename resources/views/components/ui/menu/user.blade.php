@@ -8,7 +8,7 @@
     >
         <div class="hidden md:block  stitle whitespace-nowrap">{{ cusr()->name }}</div>
         <img
-            class="w-12 cursor-pointer rounded-full shadow dark:bg-gray-500"
+            class="buttonhover w-12 cursor-pointer rounded-full shadow dark:bg-gray-500"
             src="{{ cusr()->image }}"
             alt=""
         />
@@ -23,7 +23,7 @@
         x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-90"
-        class="absolute modal glass bg-gray-500/50 p-2 rounded-3xl fcol gap-2"
+        class="absolute right-0 modal w-44 glass bg-gray-500/50 p-2 rounded-3xl fcol gap-2"
     >
         <x-ui.ahreftag
             icon="user"

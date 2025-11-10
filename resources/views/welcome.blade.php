@@ -2,23 +2,7 @@
     <livewire:ui.darkmode/>
     <div class="relative">
         <div class="w-full h-[90vh] fcol">
-            <div class="adtr">
-                @if (Route::has('login'))
-                    <nav class="frowe gap-0">
-                        @auth
-                            <x-ui.alink
-                                :href="route('home')"
-                                tag="Dashboard"
-                            />
-                        @else
-                            <x-ui.alink
-                                :href="route('login')"
-                                tag="Log in"
-                            />
-                        @endauth
-                    </nav>
-                @endif
-            </div>
+            <x-ui.auth/>
             <div class="adtl">
                 <img
                     class="w-20 md:w-32"

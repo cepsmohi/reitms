@@ -1,9 +1,9 @@
 <a
-    class="frows gap-2"
+    class="group frows gap-2"
     href="{{ $href }}"
 >
     <img
-        class="w-16 md:w-24"
+        class="buttonhover rounded-full w-16 md:w-24"
         src="{{ asset('images/logo/logo.svg') }}"
         alt="Titas Gas Logo"
     >
