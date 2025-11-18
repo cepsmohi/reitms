@@ -1,4 +1,4 @@
-<div class="adtr -top-4 -right-4">
+<div class="adtr">
     <x-ui.awire
         :$wireclick
         icon="cross"

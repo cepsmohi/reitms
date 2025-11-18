@@ -13,7 +13,7 @@
             alt=""
         />
     </div>
-    <x-ui.transtogglediv>
+    <x-ui.transtogglediv width="w-44">
         <x-ui.ahreftag
             icon="user"
             tag="Profile"
