@@ -14,7 +14,7 @@
         </div>
         <div class="mb-4 frows">
             <x-ui.icon icon="status"/>
-            <div>{{ $meter->status }}</div>
+            <div class="uppercase">{{ $meter->status }}</div>
         </div>
 
         @if($material == null)
@@ -49,6 +49,6 @@
                 <div>{{ $meter->material->code }}</div>
             </div>
         @endif
-        <x-form.dropdown.stock.conditions :$status/>
+        <x-form.dropdown.stock.conditions :$meter :$status/>
     </x-form.form-modal>
 @endif

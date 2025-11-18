@@ -1,6 +1,6 @@
 <div
     x-data="{ isOpen:false }"
-    class="relative z-50 print:hidden"
+    class="relative print:hidden"
 >
     <div
         @click="isOpen = !isOpen"
@@ -13,18 +13,7 @@
             alt=""
         />
     </div>
-    <div
-        x-cloak
-        x-show="isOpen"
-        @click.outside="isOpen=false"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-90"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-90"
-        class="absolute right-0 modal w-44 glass bg-gray-500/50 p-2 rounded-3xl fcol gap-2"
-    >
+    <x-ui.transtogglediv>
         <x-ui.ahreftag
             icon="user"
             tag="Profile"
@@ -51,5 +40,5 @@
                 color="bg-red-400 dark:bg-red-500 hover:bg-red-300"
             />
         </form>
-    </div>
+    </x-ui.transtogglediv>
 </div>

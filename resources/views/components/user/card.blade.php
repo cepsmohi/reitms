@@ -24,7 +24,7 @@
             <p><strong>Designation:</strong> {{ $user->designation }}</p>
             <p><strong>Code:</strong> {{ $user->code }}</p>
             <p><strong>Phone:</strong> {{ $user->phone_number }}</p>
-            <p><strong>Email:</strong> {{ $user->email }}</p>
+            <p class="truncate"><strong>Email:</strong> {{ $user->email }}</p>
             <p><strong>Status:</strong> {{ $user->status }}</p>
         </div>
         <img class="w-32 rounded-full" src="{{ $user->image }}" alt="">

@@ -1,11 +1,27 @@
-<img
-    @class([
-        'overflow-hidden drop-shadow-xl',
-        $width ?? 'w-7',
-        $padding ?? 'p-1',
-        $rounded ?? 'rounded-xl',
-        $dark ?? 'dark:bg-gray-200 dark:rounded-md'
-    ])
-    src="{{ asset('images/icon/' . $icon . ($ext ?? '.svg')) }}"
-    alt="{{ $icon }}"
-/>
+<div class="block dark:hidden">
+    <img
+        @class([
+            'overflow-hidden drop-shadow-xl',
+            $width ?? 'w-7',
+            $padding ?? 'p-1',
+            $rounded ?? 'rounded-xl'
+        ])
+        src="{{ asset('images/icon/' . $icon. ($ext ?? '.svg')) }}"
+        alt="{{ $icon }}"
+    />
+</div>
+<div class="hidden dark:block">
+    @php
+        $icon = $icon.'-dark';
+    @endphp
+    <img
+        @class([
+            'overflow-hidden drop-shadow-xl',
+            $width ?? 'w-7',
+            $padding ?? 'p-1',
+            $rounded ?? 'rounded-xl'
+        ])
+        src="{{ asset('images/icon/' . $icon. ($ext ?? '.svg')) }}"
+        alt="{{ $icon }}"
+    />
+</div>

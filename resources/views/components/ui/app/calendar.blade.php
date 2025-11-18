@@ -1,5 +1,5 @@
 @if (isset($years) && $years != null)
-    <div class="relative z-50">
+    <div class="relative">
         <div class="frowe w-full">
             <div
                 x-data="{ isOpen : false }"
@@ -8,15 +8,13 @@
                 <div
                     @click="isOpen=!isOpen"
                     @class([
-                        'buttonhover glass rounded-xl cursor-pointer',
-                        $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50',
+                        'buttonhover rounded-xl cursor-pointer'
                     ])
                     title="View Calendar"
                 >
                     <x-ui.icon
                         icon="calendar"
                         padding="p-0"
-                        dark=""
                         width="w-10"
                     />
                 </div>
@@ -24,15 +22,16 @@
                     x-cloak
                     x-show="isOpen"
                     @click.outside="isOpen=false"
-                    class="menudiv right-0 top-14 w-52 bg-gray-200 dark:bg-gray-800 border shadow"
+                    class="menudiv glass right-0 top-14 w-52 bg-gray-200 dark:bg-gray-800 border shadow"
                 >
                     <div class="p-2 fcol w-full gap-2">
                         <div class="w-full frows flex-wrap gap-2 border-b">
                             @foreach ($years as $year)
                                 <div
                                     @class([
-                                        'cursor-pointer hover:text-green-300',
-                                        'text-green-500' => $year == $syear
+                                        'cursor-pointer texthover',
+                                        'text-black dark:text-white' => $year == $syear,
+                                        'text-gray-500' => $year != $syear,
                                     ])
                                     id="year-{{ $year }}"
                                     wire:click="viewMonths('{{ $year }}')"
@@ -45,7 +44,11 @@
                             <div class="w-full frows flex-wrap gap-2 border-b">
                                 @foreach ($months as $month)
                                     <div
-                                        @class(['cursor-pointer uppercase hover:text-green-300', 'text-green-500' => $month == $smonth])
+                                        @class([
+                                            'cursor-pointer texthover uppercase',
+                                            'text-black dark:text-white' => $month == $smonth,
+                                            'text-gray-500' => $month != $smonth
+                                        ])
                                         id="month-{{ $month }}"
                                         wire:click="viewDays('{{ $month }}')"
                                     >
@@ -76,9 +79,9 @@
                                     @endphp
                                     <div
                                         @class([
-                                            'cursor-pointer text-gray-400 hover:text-green-300',
-                                            'text-gray-500' => $dayItems,
-                                            'text-green-500' => $day == $sday
+                                            'drop-shadow cursor-pointer texthover',
+                                            'text-gray-400 dark:text-gray-500' => !$dayItems || $day != $sday,
+                                            'text-black dark:text-white' => $dayItems
                                         ])
                                         id="day-{{ $day }}"
                                         wire:click="viewRecords('{{ $day }}')"

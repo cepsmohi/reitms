@@ -1,6 +1,6 @@
 <a
     @class([
-        'sqrbtn glass buttonhover',
+        'sqrbtn glass buttonhover print:hidden select-none',
         'hidden' => $condi == 0,
         $color ?? ''
     ])

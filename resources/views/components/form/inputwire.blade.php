@@ -30,7 +30,7 @@
         {{ $placeholder ?? '' }}
     </span>
     @isset($hints)
-        <div class="w-full pl-12 text-xs frows text-green-700 dark:text-green-400">ex. {{ $hints }}</div>
+        <div class="w-full pl-12 text-xs frows text-green-400">ex. {{ $hints }}</div>
     @endisset
     @error($name)
     <div class="py-2 w-full frows flex-wrap text-left text-xs text-red-700">

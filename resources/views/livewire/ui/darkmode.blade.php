@@ -1,12 +1,14 @@
-<div class="px-2 relative print:hidden">
+<div
+    x-data
+    class="px-2 frowe relative print:hidden"
+>
     <div
-        class="w-full frowe gap-2 my-1 transition-all ease-in-out duration-300"
-        x-transition
+        class="w-full frowe gap-2 my-1 "
     >
         <div
             @click="isDarkMode=!isDarkMode"
-            class="px-1 frow gap-4 rounded-full cursor-pointer shadow-inner border border-zinc-500"
-            :class="isDarkMode ? 'bg-zinc-400' : 'bg-theme-500/50'"
+            class="px-1 buttonhover frow gap-4 rounded-full cursor-pointer shadow-inner"
+            :class="isDarkMode ? 'bg-zinc-300/20' : 'bg-yellow-500/20'"
         >
             <div
                 x-cloak

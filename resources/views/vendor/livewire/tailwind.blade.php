@@ -3,7 +3,6 @@
         $current = $paginator->currentPage();
         $last    = $paginator->lastPage();
     @endphp
-
     <nav class="p-4 frow gap-1">
         <a
             href="{{ $paginator->previousPageUrl() ?? '#' }}"
@@ -12,12 +11,11 @@
         >
             @if($paginator->previousPageUrl())
                 <div
-                    class="buttonhover glass bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50 rounded-xl cursor-pointer"
+                    class="buttonhover rounded-xl cursor-pointer"
                 >
                     <x-ui.icon
                         icon="leftarrow"
                         padding="p-0"
-                        dark=""
                         width="w-10"
                     />
                 </div>
@@ -31,12 +29,11 @@
         >
             @if($paginator->nextPageUrl())
                 <div
-                    class="buttonhover glass bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50 rounded-xl cursor-pointer"
+                    class="buttonhover rounded-xl cursor-pointer"
                 >
                     <x-ui.icon
                         icon="rightarrow"
                         padding="p-0"
-                        dark=""
                         width="w-10"
                     />
                 </div>

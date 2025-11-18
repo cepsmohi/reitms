@@ -25,14 +25,14 @@
     </div>
     <div class="adbl">
         <x-ui.icon icon="user" padding="p-0" rounded="rounded-full" dark="" width="w-5"/>
-        <div class="text-[10px] text-gray-600">{{ $task->user->name }}</div>
+        <div class="text-[10px] text-gray-400">{{ $task->user->name }}</div>
         @if($task->isChecked() || $task->isApproved())
             <x-ui.icon icon="tick" padding="p-0" rounded="rounded-full" dark="" width="w-5"/>
-            <div class="text-[10px] text-gray-600">{{ $task->checker ? $task->checker->name : 'On going' }}</div>
+            <div class="text-[10px] text-gray-400">{{ $task->checker ? $task->checker->name : 'On going' }}</div>
         @endif
         @if($task->isApproved())
             <x-ui.icon icon="approve" padding="p-0" rounded="rounded-full" dark="" width="w-5"/>
-            <div class="text-[10px] text-gray-600">{{ $task->approver ? $task->approver->name : 'On Checking' }}</div>
+            <div class="text-[10px] text-gray-400">{{ $task->approver ? $task->approver->name : 'On Checking' }}</div>
         @endif
     </div>
 </a>

@@ -31,7 +31,7 @@
     <x-tasks.removesealform :$removeSealForm/>
 
     {{--    add materials forms--}}
-    <x-tasks.addmaterialform :$addMaterialForm :$materialCode :$quantity/>
+    <x-tasks.addmaterialform :$addMaterialInForm :$materialCode :$quantity/>
     <x-tasks.deletematerialform :$deleteMaterialForm/>
 
     {{--    comments forms--}}

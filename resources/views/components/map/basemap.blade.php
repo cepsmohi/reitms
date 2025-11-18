@@ -8,21 +8,20 @@
         >
             <div
                 @class([
-                    'bg-gray-200 dark:bg-gray-500 hover:bg-gray-300',
-                    'block rounded-xl cursor-pointer'
+                    'block buttonhover rounded-xl cursor-pointer'
                 ])
                 title="Base Map"
             >
                 <x-ui.icon
                     icon="map"
                     padding="p-0"
-                    dark=""
+
                     width="w-10"
                 />
             </div>
         </div>
         <x-ui.transtogglediv
-            class="absolute top-12"
+            class="absolute top-12 right-[1px]"
         >
             @php
                 $basemapNames = [
@@ -54,7 +53,7 @@
                                 alt="{{ $name[0] }}"
                             />
                         </div>
-                        <div class="adr right-10 whitespace-nowrap drop-shadow bg-gray-100 rounded-xl px-2">
+                        <div class="adr right-12 whitespace-nowrap drop-shadow bg-gray-100 rounded-xl px-2">
                             {{ $name[1] }}
                         </div>
                     </div>

@@ -48,7 +48,7 @@
         </div>
     @endif
     <div class="adbr">
-        <div class="text-[10px] text-gray-600">{{ $task->user->name }}</div>
+        <div class="text-[10px] text-gray-400">{{ $task->user->name }}</div>
         <x-ui.icon icon="user" padding="p-0" rounded="rounded-full" dark="" width="w-5"/>
     </div>
 </a>

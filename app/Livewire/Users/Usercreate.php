@@ -23,7 +23,7 @@ class Usercreate extends Component
             'phone_number' => $data['phone_number'],
             'password' => Hash::make($data['phone_number']),
         ]);
-        session()->flash('alert', 'User created');
+        session()->flash('success', 'User created');
         return redirect(route('users'));
     }
 

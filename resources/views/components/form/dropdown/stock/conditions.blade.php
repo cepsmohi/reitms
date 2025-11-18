@@ -37,18 +37,7 @@
         >
             <x-ui.icon icon="cross"/>
         </div>
-        <div
-            x-cloak
-            x-show="isOpen"
-            @click.outside="isOpen=false"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 scale-90"
-            x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="transition ease-in duration-300"
-            x-transition:leave-start="opacity-100 scale-100"
-            x-transition:leave-end="opacity-0 scale-90"
-            class="w-full absolute modal glass bg-gray-500/70 p-2 rounded-3xl fcol gap-2 z-50"
-        >
+        <x-ui.transtogglediv>
             @php
                 $conditionTypes = [
                     'stock',
@@ -59,15 +48,19 @@
                 ];
             @endphp
             @foreach($conditionTypes as $condition)
-                @if($status != $condition)
+                @if($condition != $meter->status && $condition != $status)
                     <div
-                        class="w-full px-2 py-1 text-left submit-button glass buttonhover uppercase"
-                        wire:click="selectCondition('{{ $condition }}')"
                         @click="isOpen = !isOpen"
-                    >{{ $condition }}</div>
+                        class="w-full submit-button buttonhover glass group"
+                        wire:click="selectCondition('{{ $condition }}')"
+                    >
+                        <span class="whitespace-nowrap uppercase">
+                            {{ $condition }}
+                        </span>
+                    </div>
                 @endif
             @endforeach
-        </div>
+        </x-ui.transtogglediv>
         @error('status')
         <div class="py-2 w-full frows flex-wrap text-left text-xs text-red-700">
             {{ $message }}

@@ -1,18 +1,41 @@
 .glass {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.buttonhover {
+.buttonhover, .texthover {
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.buttonhover:hover, .buttonhover:focus {
-    transform: scale(1.01) rotate(0deg) translate(0px, -2px) skewX(0deg);
-    box-shadow: 0 25px 30px rgba(0, 0, 0, 0.3);
+/* Base hover effect */
+.buttonhover:hover,
+.buttonhover:focus,
+.texthover:hover,
+.texthover:focus {
+    transform: scale(1.01) translate(0, -2px);
     outline: none;
-    filter: brightness(1.1);
 }
+
+/* ---- Light Mode ---- */
+@media (prefers-color-scheme: light) {
+    .buttonhover:hover,
+    .buttonhover:focus {
+        box-shadow: 0 15px 20px rgba(41, 41, 41, 0.5);
+        filter: brightness(1.15);
+    }
+}
+
+/* ---- Dark Mode ---- */
+@media (prefers-color-scheme: dark) {
+    .buttonhover:hover,
+    .buttonhover:focus {
+        box-shadow: 0 15px 20px rgba(255, 255, 255, 0.5);
+        filter: brightness(1.15);
+    }
+}
+

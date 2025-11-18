@@ -6,9 +6,7 @@
     @if (isset($wireconfirm)) wire:confirm="{{ $wireconfirm }}" @endif
     @if (isset($aclick)) @click="{{ $aclick }}" @endif
     @class([
-        'block buttonhover glass cursor-pointer',
-        $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50',
-        $rounded ?? 'rounded-xl'
+        'block buttonhover rounded-xl cursor-pointer'
     ])
     title="{{ $title ?? '' }}"
 >
@@ -20,7 +18,7 @@
             <x-ui.icon
                 icon="{{ $icon ?? 'icon' }}"
                 padding="p-0"
-                dark=""
+
                 :width="$width ?? null"
             />
         </div>

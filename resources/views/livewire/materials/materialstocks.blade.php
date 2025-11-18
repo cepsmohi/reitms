@@ -9,11 +9,11 @@
     <x-ui.title title="Stock Entries"/>
     <div class="frows gap-2">{{ $title }}</div>
     <x-material.stocks.table :$stocks/>
-    @if($addMivForm)
-        <x-material.stocks.addmivform
-            :$mivno
-            :$code
-            :$quantity
-        />
-    @endif
+
+    <x-material.stocks.addmivform
+        :$mivno
+        :$code
+        :$quantity
+        :$addMivForm
+    />
 </div>
