@@ -4,7 +4,6 @@ namespace App\Livewire\Tasks;
 
 use App\Models\Customer;
 use App\Traits\CustomerTrait;
-use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -21,17 +20,30 @@ class Taskcreate extends Component
         'rms maintain'
     ];
 
-    public function mount(Request $request)
+    public function mount()
     {
-        if ($request->has('type')) {
-            $type = $this->sanitizeType($request->string('type'));
+        if (request()->query('customer_id')) {
+            $customer_id = request()->query('customer_id');
+            $this->customer = Customer::find($customer_id);
+            $this->customercode = $this->customer->code;
+        }
+        if (request()->query('type')) {
+            $type = $this->sanitizeType(request()->query('type'));
             session(['task_type' => $type]);
             return redirect()->route('tasks.create');
         }
-        if ($request->has('customer_id')) {
-            $this->customer = Customer::find($request->customer_id);
+        if (request()->query('customercode')) {
+            $this->customercode = request()->query('customercode');
+            session(['customercode' => $this->customercode]);
+            return redirect()->route('tasks.create');
         }
-        return $this->type = session('task_type');
+        if (session('customercode')) {
+            $this->customercode = session('customercode');
+        }
+        if (session('task_type')) {
+            $this->type = session('task_type');
+        }
+        return null;
     }
 
     private function sanitizeType(string $v)
@@ -57,6 +69,7 @@ class Taskcreate extends Component
             'type' => $this->type,
         ]);
         session()->flash('success', 'Task Created');
+        session()->forget(['customercode', 'task_type']);
         return $task->redirectUrl();
     }
 

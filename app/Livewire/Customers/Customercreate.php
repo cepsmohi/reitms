@@ -9,7 +9,27 @@ class Customercreate extends Component
 {
     use CustomerTrait;
 
+    public $href = '';
     public $address;
+
+    public function mount()
+    {
+        if (request()->query('customercode')) {
+            $this->customercode = request()->query('customercode');
+            session(['customercode' => $this->customercode]);
+        }
+        if (request()->query('taskcreate') == 1) {
+            session(['href' => 'taskcreate']);
+            return redirect()->route('customers.create');
+        }
+        if (session('customercode')) {
+            $this->customercode = session('customercode');
+        }
+        if (session('href')) {
+            $this->href = session('href');
+        }
+        return null;
+    }
 
     public function newlyCreateCustomer()
     {
@@ -20,7 +40,6 @@ class Customercreate extends Component
 
         if (!$customer) {
             $this->validate([
-                'customercode' => 'required|string|size:19',
                 'customername' => 'required|string',
                 'address' => 'required|string'
             ]);
@@ -38,6 +57,12 @@ class Customercreate extends Component
             ]);
         }
         session()->flash('success', 'Customer Created');
+        if ($this->href == 'taskcreate') {
+            session()->forget(['customercode', 'href']);
+            return redirect()->route('tasks.create', [
+                'customercode' => $this->customercode
+            ]);
+        }
         return redirect()->route('customers');
     }
 

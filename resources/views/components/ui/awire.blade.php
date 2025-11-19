@@ -6,7 +6,9 @@
     @if (isset($wireconfirm)) wire:confirm="{{ $wireconfirm }}" @endif
     @if (isset($aclick)) @click="{{ $aclick }}" @endif
     @class([
-        'block buttonhover rounded-xl cursor-pointer'
+        'block buttonhover rounded-xl cursor-pointer',
+        $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50',
+        $rounded ?? 'rounded-xl'
     ])
     title="{{ $title ?? '' }}"
 >
@@ -31,8 +33,7 @@
                     'overflow-hidden drop-shadow-xl',
                     $width ?? 'w-7',
                     $padding ?? 'p-1',
-                    $rounded ?? 'rounded-xl',
-                    $dark ?? 'dark:bg-gray-200 dark:rounded-md'
+                    $rounded ?? 'rounded-xl'
                 ])
                 src="{{ asset('images/icon/loading.gif') }}"
                 alt="loading"

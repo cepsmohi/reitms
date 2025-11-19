@@ -14,7 +14,6 @@
             icon="{{ $icon }}"
             width="w-6"
             padding="p-0"
-            dark="{{ $dark ?? '' }}"
         />
         <span class="whitespace-nowrap">
             {{ $tag }}

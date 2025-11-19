@@ -13,10 +13,22 @@ trait CustomerTrait
 
     public function updatingCustomercode()
     {
+        $input = trim($this->customercode);
+
         if (!empty($this->customercode)) {
-            $this->customers = CustomerDetail::where('code', 'like', "%{$this->customercode}%")
-                ->limit(5)
-                ->get();
+            if (strlen($input) < 11) {
+                $this->customers = CustomerDetail::where('code', 'like', "{$input}%")
+                    ->orderBy('code')
+                    ->get();
+            } elseif (strlen($input) == 11) {
+                $this->customers = CustomerDetail::where('code', 'regexp', "^{$input}(-|$)")
+                    ->orderBy('code')
+                    ->get();
+            } else {
+                $this->customers = CustomerDetail::where('code', 'like', "%{$input}%")
+                    ->orderBy('code')
+                    ->get();
+            }
         } else {
             $this->customers = [];
         }

@@ -2,6 +2,7 @@
     <div class="modal bg-gray-500/80 p-4 rounded-3xl">
         <x-ui.closeform wireclick="$toggle('{{ $formCondition }}')"/>
         <form
+            class="min-w-44"
             @if($submitCondition)
                 wire:submit="{{ $submitFun }}"
             @endif
