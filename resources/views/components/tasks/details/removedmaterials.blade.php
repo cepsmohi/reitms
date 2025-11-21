@@ -4,9 +4,10 @@
         $materials = $task->materialstocksin;
     @endphp
     @if($materials->count() > 0)
-        <div class="my-1 frows flex-wrap gap-4">
+        <div class="my-1 fcols">
             @foreach($materials as $materialStock)
                 <div class="relative frows flex-wrap gap-2 group">
+                    <div>{{ $loop->iteration }}</div>
                     <x-ui.tagvalue
                         :tag="$materialStock->material->name"
                         :value="$materialStock->stock_in"

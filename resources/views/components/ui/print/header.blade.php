@@ -1,5 +1,5 @@
 <div
-    class="hidden print:block"
+    class="hidden print:block print:text-black"
 >
     <div class="frow gap-4">
         <img

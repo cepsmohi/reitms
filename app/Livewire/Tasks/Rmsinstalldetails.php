@@ -6,6 +6,7 @@ use App\Models\RmsInstallDetail;
 use App\Models\Task;
 use App\Traits\CommentTrait;
 use App\Traits\DrawingTrait;
+use App\Traits\GatepassTrait;
 use App\Traits\MaterialTrait;
 use App\Traits\MeterTrait;
 use App\Traits\PhotoTrait;
@@ -20,6 +21,7 @@ class Rmsinstalldetails extends Component
 {
     use CommentTrait;
     use DrawingTrait;
+    use GatepassTrait;
     use MaterialTrait;
     use MeterTrait;
     use PhotoTrait;

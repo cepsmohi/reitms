@@ -18,30 +18,5 @@
         <x-tasks.details.photos :$task :$photos :$totalSize/>
         <x-tasks.details.approvalstatus :$task/>
     </div>
-
-    {{--    assign customer forms--}}
-    <x-tasks.assigncustomerform :$customercode :$customers :$assignCustomerForm/>
-
-    {{--    add value forms--}}
-    <x-tasks.addvalueform :$task :$addValueForm :$field :$value/>
-    <x-tasks.editvalueform :$task :$editValueForm :$field :$value/>
-
-    {{--    add seal forms--}}
-    <x-tasks.addsealform :$sealType :$prefix :$sealNumber :$addSealForm/>
-    <x-tasks.deleteSealform :$deleteSealForm/>
-
-    {{--    comments forms--}}
-    <x-tasks.addcommentform :$comment :$addCommentForm/>
-    <x-tasks.editcommentform :$comment :$editCommentForm/>
-
-    {{--    meter forms--}}
-    <x-tasks.editmeterform :$meter :$editMeterForm/>
-    <x-tasks.editmeterstockform :$meter :$material :$status :$editStockForm/>
-
-    {{--   photos forms--}}
-    <x-tasks.addphotoform :$addPhotoForm :$photos :$totalSize/>
-    <x-tasks.deletephotoform :$deletePhotoForm/>
-
-    {{--   task delete form--}}
-    <x-tasks.deletetaskform :$deleteTaskForm/>
+    @include('components.tasks.forms')
 </div>
