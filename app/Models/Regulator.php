@@ -12,7 +12,7 @@ class Regulator extends Model
         'number',
         'manufacturer',
         'model',
-        'production_year',
+        'year',
         'diameter',
         'status',
         'comments',

@@ -1,5 +1,5 @@
 <div class="modalback bg-gray-900/90">
-    <div class="modal bg-gray-500/80 p-4 rounded-3xl">
+    <div class="modal bg-gray-300/70 dark:bg-gray-700/80 p-4 rounded-3xl">
         <x-ui.closeform wireclick="$toggle('{{ $formCondition }}')"/>
         <form
             class="min-w-44"
@@ -10,7 +10,7 @@
             @isset($enctype) enctype="{{ $enctype }}" @endisset
         >
             <div class="fcols">
-                <div class="mb-2 stitle text-grad">{!! $formTitle !!}</div>
+                <div class="mb-2 stitle text-grad">{!! $formTitle ?? '' !!}</div>
                 {{ $slot }}
                 @if($submitCondition)
                     <x-form.submit-button

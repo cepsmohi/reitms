@@ -1,7 +1,7 @@
 <a
     href="{{ $href ?? '#' }}"
     @class([
-        'block buttonhover rounded-xl'
+        'block buttonhover rounded-xl btncolor'
     ])
     title="{{ $title ?? '' }}"
 >
@@ -9,8 +9,7 @@
         <x-ui.icon
             icon="{{ $icon }}"
             padding="p-0"
-
-            :width="$width ?? null"
+            :width="$width ?? ''"
         />
     @endisset
 </a>

@@ -6,5 +6,5 @@
         {{ $diff }}
     </div>
 @else
-    <div class="">---</div>
+    <div>---</div>
 @endif

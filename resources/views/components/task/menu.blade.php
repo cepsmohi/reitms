@@ -1,4 +1,5 @@
-<div class="mt-6 frow flex-wrap gap-6">
+<div class="title text-grad">ESD</div>
+<div class="mt-6 frows flex-wrap gap-6">
     <x-ui.sqrbtn
         condi="1"
         header="Meter"
@@ -74,6 +75,17 @@
         footer="Finding"
         :color="cssbg('lime')"
         icon="detector.png"
+        href="#"
+    />
+</div>
+<div class="mt-8 title text-grad">RVD</div>
+<div class="mt-6 frows flex-wrap gap-6">
+    <x-ui.sqrbtn
+        condi="1"
+        header="Vigilance"
+        footer="Inspection"
+        :color="cssbg('orange')"
+        icon="inspection.png"
         href="#"
     />
 </div>

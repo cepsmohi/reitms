@@ -7,7 +7,7 @@
     @if (isset($aclick)) @click="{{ $aclick }}" @endif
     @class([
         'block buttonhover rounded-xl cursor-pointer',
-        $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50',
+        $color ?? 'btncolor',
         $rounded ?? 'rounded-xl'
     ])
     title="{{ $title ?? '' }}"

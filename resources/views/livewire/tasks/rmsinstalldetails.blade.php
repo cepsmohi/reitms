@@ -28,7 +28,7 @@
 
     {{--    add seal forms--}}
     <x-tasks.addsealform :$sealType :$prefix :$sealNumber :$addSealForm/>
-    <x-tasks.removesealform :$removeSealForm/>
+    <x-tasks.deleteSealform :$deleteSealForm/>
 
     {{--    add materials forms--}}
     <x-tasks.addmaterialform :$addMaterialInForm :$materialCode :$quantity/>

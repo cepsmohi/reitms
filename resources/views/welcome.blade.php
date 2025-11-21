@@ -10,11 +10,10 @@
                     alt="Titas Gas Logo"
                 />
             </div>
-            <div class="title">
-                Welcome <br>
-                <span class="text-xl">to</span> <br>
-                <span class="text-4xl text-grad">RMS Engineering</span> <br>
-                <span class="text-2xl">Inventory & Task Management System</span>
+            <div class="title text-center md:text-left">
+                <span class="text-sm">Welcome to</span> <br>
+                <span class="text-2xl text-grad">Inventory & Tasks</span> <br>
+                <span class="text-sm">Management System</span>
             </div>
         </div>
     </div>

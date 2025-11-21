@@ -30,8 +30,8 @@
         @if($meter->manufacturer)
             <p><strong>Manufacturer:</strong> {{ $meter->manufacturer }}</p>
         @endif
-        @if($meter->production_year)
-            <p><strong>Prod Year:</strong> {{ $meter->production_year }}</p>
+        @if($meter->year)
+            <p><strong>Prod Year:</strong> {{ $meter->year }}</p>
         @endif
         @if($meter->diameter)
             <p><strong>Size:</strong> {{ $meter->diameter }}"∅</p>

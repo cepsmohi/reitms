@@ -20,6 +20,7 @@ trait ValueTrait
             'value' => 'required|string',
         ]);
         $this->task->setTaskValue($this->field, $this->value);
+        $this->reset('value');
         return $this->closeValueForm();
     }
 
@@ -44,6 +45,7 @@ trait ValueTrait
             'value' => 'required|string',
         ]);
         $this->task->setTaskValue($this->field, $this->value);
+        $this->reset('value');
         return $this->closeValueForm();
     }
 }

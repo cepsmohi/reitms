@@ -2,7 +2,7 @@
     @class([
         'submit-button buttonhover glass frows gap-2 group',
         $width ?? '',
-        $color ?? 'bg-gray-300/20 dark:bg-gray-700/20 hover:bg-gray-200/50 hover:dark:bg-gray-500/50',
+        $color ?? 'btncolor',
     ])
     id="{{ randtxt() }}"
     href="{{ $href }}"

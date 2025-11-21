@@ -2,8 +2,8 @@
     <img
         @class([
             'overflow-hidden drop-shadow-xl',
-            $width ?? 'w-7',
-            $padding ?? 'p-1',
+            $width ?? 'w-6',
+            $padding ?? '',
             $rounded ?? 'rounded-xl'
         ])
         src="{{ asset('images/icon/' . $icon. ($ext ?? '.svg')) }}"
@@ -17,8 +17,8 @@
     <img
         @class([
             'overflow-hidden drop-shadow-xl',
-            $width ?? 'w-7',
-            $padding ?? 'p-1',
+            $width ?? 'w-6',
+            $padding ?? '',
             $rounded ?? 'rounded-xl'
         ])
         src="{{ asset('images/icon/' . $icon. ($ext ?? '.svg')) }}"

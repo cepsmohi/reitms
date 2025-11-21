@@ -97,9 +97,44 @@ class Task extends Model
     {
         return $this->sealRegisters->isEmpty()
             && $this->taskvalues->isEmpty()
-            && $this->comment == null;
+            && $this->comment == null
+            && $this->hasMeter() == false
+            && $this->hasRegulator() == false;
     }
 
+    public function hasMeter(): bool
+    {
+        return $this->meter()->exists();
+    }
+
+    public function meter()
+    {
+        return $this->hasOneThrough(
+            Meter::class,
+            AssignMeter::class,
+            'task_id',
+            'id',
+            'id',
+            'meter_id'
+        );
+    }
+
+    public function hasRegulator(): bool
+    {
+        return $this->regulator()->exists();
+    }
+
+    public function regulator()
+    {
+        return $this->hasOneThrough(
+            Regulator::class,
+            AssignRegulator::class,
+            'task_id',
+            'id',
+            'id',
+            'regulator_id'
+        );
+    }
 
     public function approve()
     {
@@ -116,7 +151,6 @@ class Task extends Model
             'checked_by' => cusr()->id,
         ]);
     }
-
 
     public function report()
     {
@@ -169,6 +203,11 @@ class Task extends Model
         return $this->hasOne(Drawing::class);
     }
 
+    public function gatepass()
+    {
+        return $this->hasOne(Gatepass::class);
+    }
+
     public function setSealRegister(string $type, int $seal_id): SealRegister
     {
         if (SealRegister::where('seal_id', $seal_id)->exists()) {
@@ -190,40 +229,6 @@ class Task extends Model
     public function sealRegisters()
     {
         return $this->hasMany(SealRegister::class);
-    }
-
-    public function hasMeter(): bool
-    {
-        return $this->meter()->exists();
-    }
-
-    public function meter()
-    {
-        return $this->hasOneThrough(
-            Meter::class,
-            AssignMeter::class,
-            'task_id',
-            'id',
-            'id',
-            'meter_id'
-        );
-    }
-
-    public function hasRegulator(): bool
-    {
-        return $this->regulator()->exists();
-    }
-
-    public function regulator()
-    {
-        return $this->hasOneThrough(
-            Regulator::class,
-            AssignRegulator::class,
-            'task_id',
-            'id',
-            'id',
-            'regulator_id'
-        );
     }
 
     public function assignMeter(int $meterId): AssignMeter

@@ -8,7 +8,7 @@
                 <div
                     @click="isOpen=!isOpen"
                     @class([
-                        'buttonhover rounded-xl cursor-pointer'
+                        'buttonhover rounded-xl cursor-pointer btncolor'
                     ])
                     title="View Calendar"
                 >

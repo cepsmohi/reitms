@@ -7,6 +7,7 @@ use App\Models\Meter;
 trait MeterTrait
 {
     public $addMeterForm = false;
+    public $addMeterInfoForm = false;
     public $editMeterForm = false;
 
     public $meterSerialNumber, $meterType;
@@ -54,8 +55,10 @@ trait MeterTrait
         return $this->task->refresh();
     }
 
-    public function updateMeter()
+    public function updateMeterInfo()
     {
+        $meter = Meter::where('number', $this->meterSerialNumber)
+            ->first();
         $data = $this->validate([
             'manufacturer' => 'nullable',
             'model' => 'nullable',
@@ -63,8 +66,14 @@ trait MeterTrait
             'diameter' => 'nullable',
             'comments' => 'nullable',
         ]);
-        $this->meter->update($data);
-        session()->flash('success', 'Meter info updated.');
-        return $this->editMeterForm = false;
+        $meter->update($data);
+        $this->reset(
+            'manufacturer',
+            'model',
+            'year',
+            'diameter',
+            'comments'
+        );
+        return $this->addMeterInfoForm = false;
     }
 }

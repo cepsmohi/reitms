@@ -8,27 +8,14 @@ use Livewire\Component;
 
 class Customeredit extends Component
 {
+    // for file delete only
     use FileTrait;
 
     public $customer;
-    public $editCustomerCodeForm = false;
-    public $customerCode;
 
     public function mount(Customer $customer)
     {
         $this->customer = $customer;
-        $this->customerCode = $customer->code;
-    }
-
-    public function updateCustomerCode()
-    {
-        $this->validate([
-            'customerCode' => 'required|unique:customers,code,'.$this->customer->id,
-        ]);
-        $this->customer->update([
-            'code' => $this->customerCode
-        ]);
-        return $this->editCustomerCodeForm = false;
     }
 
     public function render()

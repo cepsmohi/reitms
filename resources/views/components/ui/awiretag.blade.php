@@ -4,8 +4,8 @@
 >
     <button
         @class([
-            'submit-button buttonhover glass group',
-            $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50'
+            'submit-button buttonhover glass group pr-5',
+            $color ?? 'btncolor'
         ])
         id="{{ randtxt() }}"
         wire:click="{{ $wireclick }}"
@@ -15,27 +15,8 @@
         @if (isset($aclick)) @click="{{ $aclick }}" @endif
     >
         @isset($icon)
-            <img
-                class="w-6"
-                src="{{ asset('images/icon/' . $icon . '.svg') }}"
-                alt="{{ $icon }}"
-                wire:loading.remove
-                wire:target="{{ $wireclick }}"
-            />
-            <img
-                class="w-6"
-                src="{{ asset('images/icon/loading.gif') }}"
-                alt="{{ $icon }}"
-                wire:loading
-                wire:target="{{ $wireclick }}"
-            />
+            <x-ui.iconwithloading :$icon :$wireclick/>
         @endisset
-        <span
-            @class([
-                'whitespace-nowrap'
-            ])
-        >
-            {{ $tag }}
-        </span>
+        <span class="whitespace-nowrap">{{ $tag }}</span>
     </button>
 </div>

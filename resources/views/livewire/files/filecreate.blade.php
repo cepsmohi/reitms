@@ -39,7 +39,7 @@
                     placeholder="Customer Code (if any)"
                     icon="link"
                     hints="x-xx-xxxxxx-xx-xx-x"
-                    pattern="formatByPattern(this, [1,2,6,2,2,1])"
+                    pattern="formatByPattern(this, [1,2,6,2,2,1], '-')"
                     :required="false"
                 />
                 @if($customercode != '' && $customers != null)

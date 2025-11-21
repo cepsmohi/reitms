@@ -5,13 +5,13 @@
             <x-ui.awiretag
                 wireclick="delete{{ $object }}Confirm"
                 icon="trash"
-                color="bg-red-300"
+                color="bg-red-300 dark:bg-red-700"
                 tag="Delete"
             />
             <x-ui.awiretag
                 wireclick="delete{{ $object }}Cancel"
                 icon="back"
-                color="bg-green-300"
+                color="bg-green-300 dark:bg-green-700"
                 tag="Cancel"
             />
         </div>

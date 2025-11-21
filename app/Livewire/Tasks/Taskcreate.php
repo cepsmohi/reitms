@@ -15,6 +15,8 @@ class Taskcreate extends Component
     #[Locked]
     public $type;
 
+    public $href;
+
     public $types = [
         'rms install',
         'rms maintain'
@@ -43,6 +45,7 @@ class Taskcreate extends Component
         if (session('task_type')) {
             $this->type = session('task_type');
         }
+        $this->href = $this->getBackUrl();
         return null;
     }
 
@@ -51,6 +54,17 @@ class Taskcreate extends Component
         $v = strtolower(trim($v));
         return in_array($v, $this->types) ? $v : null;
     }
+
+    public function getBackUrl()
+    {
+        $type = strtolower(trim($this->type));
+        $map = [
+            'rms install' => 'tasks.rmsinstall',
+            'rms maintain' => 'tasks.rmsmaintain',
+        ];
+        return route($map[$type] ?? 'tasks');
+    }
+
 
     public function selectType($t)
     {

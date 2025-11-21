@@ -1,5 +1,8 @@
-@if($detail->hourly_load || $detail->monthly_load || $detail->min_load)
-    <div class="flex-grow mt-4 card p-2">
+@php
+    $detail = $customer->detail;
+@endphp
+<div class="flex-grow mt-4">
+    @if($detail->hourly_load || $detail->monthly_load || $detail->min_load)
         <div class="w-full stitle text-grad bg-purple-500/90 border-b-2 border-gray-500/50 pb-1">
             Load Information
         </div>
@@ -24,5 +27,13 @@
                 unit="m<sup>3</sup>"
             />
         @endif
-    </div>
-@endif
+    @else
+        <div class="mb-4 frows">
+            <x-ui.ahreftag
+                :href="route('customers.loadinfo', $customer)"
+                icon="plus"
+                tag="Load Information"
+            />
+        </div>
+    @endif
+</div>

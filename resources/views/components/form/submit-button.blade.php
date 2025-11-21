@@ -3,7 +3,7 @@
         @class([
             'submit-button buttonhover glass group',
             $width ?? '',
-            $color ?? 'bg-gray-500/50 dark:bg-gray-300/50 hover:bg-gray-300/50'
+            $color ?? 'btncolor'
         ])
         id="submit-button-{{ $form }}"
         form="{{ $form }}"

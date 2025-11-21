@@ -1,5 +1,5 @@
 @if($task->getValue($field) == null)
-    <div class=""></div>
+    <div></div>
     <div
         id="{{ randtxt() }}"
         @class([

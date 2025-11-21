@@ -18,5 +18,6 @@
 </div>
 @livewireScripts
 <x-ui.toast/>
+<x-ui.scrptis/>
 </body>
 </html>

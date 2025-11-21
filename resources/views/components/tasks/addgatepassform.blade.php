@@ -1,0 +1,20 @@
+@if($addGatepassForm)
+    @teleport('body')
+    <x-form.form-modal
+        formTitle="Add Gatepass"
+        formId="addGatepassForm"
+        formCondition="addGatepassForm"
+        :submitCondition="true"
+        submitFun="uploadGatepass"
+        submitIcon="refresh"
+        submitTag="Update"
+        enctype="multipart/form-data"
+    >
+        <x-form.upload-pdf
+            :files="$gatepasses"
+            name="gatepasses"
+            wireSubmit="uploadGatepass"
+        />
+    </x-form.form-modal>
+    @teleport('body')
+@endif

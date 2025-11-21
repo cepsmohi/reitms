@@ -13,7 +13,7 @@ class Meter extends Model
         'type',
         'manufacturer',
         'model',
-        'production_year',
+        'year',
         'diameter',
         'status',
         'comments',

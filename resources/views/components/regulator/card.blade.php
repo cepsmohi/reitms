@@ -26,8 +26,8 @@
         @if($regulator->manufacturer)
             <p><strong>Manufacturer:</strong> {{ $regulator->manufacturer }}</p>
         @endif
-        @if($regulator->production_year)
-            <p><strong>Prod Year:</strong> {{ $regulator->production_year }}</p>
+        @if($regulator->year)
+            <p><strong>Prod Year:</strong> {{ $regulator->year }}</p>
         @endif
         @if($regulator->diaregulator)
             <p><strong>Size:</strong> {{ $regulator->diaregulator }}"∅</p>

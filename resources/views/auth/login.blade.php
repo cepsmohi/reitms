@@ -3,7 +3,7 @@
         <x-form.header
             :href="route('welcome')"
         />
-        <div class="modal -mt-12">
+        <div class="modal -mt-12 bg-gray-100 dark:bg-gray-800 p-4 rounded-3xl">
             <div class="w-full h-14"></div>
             <form
                 method="POST"

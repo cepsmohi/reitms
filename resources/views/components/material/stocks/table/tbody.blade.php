@@ -1,6 +1,6 @@
 <thead>
 @foreach($stocks as $stock)
-    <tr class="">
+    <tr>
         <td class="text-left">{{ $stock->created_at->format('d/m/Y') }}</td>
         <td class="text-left">
             {{ $stock->miv_no ? $stock->miv_no : '' }}

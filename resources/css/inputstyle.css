@@ -1,6 +1,7 @@
 input.inputcss:valid ~ span.placeholder,
 input.inputcss:focus ~ span.placeholder,
-input.inputcss:not(:empty) ~ span.placeholder {
+input.inputcss:not(:empty) ~ span.placeholder,
+input.inputcss:disabled ~ span.placeholder {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -16,6 +17,10 @@ input.inputcss:not(:empty) ~ span.placeholder {
     transition: all 0.5s;
 }
 
+input.inputcss ~ span.placeholder {
+    top: 8px;
+}
+
 input:disabled {
-    background-color: #ffffff;
+    background-color: #6a7282;
 }

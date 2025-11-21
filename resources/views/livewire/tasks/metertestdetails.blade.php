@@ -28,7 +28,7 @@
 
     {{--    add seal forms--}}
     <x-tasks.addsealform :$sealType :$prefix :$sealNumber :$addSealForm/>
-    <x-tasks.removesealform :$removeSealForm/>
+    <x-tasks.deleteSealform :$deleteSealForm/>
 
     {{--    comments forms--}}
     <x-tasks.addcommentform :$comment :$addCommentForm/>

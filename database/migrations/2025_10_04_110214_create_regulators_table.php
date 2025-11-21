@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('number')->unique();
             $table->string('manufacturer')->nullable();
             $table->string('model')->nullable();
-            $table->string('production_year')->nullable();
+            $table->string('year')->nullable();
             $table->string('diameter')->nullable();
             $table->string('status')->default('stock');
             $table->string('comments')->nullable();

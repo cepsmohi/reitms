@@ -5,16 +5,7 @@
     x-on:livewire-upload-error="uploading = false"
     class="w-full fcol relative mb-7"
 >
-    <div
-        x-show="uploading"
-        class="w-full fcol cursor-pointer"
-    >
-        <img
-            class="w-28 h-28 {{ $roundcss ?? 'rounded-full' }}"
-            src="{{ asset('images/icon/loading.gif') }}"
-            alt=""
-        />
-    </div>
+    <x-ui.alpineloading/>
     @if($photos != null)
         <div
             x-show="!uploading"

@@ -23,7 +23,7 @@
                 'text-red-500' => !$task->isReporting()
             ])
             id="{{ randtxt() }}"
-            @if($task->isReporting()) wire:click="removeSeal({{ $s->id }})" @endif
+            @if($task->isReporting()) wire:click="deleteSeal({{ $s->id }})" @endif
         >
             {{ $s->seal->number }}
         </div>
