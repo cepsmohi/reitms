@@ -1,5 +1,5 @@
-<div class="title text-grad">ESD</div>
-<div class="mt-6 frows flex-wrap gap-6">
+<div class="mt-6 title w-full text-center text-grad">ESD Related Tasks</div>
+<div class="mt-6 frow flex-wrap gap-6">
     <x-ui.sqrbtn
         condi="1"
         header="Meter"
@@ -78,8 +78,8 @@
         href="#"
     />
 </div>
-<div class="mt-8 title text-grad">RVD</div>
-<div class="mt-6 frows flex-wrap gap-6">
+<div class="mt-6 title w-full text-center text-grad">RVD Related Tasks</div>
+<div class="mt-6 frow flex-wrap gap-6">
     <x-ui.sqrbtn
         condi="1"
         header="Vigilance"

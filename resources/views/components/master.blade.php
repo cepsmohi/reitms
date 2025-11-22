@@ -12,7 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="bodycss @if(isset($bg) && $bg == 'yes') overflow-hidden @endif">
+<body class="bodycss">
 @if(isset($bg) && $bg == 'yes')
     <x-ui.bg/>
 @endif
