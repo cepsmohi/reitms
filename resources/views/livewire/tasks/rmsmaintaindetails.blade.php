@@ -24,4 +24,5 @@
         <x-tasks.details.approvalstatus :$task/>
     </div>
     @include('components.tasks.forms')
+    <x-ui.offline/>
 </div>

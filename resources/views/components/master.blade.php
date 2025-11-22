@@ -12,7 +12,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="bodycss">
+<body class="bodycss overflow-hidden">
+@if(isset($bg) && $bg == 'yes')
+    <x-ui.bg/>
+@endif
 <div>
     {{ $slot }}
 </div>
