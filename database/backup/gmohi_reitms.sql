@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2025 at 02:39 AM
+-- Generation Time: Nov 22, 2025 at 03:57 AM
 -- Server version: 9.4.0
 -- PHP Version: 8.2.29
 
@@ -104,15 +104,6 @@ CREATE TABLE `customers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`id`, `user_id`, `code`, `name`, `status`, `zone`, `created_at`, `updated_at`) VALUES
-(1, 2, '8-06-000672-00-03-7', 'DAZZLING TEXTILE IND. LTD', 'active', '806', '2025-10-15 01:09:43', '2025-10-15 01:09:43'),
-(2, 1, '3-06-000507-00-03-8', 'Voyger(Tex) Pvt Ltd', 'active', '306', '2025-10-16 04:47:13', '2025-10-16 04:47:13'),
-(3, 2, '3-06-000144-00-03-8', 'SHAIKAT KNITWEAR', 'active', '306', '2025-10-19 02:28:14', '2025-10-19 02:28:14');
-
 -- --------------------------------------------------------
 
 --
@@ -121,8 +112,8 @@ INSERT INTO `customers` (`id`, `user_id`, `code`, `name`, `status`, `zone`, `cre
 
 CREATE TABLE `customer_details` (
   `id` bigint UNSIGNED NOT NULL,
-  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(19) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` text COLLATE utf8mb4_unicode_ci,
   `hourly_load` decimal(10,2) DEFAULT NULL,
   `monthly_load` decimal(10,2) DEFAULT NULL,
@@ -13450,7 +13441,8 @@ INSERT INTO `customer_details` (`id`, `code`, `customer_name`, `address`, `hourl
 (13419, '9-77-000058-00-90-9', 'ISLAM FOOD PRODUCTS', 'PLOT-62,63,,BISIC SHILPI NAGARI,KISHORGONJ..', 24.38, 6085.25, 3042.63, 1.20, 0.80, 26.00, 12.00, 344350.00, 0.00, NULL, NULL),
 (13420, '9-77-000061-00-90-6', 'M.M KHAN FOODS', 'PLOT-17,18,19 BSCIC I/A,MARIA,KISHORGONJ.', 22.68, 7547.90, 4528.74, 1.20, 0.80, 26.00, 16.00, 428950.00, 0.00, NULL, NULL),
 (13421, '9-77-000074-00-90-3', 'MUNMUN BAKERY', 'PLOT-M-2, BISIC S/N,MARIYA,KISHORGONJ.', 8.50, 2121.60, 1060.80, 1.20, 0.80, 26.00, 12.00, 104750.00, 0.00, NULL, NULL),
-(13422, '9-77-000091-00-90-9', 'M/S. NEW SRABON AGRO FOODS LTD', 'PLOT NO-30,31,32,33,BISIC,SILPA NAGAR, KISHOREGONJ.,.', 6.79, 1697.00, 848.00, 1.20, 0.80, 26.00, 12.00, 83800.00, 0.00, NULL, NULL);
+(13422, '9-77-000091-00-90-9', 'M/S. NEW SRABON AGRO FOODS LTD', 'PLOT NO-30,31,32,33,BISIC,SILPA NAGAR, KISHOREGONJ.,.', 6.79, 1697.00, 848.00, 1.20, 0.80, 26.00, 12.00, 83800.00, 0.00, NULL, NULL),
+(13423, '3-05-000737-00-00-0', 'PANNA BATTERY', 'Kawranbazar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-11-20 04:10:11', '2025-11-20 04:10:11');
 
 -- --------------------------------------------------------
 
@@ -13518,6 +13510,20 @@ CREATE TABLE `files` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gatepasses`
+--
+
+CREATE TABLE `gatepasses` (
+  `id` bigint UNSIGNED NOT NULL,
+  `task_id` bigint UNSIGNED NOT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jobs`
 --
 
@@ -13566,16 +13572,6 @@ CREATE TABLE `materials` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `materials`
---
-
-INSERT INTO `materials` (`id`, `user_id`, `code`, `name`, `unit`, `created_at`, `updated_at`) VALUES
-(1, 1, '14.06.514', 'G-100 EVC Meter', 'nos', '2025-10-16 05:09:00', '2025-10-16 05:09:00'),
-(2, 1, '14.04.589', 'Pilot Operated Regulator 2\"x2\" Flanged CL 150 RF Cap. 3000 scfh', 'nos', '2025-10-16 05:13:46', '2025-10-16 05:13:46'),
-(5, 1, '12.32.132', 'Test', 'nos', '2025-10-19 03:02:40', '2025-10-19 03:02:40'),
-(6, 2, '14.04.564', 'meter', 'nos', '2025-10-19 03:08:06', '2025-10-19 03:08:06');
-
 -- --------------------------------------------------------
 
 --
@@ -13591,7 +13587,8 @@ CREATE TABLE `material_stocks` (
   `stock_in` decimal(8,2) NOT NULL DEFAULT '0.00',
   `stock_out` decimal(8,2) NOT NULL DEFAULT '0.00',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'okay'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -13619,6 +13616,20 @@ CREATE TABLE `meters` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `meter_tests`
+--
+
+CREATE TABLE `meter_tests` (
+  `id` bigint UNSIGNED NOT NULL,
+  `task_id` bigint UNSIGNED NOT NULL,
+  `meter_id` bigint UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -13633,28 +13644,30 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '0001_01_01_000000_create_users_table', 1),
-(2, '0001_01_01_000001_create_cache_table', 1),
-(3, '0001_01_01_000002_create_jobs_table', 1),
-(4, '2025_09_20_160109_create_customers_table', 1),
-(5, '2025_09_20_161109_create_customer_details_table', 1),
-(6, '2025_09_20_162109_create_seals_table', 1),
-(7, '2025_09_27_154536_create_tasks_table', 1),
-(8, '2025_10_04_084419_create_materials_table', 1),
-(9, '2025_10_04_085419_create_material_stocks_table', 1),
-(10, '2025_10_04_094419_create_meters_table', 2),
-(11, '2025_10_04_104419_create_assign_meters_table', 2),
-(12, '2025_10_04_110214_create_regulators_table', 2),
-(13, '2025_10_04_110241_create_assign_regulators_table', 2),
-(14, '2025_10_06_121434_create_comments_table', 3),
-(15, '2025_10_06_131434_create_photos_table', 3),
-(16, '2025_10_08_134451_create_seal_registers_table', 3),
-(17, '2025_10_12_144956_create_drawings_table', 4),
-(18, '2025_10_15_104728_create_task_values_table', 5),
-(19, '2025_10_18_033635_create_files_table', 6),
-(20, '2025_10_19_062844_create_user_details_table', 7),
-(21, '2025_10_22_064227_create_customer_locations_table', 8),
-(22, '2025_10_22_064238_create_options_table', 8);
+(104, '0001_01_01_000000_create_users_table', 1),
+(105, '0001_01_01_000001_create_cache_table', 1),
+(106, '0001_01_01_000002_create_jobs_table', 1),
+(107, '2025_09_20_160109_create_customers_table', 1),
+(108, '2025_09_20_161109_create_customer_details_table', 1),
+(109, '2025_09_20_162109_create_seals_table', 1),
+(110, '2025_09_27_154536_create_tasks_table', 1),
+(111, '2025_10_04_084419_create_materials_table', 1),
+(112, '2025_10_04_085419_create_material_stocks_table', 1),
+(113, '2025_10_04_094419_create_meters_table', 1),
+(114, '2025_10_04_104419_create_assign_meters_table', 1),
+(115, '2025_10_04_110214_create_regulators_table', 1),
+(116, '2025_10_04_110241_create_assign_regulators_table', 1),
+(117, '2025_10_06_121434_create_comments_table', 1),
+(118, '2025_10_06_131434_create_photos_table', 1),
+(119, '2025_10_08_134451_create_seal_registers_table', 1),
+(120, '2025_10_12_144956_create_drawings_table', 1),
+(121, '2025_10_15_104728_create_task_values_table', 1),
+(122, '2025_10_18_033635_create_files_table', 1),
+(123, '2025_10_19_062844_create_user_details_table', 1),
+(124, '2025_10_22_064227_create_customer_locations_table', 1),
+(125, '2025_10_22_064238_create_options_table', 1),
+(126, '2025_10_28_180828_create_meter_tests_table', 1),
+(127, '2025_11_21_025731_create_gatepasses_table', 2);
 
 -- --------------------------------------------------------
 
@@ -13670,13 +13683,6 @@ CREATE TABLE `options` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `options`
---
-
-INSERT INTO `options` (`id`, `user_id`, `field`, `value`, `created_at`, `updated_at`) VALUES
-(1, 1, 'basemap', 'osmgray', '2025-10-22 02:07:15', '2025-10-22 04:28:56');
 
 -- --------------------------------------------------------
 
@@ -13775,8 +13781,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('M1CjbuS1clrTNdaBbzhyChJGOoHNzP87dWq6gEYX', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiY0JvMmRxdk1kTDZ5SGw4Y0FJVUw3SENBU1dhSWZJemJqY2VURnFuZiI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyNjoiaHR0cHM6Ly9yZWl0bXMudGVzdC9tZXRlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1761590019),
-('Zb4IkM73yca3OrI4c1uZygTtEO4PVslw16szXewJ', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZWFjbklFOGk4Nm5PaUdRVW9uTEdpT25YVUNDcnVOc2t5dktMQkdhVSI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyOToiaHR0cHM6Ly9yZWl0bXMudGVzdC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1761619153);
+('obTKpCx8p6UYIG1RB3RfiD5o8C4NFNHYCYoRQMnf', 1, '127.0.0.1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWTJ3azlaWlVIc1BEdXRmbDZuYXlLQ1lBS282Q0Vwd0NubW9lcW1aQyI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjk6Il9wcmV2aW91cyI7YToyOntzOjM6InVybCI7czoyNToiaHR0cHM6Ly9yZWl0bXMudGVzdC90YXNrcyI7czo1OiJyb3V0ZSI7czo1OiJ0YXNrcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1763783189);
 
 -- --------------------------------------------------------
 
@@ -13787,9 +13792,9 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 CREATE TABLE `tasks` (
   `id` bigint UNSIGNED NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
-  `customer_id` bigint UNSIGNED NOT NULL,
+  `customer_id` bigint UNSIGNED DEFAULT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'reporting',
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'reporting',
   `checked_by` bigint DEFAULT NULL,
   `approved_by` bigint DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -13840,8 +13845,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone_number`, `email_verified_at`, `password`, `role`, `status`, `pic`, `designation`, `code`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'MOHI UDDIN', 'ceps.mohi@gmail.com', '01958095205', '2025-10-03 13:59:38', '$2y$12$H5hJXTuh36HOWNnrebQ8Geo15CY98jcxlGbHf2VbeW7tb1QT96qam', 'admin', 'active', 'avatars/3yKTyQhQgMlX0zHhEuOCENZwf8yZ70ctqqiGYS6S.png', 'Manager', '01740', 'aPgWWJ1uqZ9LBWjurBkC03z7CgvZL8X3HmeVEartOw9yxdLkzZ0Xhvtf209N', '2021-09-09 13:59:38', '2025-10-20 06:43:28'),
-(2, 'ISHRAQ SIFAT', 'ishraq.sifat@gmail.com', '01958095219', NULL, '$2y$12$Hf0w6eLaD.gkQn/4YUzANenZ9OF/bfL8sJMKoSJrRBuOzSPywekbu', 'checker', 'active', 'avatars/LW0URStCksvxp2PgfVM73LpH2GGjtYLy9xxGJzMX.png', 'Manager', '01865', '8F2TCMusN4bFPQiXIrEHBljwoSd5Np6Hw4xUwRxGBNSvXo4ozhZzN2sfyvIl', '2025-10-13 20:40:28', '2025-10-21 23:04:25');
+(1, 'MOHI UDDIN', 'ceps.mohi@gmail.com', '01958095205', '2025-10-03 01:59:38', '$2y$12$H5hJXTuh36HOWNnrebQ8Geo15CY98jcxlGbHf2VbeW7tb1QT96qam', 'admin', 'active', 'avatars/3yKTyQhQgMlX0zHhEuOCENZwf8yZ70ctqqiGYS6S.png', 'Manager', '01740', 'eSsdNsC06mWfBWTskHpOaETkgUYlce8mA3zPTXkc5Q9Vko6BummgUoaFJSwO', '2021-09-09 01:59:38', '2025-10-19 18:43:28'),
+(2, 'ISHRAQ SIFAT', 'ishraq.sifat@gmail.com', '01958095219', NULL, '$2y$12$Hf0w6eLaD.gkQn/4YUzANenZ9OF/bfL8sJMKoSJrRBuOzSPywekbu', 'admin', 'active', 'avatars/LW0URStCksvxp2PgfVM73LpH2GGjtYLy9xxGJzMX.png', 'Manager', '01865', 'WpaMU6D9v7H3gd5oKghA69jO4ntZQjQDM2Wws0h4ynGpuYBHFeLrXLkRI05S', '2025-10-13 08:40:28', '2025-11-03 17:47:50'),
+(3, 'RASHEDUL ISLAM', 'rashed.tgtdcl@gmail.com', '01952277331', NULL, '$2y$12$2A27Jt9l9Wl2HGpXE1or6OcCRHE/DIZT244WPdpmcEhkMqTAoeBFy', 'admin', 'active', 'avatars/VnZtTPEnOidku65khPDX4zsG351hPOsFMdqyPBOz.png', 'DGM', NULL, NULL, '2025-11-17 11:05:47', '2025-11-17 11:15:17'),
+(4, 'MUNTASHIR ARAFAT ', 'muntasirarafat02@gmail.com', '01632454448', NULL, '$2y$12$QRJz1jHa8izmL0NXddQ2Te/H3V./anSJzd7gYbaXmeWO/AWjg1px2', 'user', 'active', NULL, 'SAE', '02285', NULL, '2025-11-17 11:20:12', '2025-11-17 11:21:06'),
+(5, 'RAHAT', 'anrahat.titasgas@gmail.com', '01952277352', NULL, '$2y$12$zFNv3HB6lLWy7cSPyX3npO3FJ86rZOmdYpZcRxf9Tdtz5CcyVunnC', 'admin', 'active', NULL, 'Manager', '01991', NULL, '2025-11-19 13:47:18', '2025-11-19 13:52:31');
 
 -- --------------------------------------------------------
 
@@ -13863,7 +13871,10 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `user_id`, `name`, `signature`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Engr Ishraq Ahmed', NULL, '2025-10-20 04:33:46', '2025-10-20 04:33:46');
+(1, 2, 'Engr Ishraq Ahmed', NULL, '2025-10-19 16:33:46', '2025-10-19 16:33:46'),
+(2, 3, 'Engr. Md. Rashedul Islam', NULL, '2025-11-17 11:08:09', '2025-11-17 11:08:09'),
+(3, 4, 'Kazi Muntashir Arafat', NULL, '2025-11-17 11:20:38', '2025-11-17 11:20:38'),
+(4, 5, 'Ali Nowroz Rahat', NULL, '2025-11-19 13:51:08', '2025-11-19 13:51:08');
 
 --
 -- Indexes for dumped tables
@@ -13918,7 +13929,7 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `customer_details`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `code` (`code`);
+  ADD UNIQUE KEY `customer_details_code_unique` (`code`);
 
 --
 -- Indexes for table `customer_locations`
@@ -13947,6 +13958,13 @@ ALTER TABLE `failed_jobs`
 ALTER TABLE `files`
   ADD PRIMARY KEY (`id`),
   ADD KEY `files_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `gatepasses`
+--
+ALTER TABLE `gatepasses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `gatepasses_task_id_foreign` (`task_id`);
 
 --
 -- Indexes for table `jobs`
@@ -13985,6 +14003,14 @@ ALTER TABLE `meters`
   ADD UNIQUE KEY `meters_number_unique` (`number`),
   ADD KEY `meters_user_id_foreign` (`user_id`),
   ADD KEY `meters_material_id_foreign` (`material_id`);
+
+--
+-- Indexes for table `meter_tests`
+--
+ALTER TABLE `meter_tests`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `meter_tests_task_id_foreign` (`task_id`),
+  ADD KEY `meter_tests_meter_id_foreign` (`meter_id`);
 
 --
 -- Indexes for table `migrations`
@@ -14102,13 +14128,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `customer_details`
 --
 ALTER TABLE `customer_details`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13423;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13424;
 
 --
 -- AUTO_INCREMENT for table `customer_locations`
@@ -14120,7 +14146,7 @@ ALTER TABLE `customer_locations`
 -- AUTO_INCREMENT for table `drawings`
 --
 ALTER TABLE `drawings`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -14132,7 +14158,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gatepasses`
+--
+ALTER TABLE `gatepasses`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -14144,7 +14176,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `materials`
 --
 ALTER TABLE `materials`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `material_stocks`
@@ -14159,22 +14191,28 @@ ALTER TABLE `meters`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `meter_tests`
+--
+ALTER TABLE `meter_tests`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `regulators`
@@ -14210,13 +14248,13 @@ ALTER TABLE `task_values`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -14261,6 +14299,12 @@ ALTER TABLE `files`
   ADD CONSTRAINT `files_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
+-- Constraints for table `gatepasses`
+--
+ALTER TABLE `gatepasses`
+  ADD CONSTRAINT `gatepasses_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`);
+
+--
 -- Constraints for table `materials`
 --
 ALTER TABLE `materials`
@@ -14279,6 +14323,13 @@ ALTER TABLE `material_stocks`
 ALTER TABLE `meters`
   ADD CONSTRAINT `meters_material_id_foreign` FOREIGN KEY (`material_id`) REFERENCES `materials` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `meters_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `meter_tests`
+--
+ALTER TABLE `meter_tests`
+  ADD CONSTRAINT `meter_tests_meter_id_foreign` FOREIGN KEY (`meter_id`) REFERENCES `meters` (`id`),
+  ADD CONSTRAINT `meter_tests_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`);
 
 --
 -- Constraints for table `options`
