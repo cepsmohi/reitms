@@ -5,8 +5,12 @@ namespace App\Livewire\Tasks;
 use App\Models\Task;
 use App\Traits\CommentTrait;
 use App\Traits\CustomerTrait;
+use App\Traits\DrawingTrait;
+use App\Traits\GatepassTrait;
+use App\Traits\MaterialTrait;
 use App\Traits\MeterTrait;
 use App\Traits\PhotoTrait;
+use App\Traits\RegulatorTrait;
 use App\Traits\SealingTrait;
 use App\Traits\StockTrait;
 use App\Traits\TaskTrait;
@@ -18,8 +22,12 @@ class Metertestdetails extends Component
 {
     use CommentTrait;
     use CustomerTrait;
+    use DrawingTrait;
+    use GatepassTrait;
+    use MaterialTrait;
     use MeterTrait;
     use PhotoTrait;
+    use RegulatorTrait;
     use SealingTrait;
     use StockTrait;
     use TaskTrait;

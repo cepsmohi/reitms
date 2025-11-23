@@ -8,7 +8,9 @@
         submitIcon="plus"
         submitTag="Add Info"
     >
-        <div x-init="$wire.set('meterSerialNumber', {{ $task->meter->number }});"></div>
+        <div
+            x-init="$wire.set('meterSerialNumber', {{ $task->meter->number ?? $task->metertest->meter->number }});"
+        ></div>
         <x-form.inputwire
             name="meterSerialNumber"
             placeholder="Serial Number"

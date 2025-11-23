@@ -7,6 +7,7 @@
             <x-ui.auth/>
             <x-welcome.logo/>
             <x-welcome.apptitle/>
+            <x-welcome.area/>
         </div>
     </div>
 </x-master>

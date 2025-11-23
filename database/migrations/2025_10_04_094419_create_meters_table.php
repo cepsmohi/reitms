@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('model')->nullable();
             $table->string('year')->nullable();
             $table->string('diameter')->nullable();
-            $table->string('status')->default('stock');
+            $table->string('status')->default('on test');
             $table->string('comments')->nullable();
             $table->timestamps();
         });

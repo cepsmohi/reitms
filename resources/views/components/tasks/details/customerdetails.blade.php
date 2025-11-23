@@ -33,5 +33,13 @@
                 {{ $task->customer->detail->address }}
             </div>
         </div>
+    @else
+        <div class="mt-2">
+            <x-ui.awiretag
+                wireclick="$toggle('assignCustomerForm')"
+                icon="user"
+                tag="Assign Customer (if any)"
+            />
+        </div>
     @endif
 </div>

@@ -19,7 +19,9 @@ return new class extends Migration {
             //status: pending, checked, approved
             $table->string('status')->default('reporting');
             $table->bigInteger('checked_by')->nullable();
+            $table->timestamp('checked_at')->nullable();
             $table->bigInteger('approved_by')->nullable();
+            $table->timestamp('approved_at')->nullable();
             $table->timestamps();
         });
     }

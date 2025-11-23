@@ -9,7 +9,7 @@ trait CustomerTrait
 {
     public $assignCustomerForm = false;
     public $customercode, $customername, $zone;
-    public $customers;
+    public $customers = [];
 
     public function updatingCustomercode()
     {

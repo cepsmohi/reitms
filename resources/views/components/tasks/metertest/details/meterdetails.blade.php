@@ -23,18 +23,16 @@
                 <div>
                     {{ $task->metertest->meter->manufacturer ?? '---' }}
                 </div>
-                @if($task->isReporting() && !$task->metertest->meter->manufacturer)
-                    <div class="my-1">
+                @if(!$task->metertest->meter->diameter)
+                    <div class="mt-2">
                         <x-ui.awiretag
-                            wireclick="openEditMeterForm"
+                            wireclick="$toggle('addMeterInfoForm')"
                             icon="meter"
-                            tag="Update Info"
+                            tag="Meter Details"
                         />
                     </div>
                 @endif
             </div>
         </div>
-    @else
-        <div>Assign Meter</div>
     @endif
 </div>

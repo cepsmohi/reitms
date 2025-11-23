@@ -1,3 +1,11 @@
+{{--    add customer forms--}}
+<x-tasks.assigncustomerform
+    :$task
+    :$assignCustomerForm
+    :$customercode
+    :$customers
+/>
+
 {{--    add drawing forms--}}
 <x-tasks.adddrawingform :$addDrawingForm :$drawings/>
 <x-tasks.deletedrawingform :$deleteDrawingForm/>
@@ -33,3 +41,6 @@
 
 {{--   task delete form--}}
 <x-tasks.deletetaskform :$deleteTaskForm/>
+
+{{--   meter test update stock--}}
+<x-tasks.editmeterstockform :$editStockForm :$meter :$material :$status/>

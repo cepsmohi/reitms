@@ -5,8 +5,8 @@
     <div class="print:text-[10px]">
         <x-tasks.metertest.details.refdate :$task/>
         <x-tasks.metertest.details.meterstype :$task/>
-        <x-tasks.metertest.details.customerdetails :$task/>
-        <x-tasks.metertest.details.meterdetails :$task/>
+        <x-tasks.details.customerdetails :$task/>
+        <x-tasks.metertest.details.meterdetails :$task :$meterSerialNumber/>
         <x-tasks.metertest.details.readingdetails :$task/>
         <x-tasks.metertest.details.meterphysicalcondition :$task/>
         <x-tasks.metertest.details.metersealing :$task/>
