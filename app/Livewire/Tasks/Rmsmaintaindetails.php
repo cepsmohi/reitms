@@ -5,6 +5,7 @@ namespace App\Livewire\Tasks;
 use App\Models\Task;
 use App\Traits\CommentTrait;
 use App\Traits\CreatemeterTrait;
+use App\Traits\CustomerTrait;
 use App\Traits\DrawingTrait;
 use App\Traits\GatepassTrait;
 use App\Traits\MaterialTrait;
@@ -12,6 +13,7 @@ use App\Traits\MeterTrait;
 use App\Traits\PhotoTrait;
 use App\Traits\RegulatorTrait;
 use App\Traits\SealingTrait;
+use App\Traits\StockTrait;
 use App\Traits\TaskTrait;
 use App\Traits\ValueTrait;
 use Livewire\Component;
@@ -21,6 +23,7 @@ class Rmsmaintaindetails extends Component
 {
     use WithFileUploads;
     use CommentTrait;
+    use CustomerTrait;
     use CreatemeterTrait;
     use DrawingTrait;
     use GatepassTrait;
@@ -29,6 +32,7 @@ class Rmsmaintaindetails extends Component
     use PhotoTrait;
     use RegulatorTrait;
     use SealingTrait;
+    use StockTrait;
     use TaskTrait;
     use ValueTrait;
 
