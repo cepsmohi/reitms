@@ -11,21 +11,28 @@ trait CustomerTrait
     public $customercode, $customername, $zone;
     public $customers = [];
 
+//    public function mountCustomerTrait()
+//    {
+//        // Set default value
+//        $this->customercode = '3-06-';
+//        $this->updatingCustomercode();
+//    }
+
     public function updatingCustomercode()
     {
         $input = trim($this->customercode);
 
         if (!empty($this->customercode)) {
             if (strlen($input) < 11) {
-                $this->customers = CustomerDetail::where('code', 'like', "{$input}%")
+                $this->customers = CustomerDetail::where('code', 'like', "$input%")
                     ->orderBy('code')
                     ->get();
             } elseif (strlen($input) == 11) {
-                $this->customers = CustomerDetail::where('code', 'regexp', "^{$input}(-|$)")
+                $this->customers = CustomerDetail::where('code', 'regexp', "^$input(-|$)")
                     ->orderBy('code')
                     ->get();
             } else {
-                $this->customers = CustomerDetail::where('code', 'like', "%{$input}%")
+                $this->customers = CustomerDetail::where('code', 'like', "%$input%")
                     ->orderBy('code')
                     ->get();
             }

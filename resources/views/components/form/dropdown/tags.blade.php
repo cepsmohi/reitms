@@ -39,11 +39,11 @@
                 <x-ui.icon icon="cross"/>
             </div>
             <div
-                class="w-full absolute modal glass bg-gray-500/70 p-2 rounded-3xl fcol gap-2 z-50"
+                class="absolute bg-gray-500/90 w-full z-50 p-1 rounded-xl overflow-y-scroll"
             >
                 @foreach($tagTypes as $tag)
                     <div
-                        class="w-full px-2 py-1 text-left submit-button glass buttonhover uppercase"
+                        class="w-full px-2 py-1 text-left flex-col items-start justify-center cursor-pointer hover:bg-gray-400/90 rounded-xl uppercase"
                         wire:click="selectTag('{{ $tag }}')"
                     >{{ $tag }}</div>
                 @endforeach

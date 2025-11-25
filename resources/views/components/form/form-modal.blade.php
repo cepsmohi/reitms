@@ -9,7 +9,7 @@
             id="{{ $formId }}"
             @isset($enctype) enctype="{{ $enctype }}" @endisset
         >
-            <div class="fcols">
+            <div class="relative fcols">
                 <div class="mb-2 stitle text-grad">{!! $formTitle ?? '' !!}</div>
                 {{ $slot }}
                 @if($submitCondition)
